@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5387895F23B24E390083B362 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387895E23B24E390083B362 /* AppDelegate.m */; };
 		5387896223B24E390083B362 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387896123B24E390083B362 /* SceneDelegate.m */; };
-		5387896523B24E390083B362 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387896423B24E390083B362 /* ViewController.m */; };
-		5387896823B24E390083B362 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896623B24E390083B362 /* Main.storyboard */; };
 		5387896A23B24E3B0083B362 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5387896923B24E3B0083B362 /* Assets.xcassets */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
 		5387897023B24E3B0083B362 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387896F23B24E3B0083B362 /* main.m */; };
@@ -23,9 +21,6 @@
 		5387895E23B24E390083B362 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5387896023B24E390083B362 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		5387896123B24E390083B362 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		5387896323B24E390083B362 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5387896423B24E390083B362 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5387896723B24E390083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5387896923B24E3B0083B362 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5387896E23B24E3B0083B362 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,9 +69,6 @@
 				5387895E23B24E390083B362 /* AppDelegate.m */,
 				5387896023B24E390083B362 /* SceneDelegate.h */,
 				5387896123B24E390083B362 /* SceneDelegate.m */,
-				5387896323B24E390083B362 /* ViewController.h */,
-				5387896423B24E390083B362 /* ViewController.m */,
-				5387896623B24E390083B362 /* Main.storyboard */,
 				5387896923B24E3B0083B362 /* Assets.xcassets */,
 				5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */,
 				5387896E23B24E3B0083B362 /* Info.plist */,
@@ -163,7 +155,6 @@
 			files = (
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
 				5387896A23B24E3B0083B362 /* Assets.xcassets in Resources */,
-				5387896823B24E390083B362 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +207,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5387896523B24E390083B362 /* ViewController.m in Sources */,
 				5387895F23B24E390083B362 /* AppDelegate.m in Sources */,
 				5387897023B24E3B0083B362 /* main.m in Sources */,
 				5387896223B24E390083B362 /* SceneDelegate.m in Sources */,
@@ -226,14 +216,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5387896623B24E390083B362 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5387896723B24E390083B362 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -347,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -26,6 +26,42 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+  
+    //CELog(@"自定义Log");
+     
+     [DDLog addLogger:[DDOSLogger sharedInstance]]; // Uses os_log
+     DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+     [DDLog addLogger:fileLogger];
+    
+  //获取当前系统版本
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    
+    if (version.doubleValue <13.0) {
+        
+        /*
+         
+         适配ios13 以下
+         
+         */
+        
+        
+        self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        UIViewController *vc = [[UIViewController alloc]init];
+        vc.view.backgroundColor = [UIColor orangeColor];
+        
+        [self.window setRootViewController:vc];
+        [self.window makeKeyWindow];
+        [self.window makeKeyAndVisible];
+        
+        //统一修改图片文字颜色
+        //[[UITabBar appearance] setTintColor:[UIColor redColor]];
+        
+    }
+    
+
+    
     return YES;
 }
 
@@ -33,14 +69,20 @@
 #pragma mark - UISceneSession lifecycle
 
 
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options  API_AVAILABLE(ios(13.0)) API_AVAILABLE(ios(13.0)) API_AVAILABLE(ios(13.0)){
     // Called when a new scene session is being created.
     // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+    if (@available(iOS 13.0, *)) {
+        return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+    } else {
+        // Fallback on earlier versions
+        
+        return nil;
+    }
 }
 
 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions  API_AVAILABLE(ios(13.0)){
     // Called when the user discards a scene session.
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
