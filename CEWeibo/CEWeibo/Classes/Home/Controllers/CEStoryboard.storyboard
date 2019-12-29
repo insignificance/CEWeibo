@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Muy-1g-VBU">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scanner Controller-->
+        <scene sceneID="NUB-Kv-hgK">
+            <objects>
+                <tabBarController storyboardIdentifier="CEScanner" id="Muy-1g-VBU" customClass="CEScannerController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YAu-Nk-unV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wdm-mk-GFh" kind="relationship" relationship="viewControllers" id="YBm-UQ-9ch"/>
+                        <segue destination="81O-dI-Blj" kind="relationship" relationship="viewControllers" id="v6m-q3-0w6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfV-q8-Cgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1220" y="-523"/>
+        </scene>
+        <!--二维码-->
+        <scene sceneID="WMV-wc-GRU">
+            <objects>
+                <navigationController id="wdm-mk-GFh" customClass="CEQrcodeNav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="二维码" image="qrcode_tabbar_icon_qrcode" id="xCX-Zz-tEJ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="qrcode_tabbar_icon_qrcode_highlighted"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ycr-kz-XWO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YqP-PW-UQZ" kind="relationship" relationship="rootViewController" id="kro-Bw-in5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlW-2a-978" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-506" y="-860"/>
+        </scene>
+        <!--二维码-->
+        <scene sceneID="WdS-Cv-iVj">
+            <objects>
+                <viewController id="YqP-PW-UQZ" customClass="CEQrcodeVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OSS-U7-BXc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRq-A9-PJ4" userLabel="打底View">
+                                <rect key="frame" x="50" y="196" width="275" height="275"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="znP-yc-WHI" userLabel="scanline">
+                                        <rect key="frame" x="0.0" y="-180" width="275" height="275"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="EHw-mB-sG1">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="znP-yc-WHI" firstAttribute="leading" secondItem="gRq-A9-PJ4" secondAttribute="leading" id="0Wm-Lm-H12"/>
+                                    <constraint firstAttribute="bottom" secondItem="EHw-mB-sG1" secondAttribute="bottom" id="1qT-9y-bAO"/>
+                                    <constraint firstAttribute="trailing" secondItem="EHw-mB-sG1" secondAttribute="trailing" id="54l-Xo-tqU"/>
+                                    <constraint firstItem="znP-yc-WHI" firstAttribute="height" secondItem="EHw-mB-sG1" secondAttribute="height" id="6KO-NT-Sle"/>
+                                    <constraint firstItem="EHw-mB-sG1" firstAttribute="top" secondItem="gRq-A9-PJ4" secondAttribute="top" id="NXD-Rp-KiK"/>
+                                    <constraint firstItem="EHw-mB-sG1" firstAttribute="leading" secondItem="gRq-A9-PJ4" secondAttribute="leading" id="Wpb-8g-Yjy"/>
+                                    <constraint firstAttribute="trailing" secondItem="znP-yc-WHI" secondAttribute="trailing" id="pj3-Xv-nIQ"/>
+                                    <constraint firstItem="znP-yc-WHI" firstAttribute="top" secondItem="gRq-A9-PJ4" secondAttribute="top" constant="-180" id="qHG-1S-bf8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFs-2k-Tin" userLabel="参考线">
+                                <rect key="frame" x="50" y="618" width="275" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="Yhb-kc-dnm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gRq-A9-PJ4" firstAttribute="height" secondItem="hFs-2k-Tin" secondAttribute="width" id="3BJ-ly-mC8"/>
+                            <constraint firstItem="hFs-2k-Tin" firstAttribute="width" secondItem="gRq-A9-PJ4" secondAttribute="width" id="HoF-o6-AoK"/>
+                            <constraint firstItem="hFs-2k-Tin" firstAttribute="leading" secondItem="OSS-U7-BXc" secondAttribute="leading" constant="50" id="Nnt-Q0-GD4"/>
+                            <constraint firstItem="gRq-A9-PJ4" firstAttribute="centerX" secondItem="OSS-U7-BXc" secondAttribute="centerX" id="gw1-kV-6V7"/>
+                            <constraint firstItem="hFs-2k-Tin" firstAttribute="bottom" secondItem="mMG-EZ-9FF" secondAttribute="bottom" id="muX-eI-VeZ"/>
+                            <constraint firstItem="gRq-A9-PJ4" firstAttribute="centerY" secondItem="OSS-U7-BXc" secondAttribute="centerY" id="qsr-eN-cQy"/>
+                            <constraint firstAttribute="trailing" secondItem="hFs-2k-Tin" secondAttribute="trailing" constant="50" id="xiU-zF-Ec1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mMG-EZ-9FF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="二维码" id="Wo8-qK-LCz">
+                        <barButtonItem key="leftBarButtonItem" title="关闭" id="6xx-m8-FI2"/>
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="ukP-4O-csk"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scanline" destination="znP-yc-WHI" id="JHx-cU-eQ4"/>
+                        <outlet property="topConstraint" destination="qHG-1S-bf8" id="xbM-cM-Ggf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ioh-EK-ftu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-1141"/>
+        </scene>
+        <!--条形码-->
+        <scene sceneID="aoq-Xg-Oao">
+            <objects>
+                <viewController id="rY0-xc-PNO" customClass="CEBarcodeVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yi6-oS-9cl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIG-ey-WCK" userLabel="打底View">
+                                <rect key="frame" x="50" y="196" width="275" height="275"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_barcode" translatesAutoresizingMaskIntoConstraints="NO" id="YTr-nu-JKS" userLabel="barcodeline">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-vw-J7S">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="YTr-nu-JKS" firstAttribute="top" secondItem="IIG-ey-WCK" secondAttribute="top" constant="0.10000000000000001" id="AEs-mk-fgE"/>
+                                    <constraint firstItem="uCm-vw-J7S" firstAttribute="leading" secondItem="IIG-ey-WCK" secondAttribute="leading" constant="0.10000000000000001" id="CAi-ez-1hQ"/>
+                                    <constraint firstItem="uCm-vw-J7S" firstAttribute="top" secondItem="IIG-ey-WCK" secondAttribute="top" constant="0.10000000000000001" id="UnZ-D1-WK5"/>
+                                    <constraint firstAttribute="bottom" secondItem="uCm-vw-J7S" secondAttribute="bottom" constant="0.10000000000000001" id="cLl-wD-bc5"/>
+                                    <constraint firstItem="YTr-nu-JKS" firstAttribute="leading" secondItem="IIG-ey-WCK" secondAttribute="leading" constant="0.10000000000000001" id="geQ-I3-xTv"/>
+                                    <constraint firstAttribute="trailing" secondItem="YTr-nu-JKS" secondAttribute="trailing" constant="0.10000000000000001" id="rcs-CQ-0kh"/>
+                                    <constraint firstAttribute="trailing" secondItem="uCm-vw-J7S" secondAttribute="trailing" constant="0.10000000000000001" id="v3V-tp-qMF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aME-Uv-0Tr" userLabel="参考线">
+                                <rect key="frame" x="50" y="647" width="275" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="mxB-An-oug"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IIG-ey-WCK" firstAttribute="centerY" secondItem="Yi6-oS-9cl" secondAttribute="centerY" id="3sU-bz-MpT"/>
+                            <constraint firstItem="IIG-ey-WCK" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" id="BsT-aU-p07"/>
+                            <constraint firstAttribute="bottom" secondItem="aME-Uv-0Tr" secondAttribute="bottom" constant="20" symbolic="YES" id="HgW-NL-PU6"/>
+                            <constraint firstItem="aME-Uv-0Tr" firstAttribute="leading" secondItem="Yi6-oS-9cl" secondAttribute="leading" constant="50" id="ND2-It-PNo"/>
+                            <constraint firstItem="IIG-ey-WCK" firstAttribute="centerX" secondItem="Yi6-oS-9cl" secondAttribute="centerX" id="T4z-j1-TMq"/>
+                            <constraint firstAttribute="trailing" secondItem="aME-Uv-0Tr" secondAttribute="trailing" constant="50" id="UMV-zR-5w7"/>
+                            <constraint firstItem="YTr-nu-JKS" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" id="eix-HY-kOf"/>
+                            <constraint firstItem="aME-Uv-0Tr" firstAttribute="width" secondItem="IIG-ey-WCK" secondAttribute="width" id="r2x-ZH-a1o"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dIK-su-LzC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="条形码" id="OUR-yh-Mhf">
+                        <barButtonItem key="leftBarButtonItem" title="关闭" id="YWu-bc-phx"/>
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="azr-PI-jiX"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barcodeline" destination="YTr-nu-JKS" id="A2i-Y1-QHb"/>
+                        <outlet property="topConstaint" destination="AEs-mk-fgE" id="WAc-8L-iLj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgQ-gl-Wkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="302"/>
+        </scene>
+        <!--条形码-->
+        <scene sceneID="FVx-Kj-8ad">
+            <objects>
+                <navigationController id="81O-dI-Blj" customClass="CEBarcodeNav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="条形码" id="j4G-Vf-Fxb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="auI-Me-Fm7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rY0-xc-PNO" kind="relationship" relationship="rootViewController" id="P3E-vJ-3fD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JyD-Bg-8qx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-297" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="qrcode_border" width="50.5" height="50.5"/>
+        <image name="qrcode_scanline_barcode" width="248" height="124"/>
+        <image name="qrcode_scanline_qrcode" width="218" height="170"/>
+        <image name="qrcode_tabbar_icon_qrcode" width="40" height="40"/>
+        <image name="qrcode_tabbar_icon_qrcode_highlighted" width="40" height="40"/>
+    </resources>
+</document>

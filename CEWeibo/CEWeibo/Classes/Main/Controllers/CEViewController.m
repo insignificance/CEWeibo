@@ -8,6 +8,10 @@
 
 #import "CEViewController.h"
 #import "CETabBar2.h"
+#import "CEHomeViewController.h"
+#import "CEMessageViewController.h"
+#import "CEProfileViewController.h"
+#import "CEDiscoverViewController.h"
 
 
 @interface CEViewController ()<CETabBar2Delegate>
@@ -82,14 +86,17 @@
     
     
     
-    UIViewController *home = [self addViewControllerWithClass:[UINavigationController class] image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
+    UIViewController *home = [self addViewControllerWithClass:[UINavigationController class] withObj: [CEHomeViewController new] image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
     
-    UIViewController *message = [self addViewControllerWithClass:[UINavigationController class] image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
+    UIViewController *message = [self addViewControllerWithClass:[UINavigationController class]withObj: [CEMessageViewController new]  image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
     
-    UIViewController *discover = [self addViewControllerWithClass:[UINavigationController class] image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
+    UIViewController *discover = [self addViewControllerWithClass:[UINavigationController class]withObj: [CEDiscoverViewController new]  image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
     
     
-    UIViewController *profile = [self addViewControllerWithClass:[UINavigationController class] image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
+    UIViewController *profile = [self addViewControllerWithClass:[UINavigationController class]withObj: [CEProfileViewController new]  image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
+ 
+    
+    
     
     self.viewControllers = @[home,message,discover,profile];
     
@@ -148,14 +155,35 @@
 
 /// Description 获取自定义vc
 /// @param Class 控制器对应的类
+/// @param obj 其它参数
 /// @param image 默认状态图片
 /// @param selectImg 选中状态图片
 /// @param title 标题
 
-- (UIViewController *)addViewControllerWithClass:(Class )Class image:(NSString *)image selectedImage: (NSString *)selectImg andTitile:(NSString *)title{
+- (UIViewController *)addViewControllerWithClass:(Class )Class withObj:(NSObject *)obj image:(NSString *)image selectedImage: (NSString *)selectImg andTitile:(NSString *)title{
     
     
-    UIViewController *vc = [[Class alloc]init];
+    UIViewController *vc = nil;
+    
+    
+    //如果Class 是UINavigationController 
+    if ([[Class new] isKindOfClass:[UINavigationController class]]) {
+        
+        
+        UIViewController *rootVC = (UIViewController *)obj;
+        vc = [[UINavigationController alloc]initWithRootViewController:rootVC];
+        
+        //设置导航条文字
+        //rootVC.title = title;
+        rootVC.navigationItem.title = title;
+        
+     
+    }else{
+        
+        
+        vc = [[Class alloc]init];
+        
+    }
     
    
     [self addViewControllerWithVc:vc image:image selectedImage:selectImg andTitile:title];
@@ -163,10 +191,6 @@
     return vc;
     
 }
-
-
-
-
 
 
 
@@ -196,9 +220,8 @@
     
     UIImage *realselImg = [[UIImage imageNamed:selectImg]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = realselImg;
-    
     vc.tabBarItem.title = title;
-
+    
      //设置tabBarButton的标题颜色
         //设置文字的属性有一个规律:NSXXXXXAttributeName
     [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeColor]} forState:UIControlStateSelected];

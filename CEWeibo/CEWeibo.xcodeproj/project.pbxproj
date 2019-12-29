@@ -16,6 +16,17 @@
 		53F5561523B8455A00CBECEA /* CEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561023B8455A00CBECEA /* CEItem.m */; };
 		53F5561623B8455A00CBECEA /* CETabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561123B8455A00CBECEA /* CETabBar.m */; };
 		53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561423B8455A00CBECEA /* CETabBar2.m */; };
+		53F5562523B8468D00CBECEA /* CEBarcodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561923B8468C00CBECEA /* CEBarcodeVC.m */; };
+		53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F5561D23B8468C00CBECEA /* CEStoryboard.storyboard */; };
+		53F5562723B8468D00CBECEA /* CEScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561E23B8468C00CBECEA /* CEScannerController.m */; };
+		53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561F23B8468D00CBECEA /* CEQrcodeNav.m */; };
+		53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5562023B8468D00CBECEA /* CEHomeViewController.m */; };
+		53F5562A23B8468D00CBECEA /* CEQrcodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5562323B8468D00CBECEA /* CEQrcodeVC.m */; };
+		53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5562423B8468D00CBECEA /* CEBarcodeNav.m */; };
+		53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5562D23B8469E00CBECEA /* CEDiscoverViewController.m */; };
+		53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5563023B846C100CBECEA /* CEMessageViewController.m */; };
+		53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5563223B846D900CBECEA /* CEProfileViewController.m */; };
+		53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */; };
 		CBBB85CBF8FD21B4F7840875 /* Pods_CEWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +65,27 @@
 		53F5561223B8455A00CBECEA /* CETabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETabBar2.h; sourceTree = "<group>"; };
 		53F5561323B8455A00CBECEA /* CEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEItem.h; sourceTree = "<group>"; };
 		53F5561423B8455A00CBECEA /* CETabBar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETabBar2.m; sourceTree = "<group>"; };
+		53F5561823B8468C00CBECEA /* CEHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEHomeViewController.h; sourceTree = "<group>"; };
+		53F5561923B8468C00CBECEA /* CEBarcodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEBarcodeVC.m; sourceTree = "<group>"; };
+		53F5561A23B8468C00CBECEA /* CEQrcodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEQrcodeVC.h; sourceTree = "<group>"; };
+		53F5561B23B8468C00CBECEA /* CEQrcodeNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEQrcodeNav.h; sourceTree = "<group>"; };
+		53F5561C23B8468C00CBECEA /* CEBarcodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEBarcodeVC.h; sourceTree = "<group>"; };
+		53F5561D23B8468C00CBECEA /* CEStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CEStoryboard.storyboard; sourceTree = "<group>"; };
+		53F5561E23B8468C00CBECEA /* CEScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEScannerController.m; sourceTree = "<group>"; };
+		53F5561F23B8468D00CBECEA /* CEQrcodeNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEQrcodeNav.m; sourceTree = "<group>"; };
+		53F5562023B8468D00CBECEA /* CEHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEHomeViewController.m; sourceTree = "<group>"; };
+		53F5562123B8468D00CBECEA /* CEScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEScannerController.h; sourceTree = "<group>"; };
+		53F5562223B8468D00CBECEA /* CEBarcodeNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEBarcodeNav.h; sourceTree = "<group>"; };
+		53F5562323B8468D00CBECEA /* CEQrcodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEQrcodeVC.m; sourceTree = "<group>"; };
+		53F5562423B8468D00CBECEA /* CEBarcodeNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEBarcodeNav.m; sourceTree = "<group>"; };
+		53F5562C23B8469E00CBECEA /* CEDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEDiscoverViewController.h; sourceTree = "<group>"; };
+		53F5562D23B8469E00CBECEA /* CEDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEDiscoverViewController.m; sourceTree = "<group>"; };
+		53F5562F23B846C100CBECEA /* CEMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMessageViewController.h; sourceTree = "<group>"; };
+		53F5563023B846C100CBECEA /* CEMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMessageViewController.m; sourceTree = "<group>"; };
+		53F5563223B846D900CBECEA /* CEProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEProfileViewController.m; sourceTree = "<group>"; };
+		53F5563323B846DA00CBECEA /* CEProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEProfileViewController.h; sourceTree = "<group>"; };
+		53F5563523B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CEBarButtonItem.h"; sourceTree = "<group>"; };
+		53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CEBarButtonItem.m"; sourceTree = "<group>"; };
 		BEA15D1F7D6CA2903994C0A5 /* Pods-CEWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.release.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		C9EBFC6CA5FD2F000D444A61 /* Pods-CEWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.debug.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CEWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +166,19 @@
 		53F555CC23B8428A00CBECEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53F5562223B8468D00CBECEA /* CEBarcodeNav.h */,
+				53F5562423B8468D00CBECEA /* CEBarcodeNav.m */,
+				53F5561C23B8468C00CBECEA /* CEBarcodeVC.h */,
+				53F5561923B8468C00CBECEA /* CEBarcodeVC.m */,
+				53F5561823B8468C00CBECEA /* CEHomeViewController.h */,
+				53F5562023B8468D00CBECEA /* CEHomeViewController.m */,
+				53F5561B23B8468C00CBECEA /* CEQrcodeNav.h */,
+				53F5561F23B8468D00CBECEA /* CEQrcodeNav.m */,
+				53F5561A23B8468C00CBECEA /* CEQrcodeVC.h */,
+				53F5562323B8468D00CBECEA /* CEQrcodeVC.m */,
+				53F5562123B8468D00CBECEA /* CEScannerController.h */,
+				53F5561E23B8468C00CBECEA /* CEScannerController.m */,
+				53F5561D23B8468C00CBECEA /* CEStoryboard.storyboard */,
 				53F555CD23B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Controllers;
@@ -168,6 +213,8 @@
 		53F555D323B8428A00CBECEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53F5562C23B8469E00CBECEA /* CEDiscoverViewController.h */,
+				53F5562D23B8469E00CBECEA /* CEDiscoverViewController.m */,
 				53F555D423B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Controllers;
@@ -197,6 +244,8 @@
 		53F555D923B8428A00CBECEA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				53F5563523B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.h */,
+				53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */,
 				53F555DA23B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Category;
@@ -223,6 +272,8 @@
 		53F555E223B8428A00CBECEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53F5562F23B846C100CBECEA /* CEMessageViewController.h */,
+				53F5563023B846C100CBECEA /* CEMessageViewController.m */,
 				53F555E323B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Controllers;
@@ -257,6 +308,8 @@
 		53F555E923B8428A00CBECEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53F5563323B846DA00CBECEA /* CEProfileViewController.h */,
+				53F5563223B846D900CBECEA /* CEProfileViewController.m */,
 				53F555EA23B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Controllers;
@@ -399,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
+				53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */,
 				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,13 +506,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */,
+				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
+				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
+				53F5562523B8468D00CBECEA /* CEBarcodeVC.m in Sources */,
+				53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */,
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
+				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
+				53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */,
 				53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */,
 				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
 				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
+				53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */,
 				53F5561623B8455A00CBECEA /* CETabBar.m in Sources */,
+				53F5562A23B8468D00CBECEA /* CEQrcodeVC.m in Sources */,
+				53F5562723B8468D00CBECEA /* CEScannerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
