@@ -125,13 +125,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIG-ey-WCK" userLabel="打底View">
-                                <rect key="frame" x="50" y="196" width="275" height="275"/>
+                                <rect key="frame" x="50" y="251" width="275" height="165"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_barcode" translatesAutoresizingMaskIntoConstraints="NO" id="YTr-nu-JKS" userLabel="barcodeline">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="137.5"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-vw-J7S">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-vw-J7S">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="165"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,12 +157,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="IIG-ey-WCK" firstAttribute="centerY" secondItem="Yi6-oS-9cl" secondAttribute="centerY" id="3sU-bz-MpT"/>
-                            <constraint firstItem="IIG-ey-WCK" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" id="BsT-aU-p07"/>
+                            <constraint firstItem="IIG-ey-WCK" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" multiplier="0.6" id="BsT-aU-p07"/>
                             <constraint firstAttribute="bottom" secondItem="aME-Uv-0Tr" secondAttribute="bottom" constant="20" symbolic="YES" id="HgW-NL-PU6"/>
                             <constraint firstItem="aME-Uv-0Tr" firstAttribute="leading" secondItem="Yi6-oS-9cl" secondAttribute="leading" constant="50" id="ND2-It-PNo"/>
                             <constraint firstItem="IIG-ey-WCK" firstAttribute="centerX" secondItem="Yi6-oS-9cl" secondAttribute="centerX" id="T4z-j1-TMq"/>
                             <constraint firstAttribute="trailing" secondItem="aME-Uv-0Tr" secondAttribute="trailing" constant="50" id="UMV-zR-5w7"/>
-                            <constraint firstItem="YTr-nu-JKS" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" id="eix-HY-kOf"/>
+                            <constraint firstItem="YTr-nu-JKS" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" multiplier="0.5" id="eix-HY-kOf"/>
                             <constraint firstItem="aME-Uv-0Tr" firstAttribute="width" secondItem="IIG-ey-WCK" secondAttribute="width" id="r2x-ZH-a1o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dIK-su-LzC"/>
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgQ-gl-Wkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="302"/>
+            <point key="canvasLocation" x="516" y="194"/>
         </scene>
         <!--条形码-->
         <scene sceneID="FVx-Kj-8ad">

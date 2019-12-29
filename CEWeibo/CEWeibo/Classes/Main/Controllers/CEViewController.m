@@ -43,6 +43,19 @@
     
 }
 
+
+-(void)viewDidLayoutSubviews{
+    
+    [super viewDidLayoutSubviews];
+    
+    //移除系统自带的tabBar
+    
+    [self.tabBar removeFromSuperview];
+    
+    
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -132,9 +145,18 @@
         
         [self.view addSubview:tabBar];
         
-        //移除系统自带UITabBar
+        //移除系统自带UITabBar //注意ios10 以后 写在这里是不行 的 系统在设置layout时会重新添加 tabBar
         
-        [self.tabBar removeFromSuperview];
+        // [self.tabBar removeFromSuperview];
+        
+        //解决方案 1. 隐藏
+        
+        //self.tabBar.hidden = YES;
+        
+        //解决方案 2. 在viewDidAppear:、viewDidLayoutSubviews 中移除
+        
+        
+        
     }
     
     return _customTabBar;
