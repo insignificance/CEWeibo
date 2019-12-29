@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CEViewController.h"
 
 @interface AppDelegate ()
 
@@ -48,7 +49,9 @@
         
         
         self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        UIViewController *vc = [[UIViewController alloc]init];
+        
+        UIViewController *vc = [[CEViewController alloc]init];
+        
         vc.view.backgroundColor = [UIColor orangeColor];
         
         [self.window setRootViewController:vc];

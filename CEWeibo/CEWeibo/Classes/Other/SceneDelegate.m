@@ -1,4 +1,5 @@
 #import "SceneDelegate.h"
+#import "CEViewController.h"
 
 @interface SceneDelegate ()
 
@@ -15,7 +16,7 @@
     
     self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [[UIViewController alloc]init];
+    self.window.rootViewController = [[CEViewController alloc]init];
     
     self.window.rootViewController.view.backgroundColor = [UIColor orangeColor];
  

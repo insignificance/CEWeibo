@@ -12,6 +12,10 @@
 		53F555FC23B8428A00CBECEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DC23B8428A00CBECEA /* main.m */; };
 		53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DD23B8428A00CBECEA /* AppDelegate.m */; };
 		53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53F5560823B8429000CBECEA /* Assets.xcassets */; };
+		53F5560E23B8451500CBECEA /* CEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5560D23B8451500CBECEA /* CEViewController.m */; };
+		53F5561523B8455A00CBECEA /* CEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561023B8455A00CBECEA /* CEItem.m */; };
+		53F5561623B8455A00CBECEA /* CETabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561123B8455A00CBECEA /* CETabBar.m */; };
+		53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5561423B8455A00CBECEA /* CETabBar2.m */; };
 		CBBB85CBF8FD21B4F7840875 /* Pods_CEWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +46,14 @@
 		53F555F323B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		53F5560823B8429000CBECEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53F5560923B8429000CBECEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F5560C23B8451400CBECEA /* CEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEViewController.h; sourceTree = "<group>"; };
+		53F5560D23B8451500CBECEA /* CEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEViewController.m; sourceTree = "<group>"; };
+		53F5560F23B8455A00CBECEA /* CETabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETabBar.h; sourceTree = "<group>"; };
+		53F5561023B8455A00CBECEA /* CEItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEItem.m; sourceTree = "<group>"; };
+		53F5561123B8455A00CBECEA /* CETabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETabBar.m; sourceTree = "<group>"; };
+		53F5561223B8455A00CBECEA /* CETabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETabBar2.h; sourceTree = "<group>"; };
+		53F5561323B8455A00CBECEA /* CEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEItem.h; sourceTree = "<group>"; };
+		53F5561423B8455A00CBECEA /* CETabBar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETabBar2.m; sourceTree = "<group>"; };
 		BEA15D1F7D6CA2903994C0A5 /* Pods-CEWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.release.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		C9EBFC6CA5FD2F000D444A61 /* Pods-CEWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.debug.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CEWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,12 +184,12 @@
 		53F555D723B8428A00CBECEA /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				53F555D823B8428A00CBECEA /* AppDelegate.h */,
-				53F555D923B8428A00CBECEA /* Category */,
-				53F555DB23B8428A00CBECEA /* SceneDelegate.m */,
 				53F555DC23B8428A00CBECEA /* main.m */,
+				53F555D823B8428A00CBECEA /* AppDelegate.h */,
 				53F555DD23B8428A00CBECEA /* AppDelegate.m */,
 				53F555DE23B8428A00CBECEA /* SceneDelegate.h */,
+				53F555DB23B8428A00CBECEA /* SceneDelegate.m */,
+				53F555D923B8428A00CBECEA /* Category */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -279,6 +291,8 @@
 		53F555F023B8428A00CBECEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53F5560C23B8451400CBECEA /* CEViewController.h */,
+				53F5560D23B8451500CBECEA /* CEViewController.m */,
 				53F555F123B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Controllers;
@@ -287,6 +301,12 @@
 		53F555F223B8428A00CBECEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				53F5561323B8455A00CBECEA /* CEItem.h */,
+				53F5561023B8455A00CBECEA /* CEItem.m */,
+				53F5560F23B8455A00CBECEA /* CETabBar.h */,
+				53F5561123B8455A00CBECEA /* CETabBar.m */,
+				53F5561223B8455A00CBECEA /* CETabBar2.h */,
+				53F5561423B8455A00CBECEA /* CETabBar2.m */,
 				53F555F323B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Views;
@@ -432,9 +452,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
+				53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */,
 				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
+				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
+				53F5561623B8455A00CBECEA /* CETabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
