@@ -7,25 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5387895F23B24E390083B362 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387895E23B24E390083B362 /* AppDelegate.m */; };
-		5387896223B24E390083B362 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387896123B24E390083B362 /* SceneDelegate.m */; };
-		5387896A23B24E3B0083B362 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5387896923B24E3B0083B362 /* Assets.xcassets */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
-		5387897023B24E3B0083B362 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5387896F23B24E3B0083B362 /* main.m */; };
+		53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DB23B8428A00CBECEA /* SceneDelegate.m */; };
+		53F555FC23B8428A00CBECEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DC23B8428A00CBECEA /* main.m */; };
+		53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DD23B8428A00CBECEA /* AppDelegate.m */; };
+		53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53F5560823B8429000CBECEA /* Assets.xcassets */; };
 		CBBB85CBF8FD21B4F7840875 /* Pods_CEWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5387895D23B24E390083B362 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		5387895E23B24E390083B362 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5387896023B24E390083B362 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		5387896123B24E390083B362 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		5387896923B24E3B0083B362 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5387896E23B24E3B0083B362 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5387896F23B24E3B0083B362 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D819AC23B2FB7D0050C650 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		53F555CB23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555CD23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555CF23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555D223B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555D423B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555D623B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555D823B8428A00CBECEA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		53F555DA23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555DB23B8428A00CBECEA /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		53F555DC23B8428A00CBECEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		53F555DD23B8428A00CBECEA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		53F555DE23B8428A00CBECEA /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		53F555E123B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555E323B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555E523B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555E823B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555EA23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555EC23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555EF23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555F123B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F555F323B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		53F5560823B8429000CBECEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53F5560923B8429000CBECEA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEA15D1F7D6CA2903994C0A5 /* Pods-CEWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.release.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		C9EBFC6CA5FD2F000D444A61 /* Pods-CEWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.debug.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CEWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,17 +81,226 @@
 		5387895C23B24E390083B362 /* CEWeibo */ = {
 			isa = PBXGroup;
 			children = (
-				5387895D23B24E390083B362 /* AppDelegate.h */,
-				5387895E23B24E390083B362 /* AppDelegate.m */,
-				5387896023B24E390083B362 /* SceneDelegate.h */,
-				5387896123B24E390083B362 /* SceneDelegate.m */,
-				5387896923B24E3B0083B362 /* Assets.xcassets */,
+				53F5560723B8429000CBECEA /* SupportFiles */,
+				53F555C823B8428A00CBECEA /* Classes */,
 				5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */,
-				5387896E23B24E3B0083B362 /* Info.plist */,
-				5387896F23B24E3B0083B362 /* main.m */,
 			);
 			path = CEWeibo;
 			sourceTree = "<group>";
+		};
+		53F555C823B8428A00CBECEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				53F555C923B8428A00CBECEA /* Home */,
+				53F555D023B8428A00CBECEA /* Discover */,
+				53F555D723B8428A00CBECEA /* Other */,
+				53F555DF23B8428A00CBECEA /* Message */,
+				53F555E623B8428A00CBECEA /* Profile */,
+				53F555ED23B8428A00CBECEA /* Main */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		53F555C923B8428A00CBECEA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				53F555CA23B8428A00CBECEA /* Models */,
+				53F555CC23B8428A00CBECEA /* Controllers */,
+				53F555CE23B8428A00CBECEA /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		53F555CA23B8428A00CBECEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53F555CB23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53F555CC23B8428A00CBECEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53F555CD23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53F555CE23B8428A00CBECEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53F555CF23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53F555D023B8428A00CBECEA /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				53F555D123B8428A00CBECEA /* Models */,
+				53F555D323B8428A00CBECEA /* Controllers */,
+				53F555D523B8428A00CBECEA /* Views */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		53F555D123B8428A00CBECEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53F555D223B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53F555D323B8428A00CBECEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53F555D423B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53F555D523B8428A00CBECEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53F555D623B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53F555D723B8428A00CBECEA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				53F555D823B8428A00CBECEA /* AppDelegate.h */,
+				53F555D923B8428A00CBECEA /* Category */,
+				53F555DB23B8428A00CBECEA /* SceneDelegate.m */,
+				53F555DC23B8428A00CBECEA /* main.m */,
+				53F555DD23B8428A00CBECEA /* AppDelegate.m */,
+				53F555DE23B8428A00CBECEA /* SceneDelegate.h */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		53F555D923B8428A00CBECEA /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				53F555DA23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		53F555DF23B8428A00CBECEA /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				53F555E023B8428A00CBECEA /* Models */,
+				53F555E223B8428A00CBECEA /* Controllers */,
+				53F555E423B8428A00CBECEA /* Views */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		53F555E023B8428A00CBECEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53F555E123B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53F555E223B8428A00CBECEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53F555E323B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53F555E423B8428A00CBECEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53F555E523B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53F555E623B8428A00CBECEA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				53F555E723B8428A00CBECEA /* Models */,
+				53F555E923B8428A00CBECEA /* Controllers */,
+				53F555EB23B8428A00CBECEA /* Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		53F555E723B8428A00CBECEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53F555E823B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53F555E923B8428A00CBECEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53F555EA23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53F555EB23B8428A00CBECEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53F555EC23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53F555ED23B8428A00CBECEA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				53F555EE23B8428A00CBECEA /* Models */,
+				53F555F023B8428A00CBECEA /* Controllers */,
+				53F555F223B8428A00CBECEA /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		53F555EE23B8428A00CBECEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53F555EF23B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53F555F023B8428A00CBECEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53F555F123B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53F555F223B8428A00CBECEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53F555F323B8428A00CBECEA /* .gitkeep */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53F5560723B8429000CBECEA /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				53F5560823B8429000CBECEA /* Assets.xcassets */,
+				53F5560923B8429000CBECEA /* Info.plist */,
+			);
+			name = SupportFiles;
+			path = CEWeibo/SupportFiles;
+			sourceTree = SOURCE_ROOT;
 		};
 		A902C18590F7E21387DBD0C3 /* Pods */ = {
 			isa = PBXGroup;
@@ -154,7 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
-				5387896A23B24E3B0083B362 /* Assets.xcassets in Resources */,
+				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5387895F23B24E390083B362 /* AppDelegate.m in Sources */,
-				5387897023B24E3B0083B362 /* main.m in Sources */,
-				5387896223B24E390083B362 /* SceneDelegate.m in Sources */,
+				53F555FC23B8428A00CBECEA /* main.m in Sources */,
+				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
+				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +571,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J539EVW3ZD;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
-				INFOPLIST_FILE = CEWeibo/Info.plist;
+				INFOPLIST_FILE = CEWeibo/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J539EVW3ZD;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
-				INFOPLIST_FILE = CEWeibo/Info.plist;
+				INFOPLIST_FILE = CEWeibo/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
