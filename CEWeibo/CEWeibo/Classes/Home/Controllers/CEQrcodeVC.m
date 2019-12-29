@@ -31,19 +31,10 @@
     
     */
 
-    UIFont *font = [UIFont fontWithName:@"Arial-ItalicMT" size:18];
+    [self setUpNavigationBar];
+    
+    [self setUpNavigationItem];
 
-    NSDictionary *dic = @{NSFontAttributeName:font,NSForegroundColorAttributeName: [UIColor whiteColor]};
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:dic];
-    
-    
-    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
-    
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor blackColor]];
-    
-   
-    
     
 }
 
@@ -61,10 +52,41 @@
    
     self.topConstraint.constant = -scanlinHeight;
     
-    
-    
-    
 }
+
+
+
+/*
+ - (void)viewWillLayoutSubviews{
+    
+    
+    [super viewWillLayoutSubviews];
+    
+    
+    
+    //去除黑条
+     self.navigationController.navigationBar.barStyle = UIBaselineAdjustmentNone;
+    
+    
+    [self.navigationController.navigationBar.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        
+        if ([obj isKindOfClass:NSClassFromString(@"_UIBarBackground")]) {
+            
+            [obj removeFromSuperview];
+            
+        }
+        
+        
+    }];
+    
+    
+}*/
+
+
+
+#pragma mark -
+#pragma mark -- 更新扫描仪顶部约束
 
 - (void)updatetopConstraint{
     
@@ -77,6 +99,100 @@
     
     
 }
+
+#pragma mark -
+#pragma mark -- 设置导航条属性
+
+
+- (void)setUpNavigationBar{
+    
+    //设置导航栏 阴影
+    
+    self.navigationController.navigationBar.layer.shadowColor = [[UIColor orangeColor] CGColor];
+    
+    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(0, 5);
+    
+    self.navigationController.navigationBar.layer.shadowOpacity = 0.8;
+    
+    self.navigationController.navigationBar.layer.shadowRadius  = 3;
+    
+    
+    
+    //设置title
+    UIFont *font = [UIFont fontWithName:@"Arial-ItalicMT" size:18];
+    
+    NSDictionary *dic = @{NSFontAttributeName:font,NSForegroundColorAttributeName: [UIColor orangeColor]};
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:dic];
+    
+    
+    //设置按钮 颜色
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
+    
+    
+    //设置navigationbar 背景颜色
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    
+    
+    
+    
+    
+}
+
+
+
+#pragma mark -
+#pragma mark -- 设置内容属性
+
+
+- (void)setUpNavigationItem{
+    
+    
+    
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(close:)];
+       
+    UIBarButtonItem *photoButton = [[UIBarButtonItem alloc]initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(photo:)];
+    
+    
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    self.navigationItem.rightBarButtonItem = photoButton;
+       
+       
+       
+    
+    
+    
+}
+
+
+
+- (void)close:(UIBarButtonItem *)btn{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+    DDFunc;
+    
+    
+}
+
+- (void)photo:(UIBarButtonItem *)btn{
+    
+    DDFunc;
+    
+    
+}
+
+
+
+
+
+
+
 
 
 

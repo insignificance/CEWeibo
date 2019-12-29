@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     //设置tabBar tintColor 改用storyBoard Runtime
    // self.tabBarController.tabBar.tintColor = [UIColor orangeColor];
     
@@ -32,8 +32,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
 
 
 
