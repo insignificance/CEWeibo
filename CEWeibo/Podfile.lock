@@ -1,22 +1,26 @@
 PODS:
+  - CFAlertViewController (3.1)
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
+  - CFAlertViewController
   - CocoaLumberjack
   - Masonry
 
 SPEC REPOS:
   trunk:
+    - CFAlertViewController
     - CocoaLumberjack
     - Masonry
 
 SPEC CHECKSUMS:
+  CFAlertViewController: a27cf0512d0fa9ef6a3b966862039c295fb0ef69
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: aceffaef1280de32ef3e71c16787d5e1bf3a80aa
+PODFILE CHECKSUM: 19bd1909a3cb9a38774f95aa6039de6738462dda
 
 COCOAPODS: 1.8.4

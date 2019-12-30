@@ -3,5 +3,6 @@ use_frameworks!
 
 target 'CEWeibo' do
   pod 'CocoaLumberjack'
-  pod 'Masonry'
+  pod 'Masonry' 
+  pod 'CFAlertViewController'	
 end

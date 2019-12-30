@@ -31,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D819AC23B2FB7D0050C650 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -370,6 +371,7 @@
 			children = (
 				53F5560823B8429000CBECEA /* Assets.xcassets */,
 				53F5560923B8429000CBECEA /* Info.plist */,
+				53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */,
 			);
 			name = SupportFiles;
 			path = CEWeibo/SupportFiles;
@@ -425,6 +427,7 @@
 				TargetAttributes = {
 					5387895923B24E390083B362 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -574,6 +577,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -632,6 +636,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -646,6 +651,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -655,6 +661,7 @@
 			baseConfigurationReference = C9EBFC6CA5FD2F000D444A61 /* Pods-CEWeibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_MISSING_NOESCAPE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J539EVW3ZD;
@@ -666,6 +673,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xy.CEWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CEWeibo/SupportFiles/CEWeibo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -675,6 +685,7 @@
 			baseConfigurationReference = BEA15D1F7D6CA2903994C0A5 /* Pods-CEWeibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_MISSING_NOESCAPE = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J539EVW3ZD;
@@ -686,6 +697,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xy.CEWeibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CEWeibo/SupportFiles/CEWeibo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
