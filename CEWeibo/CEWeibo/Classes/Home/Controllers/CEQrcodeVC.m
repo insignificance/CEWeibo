@@ -211,6 +211,71 @@
 
 
 
+/**
+ 调用相册
+ */
+- (void)choicePhoto{
+    //调用相册
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    //UIImagePickerControllerSourceTypePhotoLibrary为相册
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    //设置代理UIImagePickerControllerDelegate和UINavigationControllerDelegate
+    imagePicker.delegate = self;
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+//选中图片的回调
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //取出选中的图片
+    UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(pickImage);
+    CIImage *ciImage = [CIImage imageWithData:imageData];
+    
+    //创建探测器
+    //CIDetectorTypeQRCode表示二维码，这里选择CIDetectorAccuracyLow识别速度快
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
+    NSArray *feature = [detector featuresInImage:ciImage];
+    
+    //取出探测到的数据
+    
+    NSString *content = nil;
+    
+    for (CIQRCodeFeature *result in feature) {
+        content = result.messageString;// 这个就是我们想要的值
+        
+    }
+    
+    
+     //展示数据
+       
+    [self showContentWithURLString:content];
+    [self dismissViewControllerAnimated:YES completion:nil];
+   
+    
+}
+
+-(void)showContentWithURLString:(NSString *)string{
+    
+    NSURL *url  = [NSURL URLWithString:string];
+    
+    //UIWebView *web = [UIWebView new];
+    //WKWebView *web = [[WKWebView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+
+    [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
+        
+    }];
+    
+    
+}
+
+
+
+
+
+
 - (void)scanQR{
     
     
@@ -417,6 +482,8 @@
 
 - (void)photo:(UIBarButtonItem *)btn{
     
+    
+    [self choicePhoto];
     DDFunc;
     
     
@@ -472,17 +539,7 @@
         
         DDLogDebug(@"%@",scannedResult);
         
-        NSURL *url  = [NSURL URLWithString:scannedResult];
-        
-        //UIWebView *web = [UIWebView new];
-        //WKWebView *web = [[WKWebView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        
-        
-        
-        
-        [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
-            
-        }];
+        [self showContentWithURLString:scannedResult];
         
         // NSURLRequest *request = [NSURLRequest requestWithURL:url];
         

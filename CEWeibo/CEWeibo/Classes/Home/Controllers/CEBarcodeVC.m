@@ -15,7 +15,7 @@
 
 #define barcodeLineHeight self.barcodeline.frame.size.height
 
-@interface CEBarcodeVC ()<AVCaptureMetadataOutputObjectsDelegate,AppdelegateDelegate>
+@interface CEBarcodeVC ()<AVCaptureMetadataOutputObjectsDelegate,AppdelegateDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *barcodeline;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstaint;
@@ -256,6 +256,56 @@
 }
 
 
+/**
+ 调用相册
+ */
+- (void)choicePhoto{
+    //调用相册
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    //UIImagePickerControllerSourceTypePhotoLibrary为相册
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    //设置代理UIImagePickerControllerDelegate和UINavigationControllerDelegate
+    imagePicker.delegate = self;
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+//选中图片的回调
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //取出选中的图片
+    UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(pickImage);
+    CIImage *ciImage = [CIImage imageWithData:imageData];
+    
+    //创建探测器
+    //CIDetectorTypeQRCode表示二维码，这里选择CIDetectorAccuracyLow识别速度快
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
+    NSArray *feature = [detector featuresInImage:ciImage];
+    
+    //取出探测到的数据
+    
+    NSString *content = nil;
+    
+    for (CIQRCodeFeature *result in feature) {
+        content = result.messageString;// 这个就是我们想要的值
+        
+    }
+    
+    
+     //展示数据
+       
+    [self showContentWithString:content];
+    [self dismissViewControllerAnimated:YES completion:nil];
+   
+    
+}
+
+
+
+
+
 
 #pragma mark -
 #pragma mark -- 更新扫描仪顶部约束
@@ -404,7 +454,7 @@
     // 8. 设置预览界面
     
     //AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
-   
+    
     [self.view.layer insertSublayer:self.previewLayer atIndex:0];
     
     
@@ -438,6 +488,8 @@
 
 - (void)photo:(UIBarButtonItem *)btn{
     
+    
+    [self choicePhoto];
     DDFunc;
     
     
@@ -462,49 +514,17 @@
         NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *)current stringValue];
         
         DDLogDebug(@"%@",scannedResult);
-   
+        
         
         /*
-            
-         展示数据
-                     
-         */
- 
-        //显示内容的控制器
-        UIViewController *vc = [UIViewController new];
-        
-        vc.view.backgroundColor = [UIColor whiteColor];
-        
-  
-        //自定义外观 textField
-        UITextField *textField = [[UITextField alloc]initWithFrame:self.view.bounds];
-        textField.text = scannedResult;
-        
-        //隐藏键盘
-        UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-        textField.inputView = dummyView; // Hide keyboard, but show blinking cursor
-        
-        [vc.view addSubview:textField];
-        
-        //将加号按钮居中显示
-         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-             
-
-             make.center.equalTo(vc.view);
-             
-             
-         }];
          
+         展示数据
+         
+         */
         
-        //text.allowsEditingTextAttributes = NO;
+        [self showContentWithString:scannedResult];
         
-        //text.textAlignment = NSTextAlignmentCenter;
-        //隐藏tabbar
-        self.tabBarController.tabBar.hidden = YES;
- 
-        [self.navigationController pushViewController:vc animated:YES];
-        
-        
+   
         
         
     }
@@ -550,7 +570,52 @@
     
 }
 
-
+- (void)showContentWithString:(NSString *)string{
+    
+    
+    //显示内容的控制器
+    UIViewController *vc = [UIViewController new];
+    
+    vc.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    //自定义外观 textField
+    UITextField *textField = [[UITextField alloc]initWithFrame:self.view.bounds];
+    
+   
+    
+    textField.text = string;
+    
+    DDLogDebug(@"%@",string);
+    [textField setTextColor:[UIColor blackColor]];
+    
+    //隐藏键盘
+    UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    textField.inputView = dummyView; // Hide keyboard, but show blinking cursor
+    
+    [vc.view addSubview:textField];
+    
+    //将加号按钮居中显示
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        
+        make.center.equalTo(vc.view);
+        
+        
+    }];
+    
+    
+    //text.allowsEditingTextAttributes = NO;
+    
+    //text.textAlignment = NSTextAlignmentCenter;
+    //隐藏tabbar
+    self.tabBarController.tabBar.hidden = YES;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    
+}
 
 
 
