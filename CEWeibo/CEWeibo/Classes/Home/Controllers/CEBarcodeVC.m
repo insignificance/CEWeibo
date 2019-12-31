@@ -145,8 +145,8 @@
     }
     
     
-    //隐藏tabbar
-    self.tabBarController.tabBar.hidden = YES;
+    //多个controller 对应一个 tabbar 不能在这里隐藏
+    //self.tabBarController.tabBar.hidden = YES;
     
     
 }
@@ -499,7 +499,8 @@
         //text.allowsEditingTextAttributes = NO;
         
         //text.textAlignment = NSTextAlignmentCenter;
-        
+        //隐藏tabbar
+        self.tabBarController.tabBar.hidden = YES;
  
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -517,7 +518,7 @@
 
 - (void)doSomeThing{
     
-    [self doSomeThing];
+    [self scanQR];
     
 }
 

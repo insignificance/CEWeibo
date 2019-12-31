@@ -114,8 +114,7 @@
     
     [super viewWillDisappear:animated];
     
-    //隐藏tabbar
-    self.tabBarController.tabBar.hidden = YES;
+   
     
     if ([self.session isRunning]) {
         
