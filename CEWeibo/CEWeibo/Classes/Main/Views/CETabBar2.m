@@ -15,17 +15,17 @@
 @interface CETabBar2 ()
 /*
  
-  TabBar 中的加号按钮
+ TabBar 中的加号按钮
  
-*/
+ */
 @property (nonatomic,weak) UIButton *addButton;
 
 /*
  
-  用于保存上一次选中选项卡的状态
-    
+ 用于保存上一次选中选项卡的状态
  
-*/
+ 
+ */
 @property (nonatomic,weak) CEItem *lastItem;
 @end
 
@@ -36,12 +36,12 @@
 
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
@@ -54,7 +54,7 @@
         
         [self setUpAddBtn];
         
-      
+        
         
     }
     
@@ -93,7 +93,7 @@
     
     [button addTarget:self action:@selector(didClickItem:) forControlEvents:UIControlEventTouchUpInside];
     
- 
+    
     
     
     
@@ -118,7 +118,7 @@
     
     
     [self addSubview:addButton];
-
+    
     [self.addButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"]forState:UIControlStateNormal];
     
     
@@ -131,7 +131,7 @@
     
     [self.addButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
     
-          
+    
     
     
 }
@@ -176,7 +176,7 @@
         
     }
     
-
+    
     //为选项卡添加动画效果
     
     [UIView animateWithDuration:0.2 animations:^{
@@ -192,7 +192,7 @@
         [UIView animateWithDuration:0.2 animations:^{
             
             item.transform = CGAffineTransformMakeScale(1.2, 1.2);
-                
+            
             
         } completion:^(BOOL finished) {
             
@@ -208,8 +208,8 @@
     
     
     
-  
- 
+    
+    
     
     
     
@@ -240,10 +240,10 @@
     
     for (UIView *subView in self.subviews) {
         
-       
-       // DDLogDebug(@"%@",subView);
         
-
+        // DDLogDebug(@"%@",subView);
+        
+        
         if ([subView isKindOfClass:NSClassFromString(@"UIButton")]  && subView.tag != addBtnTag) {
             
             //给选项卡添加标记
@@ -262,7 +262,7 @@
                     item.highlighted = YES;
                     self.lastItem = item;
                 });
-
+                
                 DDLogDebug(@"%s",__func__);
                 
             }
@@ -294,18 +294,18 @@
     }
     
     
-  
     
-//    CGRect frame = CGRectZero;
-//
-//    frame.size = self.addButton.currentBackgroundImage.size;
-//
-//    CGFloat  centerX = self.frame.size.width*0.5;
-//    CGFloat centerY = self.frame.size.height*0.5;
-//
-//    self.addButton.frame = frame;
-//
-//    self.addButton.center = CGPointMake(centerX, centerY);
+    
+    //    CGRect frame = CGRectZero;
+    //
+    //    frame.size = self.addButton.currentBackgroundImage.size;
+    //
+    //    CGFloat  centerX = self.frame.size.width*0.5;
+    //    CGFloat centerY = self.frame.size.height*0.5;
+    //
+    //    self.addButton.frame = frame;
+    //
+    //    self.addButton.center = CGPointMake(centerX, centerY);
     
     //将加号按钮居中显示
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -317,8 +317,8 @@
         
     }];
     
-        
-        
+    
+    
     
     
     

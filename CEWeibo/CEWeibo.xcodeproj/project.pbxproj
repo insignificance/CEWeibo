@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
+		53BE1DC623BB35C0007EF43C /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 53BE1DC523BB35C0007EF43C /* .gitkeep */; };
 		53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DB23B8428A00CBECEA /* SceneDelegate.m */; };
 		53F555FC23B8428A00CBECEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DC23B8428A00CBECEA /* main.m */; };
 		53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DD23B8428A00CBECEA /* AppDelegate.m */; };
@@ -34,6 +35,7 @@
 		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53BE1DC523BB35C0007EF43C /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		53D819AC23B2FB7D0050C650 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		53F555CB23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		53F555CD23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			path = CEWeibo;
 			sourceTree = "<group>";
 		};
+		53BE1DC423BB35C0007EF43C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				53BE1DC523BB35C0007EF43C /* .gitkeep */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		53F555C823B8428A00CBECEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +159,7 @@
 		53F555C923B8428A00CBECEA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				53BE1DC423BB35C0007EF43C /* Other */,
 				53F555CA23B8428A00CBECEA /* Models */,
 				53F555CC23B8428A00CBECEA /* Controllers */,
 				53F555CE23B8428A00CBECEA /* Views */,
@@ -457,6 +468,7 @@
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
 				53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */,
 				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
+				53BE1DC623BB35C0007EF43C /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
