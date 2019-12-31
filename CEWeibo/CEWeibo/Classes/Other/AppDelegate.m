@@ -19,27 +19,27 @@
 @implementation AppDelegate
 
 /*
-开发中经常进行暴力测试,也就是经常打印Log,但是NSLog有一个致命的弱点
-非常消耗性能
-1.什么时候需要显示Log ? 开发阶段,也就是说在应用程序发布阶段是不需要显示Log的
-2.发布阶段如何取消Log的显示?
+ 开发中经常进行暴力测试,也就是经常打印Log,但是NSLog有一个致命的弱点
+ 非常消耗性能
+ 1.什么时候需要显示Log ? 开发阶段,也就是说在应用程序发布阶段是不需要显示Log的
+ 2.发布阶段如何取消Log的显示?
  一般在初始化项目的时候自定义Log
-   采用DEBUG宏定义
-*/
+ 采用DEBUG宏定义
+ */
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-  
-    //CELog(@"自定义Log");
-     
-     [DDLog addLogger:[DDOSLogger sharedInstance]]; // Uses os_log
-     DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
-     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-     [DDLog addLogger:fileLogger];
     
-  //获取当前系统版本
+    //CELog(@"自定义Log");
+    
+    [DDLog addLogger:[DDOSLogger sharedInstance]]; // Uses os_log
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
+    
+    //获取当前系统版本
     NSString *version = [UIDevice currentDevice].systemVersion;
     
     if (version.doubleValue <13.0) {
@@ -66,7 +66,7 @@
         
     }
     
-
+    
     
     return YES;
 }
@@ -80,22 +80,16 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-  
-  
+    
+    
     
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-   
-    if ([self.delegate respondsToSelector:@selector(doSomeThing)]) {
-        
-        [self.delegate doSomeThing];
-        
-    }
     
-     
-    DDFunc;
+    
+    
     
     
 }
@@ -103,10 +97,16 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
+    DDFunc;
+    
+    if ([self.delegate respondsToSelector:@selector(doSomeThing)]) {
+        
+        [self.delegate doSomeThing];
+        
+    }
     
     
     
-  
     
 }
 
@@ -125,7 +125,7 @@
     // Called when a new scene session is being created.
     // Use this method to select a configuration to create the new scene with.
     
-        return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
     
 }
 
