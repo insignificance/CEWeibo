@@ -4,23 +4,27 @@ PODS:
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
   - Masonry (1.1.0)
+  - ProgressHUD (2.51)
 
 DEPENDENCIES:
   - CFAlertViewController
   - CocoaLumberjack
   - Masonry
+  - ProgressHUD
 
 SPEC REPOS:
   trunk:
     - CFAlertViewController
     - CocoaLumberjack
     - Masonry
+    - ProgressHUD
 
 SPEC CHECKSUMS:
   CFAlertViewController: a27cf0512d0fa9ef6a3b966862039c295fb0ef69
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
 
-PODFILE CHECKSUM: 19bd1909a3cb9a38774f95aa6039de6738462dda
+PODFILE CHECKSUM: 1da3d39a61f2c7984710f62fcb9755e9eed7ee21
 
 COCOAPODS: 1.8.4

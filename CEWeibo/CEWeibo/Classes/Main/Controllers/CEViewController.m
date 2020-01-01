@@ -14,6 +14,7 @@
 #import "CEDiscoverViewController.h"
 
 
+
 @interface CEViewController ()<CETabBar2Delegate>
 
 @property (nonatomic,weak)CETabBar2 *customTabBar;
@@ -39,9 +40,21 @@
     
     //[self setValue:tabBar forKeyPath:@"tabBar"];
     
+
     
+  
     
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+
+    
+}
+
+
 
 
 -(void)viewDidLayoutSubviews{

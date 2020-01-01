@@ -10,6 +10,7 @@
 #import "CEItem.h"
 #import "Masonry.h"
 
+
 //定义addBtnTag值
 #define addBtnTag 99
 @interface CETabBar2 ()
@@ -157,6 +158,10 @@
     
     
     DDLogDebug(@"Item.tag = %zi",item.tag);
+     
+    
+    //[ProgressHUD showSuccess:@"123" Interaction:YES];
+    
     
     //1. 点击按钮的时候 按钮变为高亮状态
     

@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import <Masonry.h>
 
+
 #define barcodeLineHeight self.barcodeline.frame.size.height
 
 @interface CEBarcodeVC ()<AVCaptureMetadataOutputObjectsDelegate,AppdelegateDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -26,6 +27,8 @@
 @property ( strong , nonatomic ) AVCaptureMetadataOutput * output;//输出设备，需要指定他的输出类型及扫描范围
 @property ( strong , nonatomic ) AVCaptureSession * session; //AVFoundation框架捕获类的中心枢纽，协调输入输出设备以获得数据
 @property ( strong , nonatomic ) AVCaptureVideoPreviewLayer * previewLayer;//展示捕获图像的图层，是CALayer的子类
+
+@property ( strong , nonatomic ) UIImagePickerController * imagePickerController;
 
 @end
 
@@ -126,7 +129,7 @@
         
     }
     
-    
+  
     
     
     
@@ -154,7 +157,12 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    
+    
     [super viewWillAppear:animated];
+    
+    
+  
     
     
     //隐藏tabbar
@@ -255,50 +263,120 @@
     return _input;
 }
 
+- (UIImagePickerController *)imagePickerController{
+    
+    
+    if (_imagePickerController == nil) {
+        
+        
+        _imagePickerController = [[UIImagePickerController alloc]init];
+        
+    }
+    
+    return _imagePickerController;
+}
 
+
+
+
+
+#pragma mark -
+#pragma mark -- 相册
 /**
  调用相册
  */
 - (void)choicePhoto{
     //调用相册
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    //UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
     //UIImagePickerControllerSourceTypePhotoLibrary为相册
-    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     //设置代理UIImagePickerControllerDelegate和UINavigationControllerDelegate
-    imagePicker.delegate = self;
+    self.imagePickerController.delegate = self;
     
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
 }
 
 //选中图片的回调
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //取出选中的图片
-    UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
-    NSData *imageData = UIImagePNGRepresentation(pickImage);
-    CIImage *ciImage = [CIImage imageWithData:imageData];
     
-    //创建探测器
-    //CIDetectorTypeQRCode表示二维码，这里选择CIDetectorAccuracyLow识别速度快
-    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
-    NSArray *feature = [detector featuresInImage:ciImage];
     
-    //取出探测到的数据
     
-    NSString *content = nil;
     
-    for (CIQRCodeFeature *result in feature) {
-        content = result.messageString;// 这个就是我们想要的值
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        //取出选中的图片
+        UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
+        NSData *imageData = UIImagePNGRepresentation(pickImage);
+        CIImage *ciImage = [CIImage imageWithData:imageData];
         
-    }
+        //创建探测器
+        //CIDetectorTypeQRCode表示二维码，这里选择CIDetectorAccuracyLow识别速度快
+        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
+        
+        
+        DDLogDebug(@"detector%@",detector);
+        
+        
+        NSArray *feature = [detector featuresInImage:ciImage];
+        
+        [ProgressHUD showSuccess:@"正在加载" Interaction:YES];
+        
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
+                //若解析成功
+                if (feature.count) {
+                    
+                    
+                    
+                    DDLogDebug(@"feature%ld",feature.count);
+                    
+                    //取出探测到的数据
+                    
+                    NSString *content = nil;
+                    
+                    for (CIQRCodeFeature *result in feature) {
+                        content = result.messageString;// 这个就是我们想要的值
+                        
+                        DDLogDebug(@"result%@",result);
+                        
+                        
+                        [self showContentWithString:content];
+                        
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        
+                        
+                    }
+                    
+                }else{
+                    
+                    
+                    [ProgressHUD showError:@"未找到条形码"];
+                    
+                    
+                }
+                
+          
+            });
+            
+            
+        });
+        
+  
+        
+        
+    });
     
+
+  
     
-     //展示数据
-       
-    [self showContentWithString:content];
-    [self dismissViewControllerAnimated:YES completion:nil];
-   
     
 }
 
@@ -516,15 +594,29 @@
         DDLogDebug(@"%@",scannedResult);
         
         
-        /*
-         
-         展示数据
-         
-         */
         
-        [self showContentWithString:scannedResult];
+        if (scannedResult) {
+            /*
+             
+             展示数据
+             
+             */
+            [ProgressHUD showSuccess:@"扫描成功" Interaction:YES];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [self showContentWithString:scannedResult];
+                
+                
+            });
+            
+            
+            
+        }
         
-   
+        
+        
+        
         
         
     }
@@ -582,7 +674,7 @@
     //自定义外观 textField
     UITextField *textField = [[UITextField alloc]initWithFrame:self.view.bounds];
     
-   
+    
     
     textField.text = string;
     

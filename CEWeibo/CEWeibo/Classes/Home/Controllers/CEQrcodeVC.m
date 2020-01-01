@@ -15,9 +15,10 @@
 
 
 
+
 #define scanlinHeight self.scanline.frame.size.height
 
-@interface CEQrcodeVC ()<AVCaptureMetadataOutputObjectsDelegate,AppdelegateDelegate>
+@interface CEQrcodeVC ()<AVCaptureMetadataOutputObjectsDelegate,AppdelegateDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *scanline;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
@@ -27,6 +28,8 @@
 @property ( strong , nonatomic ) AVCaptureMetadataOutput * output;//输出设备，需要指定他的输出类型及扫描范围
 @property ( strong , nonatomic ) AVCaptureSession * session; //AVFoundation框架捕获类的中心枢纽，协调输入输出设备以获得数据
 @property ( strong , nonatomic ) AVCaptureVideoPreviewLayer * previewLayer;//展示捕获图像的图层，是CALayer的子类
+
+@property ( strong , nonatomic) UIImagePickerController * imagePickerController;
 
 @end
 
@@ -72,6 +75,7 @@
     self.topConstraint.constant = -scanlinHeight;
     
     
+    
     if (TARGET_IPHONE_SIMULATOR) {
         //弹出提示
         [self showMessage];
@@ -114,7 +118,7 @@
     
     [super viewWillDisappear:animated];
     
-   
+    
     
     if ([self.session isRunning]) {
         
@@ -209,51 +213,110 @@
     return _input;
 }
 
+-(UIImagePickerController *)imagePickerController{
+    
+    if (_imagePickerController == nil) {
+        
+        
+        _imagePickerController = [[UIImagePickerController alloc]init];
+        
+    }
+    
+    return _imagePickerController;
+    
+}
 
+
+
+#pragma mark -
+#pragma mark -- 相册
 
 /**
  调用相册
  */
 - (void)choicePhoto{
     //调用相册
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    //UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
     //UIImagePickerControllerSourceTypePhotoLibrary为相册
-    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     //设置代理UIImagePickerControllerDelegate和UINavigationControllerDelegate
-    imagePicker.delegate = self;
+    self.imagePickerController.delegate = self;
     
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
 }
 
 //选中图片的回调
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //取出选中的图片
-    UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
-    NSData *imageData = UIImagePNGRepresentation(pickImage);
-    CIImage *ciImage = [CIImage imageWithData:imageData];
     
-    //创建探测器
-    //CIDetectorTypeQRCode表示二维码，这里选择CIDetectorAccuracyLow识别速度快
-    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
-    NSArray *feature = [detector featuresInImage:ciImage];
-    
-    //取出探测到的数据
-    
-    NSString *content = nil;
-    
-    for (CIQRCodeFeature *result in feature) {
-        content = result.messageString;// 这个就是我们想要的值
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        //取出选中的图片
+        UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
+        NSData *imageData = UIImagePNGRepresentation(pickImage);
+        CIImage *ciImage = [CIImage imageWithData:imageData];
         
-    }
-    
-    
-     //展示数据
-       
-    [self showContentWithURLString:content];
-    [self dismissViewControllerAnimated:YES completion:nil];
-   
+        //创建探测器
+        //CIDetectorTypeQRCode表示二维码，这里选择CIDetectorAccuracyLow识别速度快
+        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
+        
+        
+        DDLogDebug(@"detector%@",detector);
+        
+        
+        NSArray *feature = [detector featuresInImage:ciImage];
+        
+        
+        //延迟执行
+        
+       [ProgressHUD showSuccess:@"正在加载" Interaction:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
+                //若解析成功
+                if (feature.count) {
+                    
+                    
+                    
+                    DDLogDebug(@"feature%ld",feature.count);
+                    
+                    //取出探测到的数据
+                    
+                    NSString *content = nil;
+                    
+                    for (CIQRCodeFeature *result in feature) {
+                        content = result.messageString;// 这个就是我们想要的值
+                        
+                        DDLogDebug(@"result%@",result);
+                        
+                        [self showContentWithURLString:content];
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }
+                    
+                }else{
+                    
+                    
+                    [ProgressHUD showError:@"未找到二维码码"];
+                    
+                    
+                }
+                
+        
+                
+            });
+            
+        });
+        
+        
+        
+        
+        
+        
+        
+    });
     
 }
 
@@ -263,7 +326,7 @@
     
     //UIWebView *web = [UIWebView new];
     //WKWebView *web = [[WKWebView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-
+    
     [[UIApplication sharedApplication]openURL:url options:@{} completionHandler:^(BOOL success) {
         
     }];
@@ -274,7 +337,8 @@
 
 
 
-
+#pragma mark -
+#pragma mark -- 扫描
 
 - (void)scanQR{
     
@@ -330,7 +394,7 @@
     
     // 8. 设置预览界面
     
-   // AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
+    // AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
     //previewLayer.frame = self.view.bounds;
     [self.view.layer insertSublayer:self.previewLayer atIndex:0];
     
@@ -349,6 +413,77 @@
     
     
 }
+
+
+
+#pragma mark -
+#pragma mark -- AVCaptureMetadataOutputObjectsDelegate
+//只要解析到了数据就会调用
+
+- (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
+    
+    
+    //    for (AVMetadataObject *current in metadataObjects) {
+    //      if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]]
+    //          && [_metadataObjectTypes containsObject:current.type]) {
+    //        NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *)current stringValue];
+    //
+    //        if (_completionBlock) {
+    //          _completionBlock(scannedResult);
+    //        }
+    //
+    //        break;
+    //      }
+    //    }
+    
+    AVMetadataObject *current = metadataObjects.lastObject;
+    
+    if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]] ) {
+        
+        [self.session stopRunning];
+        
+        NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *)current stringValue];
+        
+        DDLogDebug(@"%@",scannedResult);
+        
+        
+        if (scannedResult) {
+            
+            [ProgressHUD showSuccess:@"扫描成功" Interaction:YES];
+            
+            
+            //延迟执行
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showContentWithURLString:scannedResult];
+            });
+        }
+        
+        
+        
+        
+        
+        // NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        //[web loadRequest:request];
+        
+        //[self.view addSubview:web];
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    DDFunc;
+    
+    
+    
+}
+
 
 
 
@@ -509,59 +644,6 @@
  */
 
 
-#pragma mark -
-#pragma mark -- AVCaptureMetadataOutputObjectsDelegate
-//只要解析到了数据就会调用
-
-- (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-    
-    
-    //    for (AVMetadataObject *current in metadataObjects) {
-    //      if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]]
-    //          && [_metadataObjectTypes containsObject:current.type]) {
-    //        NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *)current stringValue];
-    //
-    //        if (_completionBlock) {
-    //          _completionBlock(scannedResult);
-    //        }
-    //
-    //        break;
-    //      }
-    //    }
-    
-    AVMetadataObject *current = metadataObjects.lastObject;
-    
-    if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]] ) {
-        
-        [self.session stopRunning];
-        
-        NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *)current stringValue];
-        
-        DDLogDebug(@"%@",scannedResult);
-        
-        [self showContentWithURLString:scannedResult];
-        
-        // NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        //[web loadRequest:request];
-        
-        //[self.view addSubview:web];
-        
-        
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    DDFunc;
-    
-    
-    
-}
 
 
 
