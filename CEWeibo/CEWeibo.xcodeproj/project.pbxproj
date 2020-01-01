@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
-		53BE1DC623BB35C0007EF43C /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 53BE1DC523BB35C0007EF43C /* .gitkeep */; };
+		53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */; };
+		53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28B23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m */; };
+		53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28E23BC8EAE005E5B5A /* CEColorUtils.m */; };
 		53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DB23B8428A00CBECEA /* SceneDelegate.m */; };
 		53F555FC23B8428A00CBECEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DC23B8428A00CBECEA /* main.m */; };
 		53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F555DD23B8428A00CBECEA /* AppDelegate.m */; };
@@ -35,8 +37,13 @@
 		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		53BE1DC523BB35C0007EF43C /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		53D819AC23B2FB7D0050C650 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		53EBE28223BC80BC005E5B5A /* CEMyCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEMyCardVC.h; sourceTree = "<group>"; };
+		53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEMyCardVC.m; sourceTree = "<group>"; };
+		53EBE28A23BC8E87005E5B5A /* JMGenerateQRCodeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMGenerateQRCodeUtils.h; sourceTree = "<group>"; };
+		53EBE28B23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMGenerateQRCodeUtils.m; sourceTree = "<group>"; };
+		53EBE28D23BC8EAE005E5B5A /* CEColorUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEColorUtils.h; sourceTree = "<group>"; };
+		53EBE28E23BC8EAE005E5B5A /* CEColorUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEColorUtils.m; sourceTree = "<group>"; };
 		53F555CB23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		53F555CD23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		53F555CF23B8428A00CBECEA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -135,12 +142,15 @@
 			path = CEWeibo;
 			sourceTree = "<group>";
 		};
-		53BE1DC423BB35C0007EF43C /* Other */ = {
+		53EBE28923BC8E58005E5B5A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				53BE1DC523BB35C0007EF43C /* .gitkeep */,
+				53EBE28A23BC8E87005E5B5A /* JMGenerateQRCodeUtils.h */,
+				53EBE28B23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m */,
+				53EBE28D23BC8EAE005E5B5A /* CEColorUtils.h */,
+				53EBE28E23BC8EAE005E5B5A /* CEColorUtils.m */,
 			);
-			path = Other;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		53F555C823B8428A00CBECEA /* Classes */ = {
@@ -159,7 +169,6 @@
 		53F555C923B8428A00CBECEA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				53BE1DC423BB35C0007EF43C /* Other */,
 				53F555CA23B8428A00CBECEA /* Models */,
 				53F555CC23B8428A00CBECEA /* Controllers */,
 				53F555CE23B8428A00CBECEA /* Views */,
@@ -190,6 +199,8 @@
 				53F5562323B8468D00CBECEA /* CEQrcodeVC.m */,
 				53F5562123B8468D00CBECEA /* CEScannerController.h */,
 				53F5561E23B8468C00CBECEA /* CEScannerController.m */,
+				53EBE28223BC80BC005E5B5A /* CEMyCardVC.h */,
+				53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */,
 				53F5561D23B8468C00CBECEA /* CEStoryboard.storyboard */,
 				53F555CD23B8428A00CBECEA /* .gitkeep */,
 			);
@@ -243,6 +254,7 @@
 		53F555D723B8428A00CBECEA /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				53EBE28923BC8E58005E5B5A /* Utilities */,
 				53F555DC23B8428A00CBECEA /* main.m */,
 				53F555D823B8428A00CBECEA /* AppDelegate.h */,
 				53F555DD23B8428A00CBECEA /* AppDelegate.m */,
@@ -468,7 +480,6 @@
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
 				53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */,
 				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
-				53BE1DC623BB35C0007EF43C /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,11 +533,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */,
+				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
 				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
 				53F5562523B8468D00CBECEA /* CEBarcodeVC.m in Sources */,
+				53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */,
 				53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */,
+				53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */,
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
 				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
 				53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */,

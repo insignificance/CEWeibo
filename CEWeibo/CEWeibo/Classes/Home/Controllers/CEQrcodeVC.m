@@ -12,6 +12,7 @@
 #import <CFAlertViewController-Swift.h>
 #import <WebKit/WebKit.h>
 #import "AppDelegate.h"
+#import "CEColorUtils.h"
 
 
 
@@ -30,6 +31,7 @@
 @property ( strong , nonatomic ) AVCaptureVideoPreviewLayer * previewLayer;//展示捕获图像的图层，是CALayer的子类
 
 @property ( strong , nonatomic) UIImagePickerController * imagePickerController;
+
 
 @end
 
@@ -52,6 +54,11 @@
     [self setUpNavigationBar];
     
     [self setUpNavigationItem];
+    
+    
+    //设置bar 透明
+    
+    [CEColorUtils setTransparentColorForBarWithController:self];
     
     
     
@@ -130,6 +137,15 @@
     
 }
 
+- (IBAction)clickMyCard {
+    
+    
+    
+    
+    
+    
+    
+}
 
 
 #pragma mark -

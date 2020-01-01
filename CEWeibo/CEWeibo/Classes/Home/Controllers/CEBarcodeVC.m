@@ -12,6 +12,7 @@
 #import <WebKit/WebKit.h>
 #import "AppDelegate.h"
 #import <Masonry.h>
+#import "CEColorUtils.h"
 
 
 #define barcodeLineHeight self.barcodeline.frame.size.height
@@ -53,6 +54,10 @@
     
     
     [self setUpNavigationItem];
+    
+    //设置Bar 透明
+    
+    [CEColorUtils setTransparentColorForBarWithController:self];
     
     
     
@@ -120,6 +125,8 @@
     
     [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     
+    
+  
     
     //如果是模拟器弹出提示窗
     if (TARGET_IPHONE_SIMULATOR) {
@@ -708,6 +715,9 @@
     
     
 }
+
+
+
 
 
 

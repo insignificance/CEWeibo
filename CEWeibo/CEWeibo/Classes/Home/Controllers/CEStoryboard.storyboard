@@ -29,7 +29,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfV-q8-Cgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1220" y="-523"/>
+            <point key="canvasLocation" x="-1023" y="-519"/>
         </scene>
         <!--二维码-->
         <scene sceneID="WMV-wc-GRU">
@@ -50,7 +50,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlW-2a-978" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-506" y="-860"/>
+            <point key="canvasLocation" x="-198" y="-851"/>
         </scene>
         <!--二维码-->
         <scene sceneID="WdS-Cv-iVj">
@@ -91,13 +91,42 @@
                                     <constraint firstAttribute="height" id="Yhb-kc-dnm"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将二维码放入相框内，即可自动扫描" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvF-J2-EdO">
+                                <rect key="frame" x="112.5" y="497" width="150" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4y9-7h-ggi"/>
+                                    <constraint firstAttribute="width" constant="150" id="kfy-aH-beO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvF-c9-z4E">
+                                <rect key="frame" x="157.5" y="547" width="60" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="PvR-de-QI9"/>
+                                    <constraint firstAttribute="height" constant="16" id="xzl-A3-Djl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="我的名片">
+                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickMyCard" destination="YqP-PW-UQZ" eventType="touchUpInside" id="LyI-DO-dCx"/>
+                                    <segue destination="Acq-JB-Ml7" kind="show" id="fc2-CK-NM2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gRq-A9-PJ4" firstAttribute="height" secondItem="hFs-2k-Tin" secondAttribute="width" id="3BJ-ly-mC8"/>
+                            <constraint firstItem="MvF-J2-EdO" firstAttribute="top" secondItem="gRq-A9-PJ4" secondAttribute="bottom" constant="26" id="8xO-Aq-zTn"/>
+                            <constraint firstItem="MvF-J2-EdO" firstAttribute="centerX" secondItem="OSS-U7-BXc" secondAttribute="centerX" id="9Mx-Ju-hXP"/>
+                            <constraint firstItem="OvF-c9-z4E" firstAttribute="top" secondItem="MvF-J2-EdO" secondAttribute="bottom" constant="30" id="DGf-Hr-Wej"/>
                             <constraint firstItem="hFs-2k-Tin" firstAttribute="width" secondItem="gRq-A9-PJ4" secondAttribute="width" id="HoF-o6-AoK"/>
                             <constraint firstItem="hFs-2k-Tin" firstAttribute="leading" secondItem="OSS-U7-BXc" secondAttribute="leading" constant="50" id="Nnt-Q0-GD4"/>
                             <constraint firstItem="gRq-A9-PJ4" firstAttribute="centerX" secondItem="OSS-U7-BXc" secondAttribute="centerX" id="gw1-kV-6V7"/>
+                            <constraint firstItem="OvF-c9-z4E" firstAttribute="centerX" secondItem="OSS-U7-BXc" secondAttribute="centerX" id="lQX-TT-uZu"/>
                             <constraint firstItem="hFs-2k-Tin" firstAttribute="bottom" secondItem="mMG-EZ-9FF" secondAttribute="bottom" id="muX-eI-VeZ"/>
                             <constraint firstItem="gRq-A9-PJ4" firstAttribute="centerY" secondItem="OSS-U7-BXc" secondAttribute="centerY" id="qsr-eN-cQy"/>
                             <constraint firstAttribute="trailing" secondItem="hFs-2k-Tin" secondAttribute="trailing" constant="50" id="xiU-zF-Ec1"/>
@@ -116,7 +145,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioh-EK-ftu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="-1141"/>
+            <point key="canvasLocation" x="654" y="-1198"/>
+        </scene>
+        <!--我的名片-->
+        <scene sceneID="7Ok-oR-erx">
+            <objects>
+                <viewController id="Acq-JB-Ml7" customClass="CEMyCardVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kno-0g-IWj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImg" translatesAutoresizingMaskIntoConstraints="NO" id="MEN-Uh-1wf">
+                                <rect key="frame" x="57.5" y="203.5" width="260" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="lj1-Yb-RIA"/>
+                                    <constraint firstAttribute="width" constant="260" id="ozW-GI-ap9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MEN-Uh-1wf" firstAttribute="centerY" secondItem="Kno-0g-IWj" secondAttribute="centerY" id="CtP-dj-zIY"/>
+                            <constraint firstItem="MEN-Uh-1wf" firstAttribute="centerX" secondItem="Kno-0g-IWj" secondAttribute="centerX" id="Ouq-Xo-WE1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9fM-iD-ARa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的名片" id="9a1-ES-RNc">
+                        <barButtonItem key="backBarButtonItem" id="c0B-Jm-65B"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="MyCard" destination="MEN-Uh-1wf" id="PMN-g2-sHA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8e-M8-5ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="-1197"/>
         </scene>
         <!--条形码-->
         <scene sceneID="aoq-Xg-Oao">
@@ -156,6 +219,16 @@
                                     <constraint firstAttribute="height" id="mxB-An-oug"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将条形码码放入相框内，即可自动扫描" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkD-qE-7UQ">
+                                <rect key="frame" x="107.5" y="442" width="160" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Owe-fm-uAA"/>
+                                    <constraint firstAttribute="width" constant="160" id="wKY-91-bQ3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -165,6 +238,8 @@
                             <constraint firstItem="aME-Uv-0Tr" firstAttribute="leading" secondItem="Yi6-oS-9cl" secondAttribute="leading" constant="50" id="ND2-It-PNo"/>
                             <constraint firstItem="IIG-ey-WCK" firstAttribute="centerX" secondItem="Yi6-oS-9cl" secondAttribute="centerX" id="T4z-j1-TMq"/>
                             <constraint firstAttribute="trailing" secondItem="aME-Uv-0Tr" secondAttribute="trailing" constant="50" id="UMV-zR-5w7"/>
+                            <constraint firstItem="hkD-qE-7UQ" firstAttribute="centerX" secondItem="Yi6-oS-9cl" secondAttribute="centerX" id="Ud7-9L-JI9"/>
+                            <constraint firstItem="hkD-qE-7UQ" firstAttribute="top" secondItem="IIG-ey-WCK" secondAttribute="bottom" constant="26" id="cbJ-mJ-v9P"/>
                             <constraint firstItem="YTr-nu-JKS" firstAttribute="height" secondItem="aME-Uv-0Tr" secondAttribute="width" multiplier="0.5" id="eix-HY-kOf"/>
                             <constraint firstItem="aME-Uv-0Tr" firstAttribute="width" secondItem="IIG-ey-WCK" secondAttribute="width" id="r2x-ZH-a1o"/>
                         </constraints>
@@ -182,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgQ-gl-Wkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="48"/>
+            <point key="canvasLocation" x="716" y="-114"/>
         </scene>
         <!--条形码-->
         <scene sceneID="FVx-Kj-8ad">
@@ -199,10 +274,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyD-Bg-8qx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="33"/>
+            <point key="canvasLocation" x="-238" y="-45"/>
         </scene>
     </scenes>
     <resources>
+        <image name="launchImg" width="658" height="1170"/>
         <image name="qrcode_border" width="50.5" height="50.5"/>
         <image name="qrcode_scanline_barcode" width="248" height="124"/>
         <image name="qrcode_scanline_qrcode" width="218" height="170"/>
