@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CEMessageViewController : UIViewController
+@interface CEMessageViewController : UITableViewController
 
 @end
 

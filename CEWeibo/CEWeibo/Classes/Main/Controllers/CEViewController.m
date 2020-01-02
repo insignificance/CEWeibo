@@ -12,6 +12,7 @@
 #import "CEMessageViewController.h"
 #import "CEProfileViewController.h"
 #import "CEDiscoverViewController.h"
+#import "CENavigationController.h"
 
 
 
@@ -112,14 +113,14 @@
     
     
     
-    UIViewController *home = [self addViewControllerWithClass:[UINavigationController class] withObj: [CEHomeViewController new] image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
+    UIViewController *home = [self addViewControllerWithClass:[CENavigationController class] withObj: [CEHomeViewController new] image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
     
-    UIViewController *message = [self addViewControllerWithClass:[UINavigationController class]withObj: [CEMessageViewController new]  image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
+    UIViewController *message = [self addViewControllerWithClass:[CENavigationController class]withObj: [CEMessageViewController new]  image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
     
-    UIViewController *discover = [self addViewControllerWithClass:[UINavigationController class]withObj: [CEDiscoverViewController new]  image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
+    UIViewController *discover = [self addViewControllerWithClass:[CENavigationController class]withObj: [CEDiscoverViewController new]  image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
     
     
-    UIViewController *profile = [self addViewControllerWithClass:[UINavigationController class]withObj: [CEProfileViewController new]  image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
+    UIViewController *profile = [self addViewControllerWithClass:[CENavigationController class]withObj: [CEProfileViewController new]  image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
  
     
     
@@ -202,11 +203,11 @@
     
     
     //如果Class 是UINavigationController 
-    if ([[Class new] isKindOfClass:[UINavigationController class]]) {
+    if ([[Class new] isKindOfClass:[CENavigationController class]]) {
         
         
         UIViewController *rootVC = (UIViewController *)obj;
-        vc = [[UINavigationController alloc]initWithRootViewController:rootVC];
+        vc = [[CENavigationController alloc]initWithRootViewController:rootVC];
         
         //设置导航条文字
         //rootVC.title = title;

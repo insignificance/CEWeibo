@@ -30,6 +30,7 @@
 		53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5563023B846C100CBECEA /* CEMessageViewController.m */; };
 		53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5563223B846D900CBECEA /* CEProfileViewController.m */; };
 		53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */; };
+		53F55DCF23BD8C1500180F20 /* CENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F55DCE23BD8C1500180F20 /* CENavigationController.m */; };
 		CBBB85CBF8FD21B4F7840875 /* Pods_CEWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,8 @@
 		53F5563323B846DA00CBECEA /* CEProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEProfileViewController.h; sourceTree = "<group>"; };
 		53F5563523B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CEBarButtonItem.h"; sourceTree = "<group>"; };
 		53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CEBarButtonItem.m"; sourceTree = "<group>"; };
+		53F55DCD23BD8C1500180F20 /* CENavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CENavigationController.h; sourceTree = "<group>"; };
+		53F55DCE23BD8C1500180F20 /* CENavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CENavigationController.m; sourceTree = "<group>"; };
 		BEA15D1F7D6CA2903994C0A5 /* Pods-CEWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.release.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		C9EBFC6CA5FD2F000D444A61 /* Pods-CEWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEWeibo.debug.xcconfig"; path = "Target Support Files/Pods-CEWeibo/Pods-CEWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBB7AAA3E0D7BEACEA0439C /* Pods_CEWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CEWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +374,8 @@
 				53F5560C23B8451400CBECEA /* CEViewController.h */,
 				53F5560D23B8451500CBECEA /* CEViewController.m */,
 				53F555F123B8428A00CBECEA /* .gitkeep */,
+				53F55DCD23BD8C1500180F20 /* CENavigationController.h */,
+				53F55DCE23BD8C1500180F20 /* CENavigationController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
 				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
 				53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */,
+				53F55DCF23BD8C1500180F20 /* CENavigationController.m in Sources */,
 				53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */,
 				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
