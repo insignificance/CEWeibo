@@ -20,9 +20,11 @@
     
     self.window.rootViewController.view.backgroundColor = [UIColor orangeColor];
  
-    UIWindowScene *windowScene = [[UIWindowScene alloc]initWithSession:session connectionOptions:connectionOptions];
+    //UIWindowScene *windowScene = [[UIWindowScene alloc]initWithSession:session connectionOptions:connectionOptions];
     
-    self.window.windowScene = windowScene;
+    
+    
+    self.window.windowScene = (UIWindowScene *)scene;
     
     [self.window makeKeyWindow];
     
