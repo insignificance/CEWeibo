@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814D9D23C070CD0057245C /* UIView+Frame.m */; };
+		53814DA723C086E50057245C /* CETitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814DA623C086E50057245C /* CETitleView.m */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
 		53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */; };
 		53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28B23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m */; };
@@ -35,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53814D9C23C070CD0057245C /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		53814D9D23C070CD0057245C /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		53814DA523C086E50057245C /* CETitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETitleView.h; sourceTree = "<group>"; };
+		53814DA623C086E50057245C /* CETitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CETitleView.m; sourceTree = "<group>"; };
 		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -214,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				53F555CF23B8428A00CBECEA /* .gitkeep */,
+				53814DA523C086E50057245C /* CETitleView.h */,
+				53814DA623C086E50057245C /* CETitleView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +279,8 @@
 		53F555D923B8428A00CBECEA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				53814D9C23C070CD0057245C /* UIView+Frame.h */,
+				53814D9D23C070CD0057245C /* UIView+Frame.m */,
 				53F5563523B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.h */,
 				53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */,
 				53F555DA23B8428A00CBECEA /* .gitkeep */,
@@ -538,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */,
+				53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */,
 				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
@@ -556,6 +567,7 @@
 				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
 				53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */,
 				53F5561623B8455A00CBECEA /* CETabBar.m in Sources */,
+				53814DA723C086E50057245C /* CETitleView.m in Sources */,
 				53F5562A23B8468D00CBECEA /* CEQrcodeVC.m in Sources */,
 				53F5562723B8468D00CBECEA /* CEScannerController.m in Sources */,
 			);

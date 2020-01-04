@@ -17,23 +17,18 @@
 @implementation CEDiscoverViewController
 
 
-
-static UIWindow *window;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
 
-//    //设置searchbar
+    //设置searchbar
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
+    
     self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     
     //设置 搜索框
-    
-    
-    
-    
+   
     self.navigationItem.searchController = self.searchController;
     
     
@@ -48,42 +43,11 @@ static UIWindow *window;
     
     self.navigationController.navigationBar.userInteractionEnabled = YES;
     
-   
     
+    //kvc 修改私有属性
+    [self.searchController.searchBar setValue:@"取消" forKey:@"cancelButtonText"];
     
-    
-    UITextField *textfield = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 200, 44)];
-    
-    
-    
-    textfield.backgroundColor = [UIColor redColor];
-    
- 
-    textfield.borderStyle = UITextBorderStyleRoundedRect;
-    
-    
-    
-    
-    
-    
-    DDLogDebug(@"canBecomeFirstResponder %d",[textfield canBecomeFirstResponder]);
-    
-    
-    //[searchbar becomeFirstResponder];
-    
-    
-    
-    
-    DDFunc;
-    DDLogDebug(@"isFirstResponder %d",self.searchController.searchBar.isFirstResponder);
-    
-   
-   
-    
-   
-    
-    
-    
+
     
 }
 
@@ -92,23 +56,9 @@ static UIWindow *window;
     
     [super viewWillAppear:animated];
     
-    DDFunc;
-    DDLogDebug(@"isFirstResponder %d",self.searchController.searchBar.isFirstResponder);
 
     
 }
-
-
-- (void)didPresentSearchController:(UISearchController *)searchController{
-    
-   
-  DDLogDebug(@"isFirstResponder %d",self.searchController.searchBar.isFirstResponder);
-    
-    
-}
-
-
-
 
 
 /*
@@ -149,10 +99,7 @@ static UIWindow *window;
 //        //设置rightBarButton
 //        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highlightedImg:@"navigationbar_pop_highlighted" target:self action:@selector(ClickRightBarButton:)];
 //
-        
-        
-        
-        
+    
     }
     
     
@@ -161,30 +108,37 @@ static UIWindow *window;
 }
 
 
-
 #pragma mark -
 #pragma mark -- UISearchControllerDelegate
+
+
+- (void)willPresentSearchController:(UISearchController *)searchController{
+    
+   
+    
+    
+}
+
+- (void)didPresentSearchController:(UISearchController *)searchController{
+    
+
+    
+}
+
+- (void)presentSearchController:(UISearchController *)searchController{
+    
+    
+   
+    
+    
+}
+
+
+
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
     
-    DDFunc;
-    
-    searchController.searchBar.showsCancelButton = YES;
-    
-    [searchController.searchBar.subviews[0].subviews[1].subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-        
-        DDFunc;
-        
-        if ([obj isKindOfClass:[UIButton class]]) {
-            
-            [obj setValue:@"取消" forKeyPath:@"title"];
-        }
-        
-       
-      
-        
-    }];
+   
     
     
 }
@@ -199,8 +153,9 @@ static UIWindow *window;
     
     if (_searchController == nil) {
         
-        _searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
-          
+        _searchController = [[UISearchController alloc]initWithSearchResultsController:[UIViewController new]];
+        
+        _searchController.delegate = self;
         
     }
     

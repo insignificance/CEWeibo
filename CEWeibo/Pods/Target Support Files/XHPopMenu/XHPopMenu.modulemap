@@ -1,0 +1,6 @@
+framework module XHPopMenu {
+  umbrella header "XHPopMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}
