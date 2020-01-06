@@ -17,6 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    if (self.defaultView != nil) {
+        
+        
+        self.defaultView.descriptionIconName = @"visitordiscover_image_message";
+        self.defaultView.info = @"登陆后,别人评论你的微薄，给你发消息，都会在这里收到通知";
+        
+        
+    }
+    
 }
 
 /*

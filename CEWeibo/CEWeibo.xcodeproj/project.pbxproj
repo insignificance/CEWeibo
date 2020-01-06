@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814D9D23C070CD0057245C /* UIView+Frame.m */; };
 		53814DA723C086E50057245C /* CETitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814DA623C086E50057245C /* CETitleView.m */; };
+		5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */; };
+		5381964D23C2DAAD0064B8FA /* CEDefaultCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964C23C2DAAD0064B8FA /* CEDefaultCenterView.m */; };
+		5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */; };
+		5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381965223C3154A0064B8FA /* CEOAuthViewController.m */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
 		53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */; };
 		53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28B23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m */; };
@@ -41,6 +45,13 @@
 		53814D9D23C070CD0057245C /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		53814DA523C086E50057245C /* CETitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETitleView.h; sourceTree = "<group>"; };
 		53814DA623C086E50057245C /* CETitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CETitleView.m; sourceTree = "<group>"; };
+		5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEDfaultCenterView.xib; sourceTree = "<group>"; };
+		5381964B23C2DAAD0064B8FA /* CEDefaultCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEDefaultCenterView.h; sourceTree = "<group>"; };
+		5381964C23C2DAAD0064B8FA /* CEDefaultCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEDefaultCenterView.m; sourceTree = "<group>"; };
+		5381964E23C2E36F0064B8FA /* CEDefaultCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEDefaultCenterVC.h; sourceTree = "<group>"; };
+		5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEDefaultCenterVC.m; sourceTree = "<group>"; };
+		5381965123C3154A0064B8FA /* CEOAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEOAuthViewController.h; sourceTree = "<group>"; };
+		5381965223C3154A0064B8FA /* CEOAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEOAuthViewController.m; sourceTree = "<group>"; };
 		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -386,6 +397,10 @@
 				53F555F123B8428A00CBECEA /* .gitkeep */,
 				53F55DCD23BD8C1500180F20 /* CENavigationController.h */,
 				53F55DCE23BD8C1500180F20 /* CENavigationController.m */,
+				5381964E23C2E36F0064B8FA /* CEDefaultCenterVC.h */,
+				5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */,
+				5381965123C3154A0064B8FA /* CEOAuthViewController.h */,
+				5381965223C3154A0064B8FA /* CEOAuthViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -400,6 +415,9 @@
 				53F5561223B8455A00CBECEA /* CETabBar2.h */,
 				53F5561423B8455A00CBECEA /* CETabBar2.m */,
 				53F555F323B8428A00CBECEA /* .gitkeep */,
+				5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */,
+				5381964B23C2DAAD0064B8FA /* CEDefaultCenterView.h */,
+				5381964C23C2DAAD0064B8FA /* CEDefaultCenterView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -495,6 +513,7 @@
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
 				53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */,
 				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
+				5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,8 +567,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */,
+				5381964D23C2DAAD0064B8FA /* CEDefaultCenterView.m in Sources */,
 				53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */,
 				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
+				5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
 				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
@@ -561,6 +582,7 @@
 				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
 				53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */,
 				53F55DCF23BD8C1500180F20 /* CENavigationController.m in Sources */,
+				5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */,
 				53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */,
 				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,

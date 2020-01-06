@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    // 初始化默认中间视图
+    
+    [self setUpImgAndTitle];
+      
+    
 }
 
 /*
@@ -65,8 +72,16 @@
     
 }
 
-
-
+//设置默认view的图片 文字
+- (void)setUpImgAndTitle{
+    
+    if (self.defaultView != nil) {
+        self.defaultView.descriptionIconName = @"visitordiscover_image_profile";
+        self.defaultView.info = @"登陆后,你的微博、相册、个人资料会显示在这里， 展示给别人";
+    }
+    
+    
+}
 
 
 - (void)ClikLeftBarButton:(UIButton *)btn{

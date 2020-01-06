@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CEDiscoverViewController : UITableViewController
+@interface CEDiscoverViewController : CEDefaultCenterVC
 
 @end
 

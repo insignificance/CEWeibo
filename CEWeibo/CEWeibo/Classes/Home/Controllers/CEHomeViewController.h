@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CEHomeViewController : UITableViewController
+@interface CEHomeViewController : CEDefaultCenterVC;
 
 @end
 

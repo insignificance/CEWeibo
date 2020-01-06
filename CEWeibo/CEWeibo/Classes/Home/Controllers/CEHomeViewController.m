@@ -16,18 +16,60 @@
 
 
 @interface CEHomeViewController ()
+
 @property (nonatomic,weak)CETitleView *cetitleView;
 
 @end
 
 @implementation CEHomeViewController
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    
+    [super viewWillAppear:animated];
+    
+    
+    if (self.defaultView != nil) {
+        
+        [self.defaultView startRotate];
+        
+    }
+    
+
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+
+    
+    
+    [self setUpImgAndTitle];
+    
+    
     
 }
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    
+    [super viewWillDisappear:animated];
+    
+    if (self.defaultView != nil) {
+        
+        [self.defaultView stopRotate];
+        
+    }
+    
+    
+}
+
 
 /*
  #pragma mark - Navigation
@@ -40,24 +82,6 @@
  */
 
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    
-    
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        
-        //设置leftBarButton
-        self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highlightedImg:@"navigationbar_friendsearch_highlighted" target:self action:@selector(ClikLeftBarButton:)];
-        //设置rightBarButton
-        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highlightedImg:@"navigationbar_pop_highlighted" target:self action:@selector(ClickRightBarButton:)];
-        
-        
-        
-    }
-    
-    
-    return self;
-}
-
 
 - (instancetype)initWithStyle:(UITableViewStyle)style{
     
@@ -65,16 +89,22 @@
     if (self = [super initWithStyle:style]) {
         
         
-        //设置leftBarButton
-        self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highlightedImg:@"navigationbar_friendsearch_highlighted" target:self action:@selector(ClikLeftBarButton:)];
-        //设置rightBarButton
-        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highlightedImg:@"navigationbar_pop_highlighted" target:self action:@selector(ClickRightBarButton:)];
         
+        //设置BarButtonItem
+        
+        
+        [self setUpBarButtonItem];
+        
+     
         //创建自定义titleview
         
         [self setUpTitleView:@"首页" andImage:@"navigationbar_arrow_down"];
         
         
+        
+        //设置默认view 的 图片 文字 应该延后
+        
+        //[self setUpImgAndTitle];
         
         
         
@@ -85,6 +115,43 @@
     return self;
     
 }
+
+
+
+#pragma mark -
+#pragma mark -- 设置默认view的图片 文字
+
+- (void)setUpImgAndTitle{
+    
+    self.defaultView.backgroundimgName = @"visitordiscover_feed_image_smallicon";
+    
+    self.defaultView.info = @"当你关注一些人以后，他们发布的最新消息会显示在这里";
+    
+    self.defaultView.descriptionIconName = @"visitordiscover_feed_image_house";
+    
+    
+    
+}
+
+
+
+#pragma mark -
+#pragma mark -- 设置BarButtonItem
+
+
+- (void)setUpBarButtonItem{
+    
+    
+    //设置leftBarButton
+         self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highlightedImg:@"navigationbar_friendsearch_highlighted" target:self action:@selector(ClikLeftBarButton:)];
+         //设置rightBarButton
+         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highlightedImg:@"navigationbar_pop_highlighted" target:self action:@selector(ClickRightBarButton:)];
+         
+    
+    
+}
+
+
 
 
 #pragma mark -
@@ -123,6 +190,13 @@
 }
 
 
+
+
+
+
+
+#pragma mark -
+#pragma mark -- 点击titlView
 
 - (void)ClickTitleView:(UIButton *)btn{
     
@@ -172,7 +246,7 @@
 
 
 #pragma mark -
-#pragma mark -- 改变cetitleview 的图片
+#pragma mark -- 改变titleview 的图片
 
 - (void)changeIndicator{
     
@@ -203,6 +277,11 @@
     
 }
 
+
+#pragma mark -
+#pragma mark -- 点击左侧barbutton
+
+
 - (void)ClikLeftBarButton:(UIButton *)btn{
     
     
@@ -210,6 +289,10 @@
     
 }
 
+
+
+#pragma mark -
+#pragma mark -- 点击右侧barbutton
 
 - (void)ClickRightBarButton:(UIButton *)btn{
     
@@ -274,6 +357,9 @@
     
     
 }
+
+
+
 
 
 
