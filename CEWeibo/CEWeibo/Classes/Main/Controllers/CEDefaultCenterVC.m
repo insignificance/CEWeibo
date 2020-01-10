@@ -8,6 +8,9 @@
 
 #import "CEDefaultCenterVC.h"
 #import "CEDefaultCenterView.h"
+#import "CEOAuthViewController.h"
+#import "CEAccountTool.h"
+#import "CEAccount.h"
 
 @interface CEDefaultCenterVC ()<CEDeflaultCenterViewDelegate>
 
@@ -19,13 +22,31 @@
 
 - (void)loadView{
     
-    CEDefaultCenterView *defaultView = [CEDefaultCenterView defaultCenterView];
-    self.view = defaultView;
-    self.defaultView = defaultView;
     
-    //设置代理属性
-    self.defaultView.delegate = self;
+    //1. 取出沙河中存储的授权信息
+    CEAccount *account = [CEAccountTool account];
     
+    
+    //2. 判断时候有授权信息
+    
+    if (account == nil) {
+        
+        CEDefaultCenterView *defaultView = [CEDefaultCenterView defaultCenterView];
+        self.view = defaultView;
+        self.defaultView = defaultView;
+        
+        //设置代理属性
+        self.defaultView.delegate = self;
+    }else{
+        
+        
+        
+        [super loadView];
+        
+        
+    }
+    
+
     
 }
 
@@ -37,6 +58,19 @@
 - (void)defaultCenterView:(CEDefaultCenterView *)defaultView didClickLogInBtn:(UIButton *)logInBtn{
     
     
+    //打开登陆界面
+    
+    CEOAuthViewController *oauthVc = [[CEOAuthViewController alloc]init];
+    
+    oauthVc.view.backgroundColor = [UIColor greenColor];
+    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:oauthVc];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+    
+    
+    
+    
     DDFunc;
     
 }
@@ -44,7 +78,7 @@
 
 - (void)defaultCenterView:(CEDefaultCenterView *)defaultView didClickSignInBtn:(UIButton *)signInBtn{
     
-    
+    //打开注册界面
     DDFunc;
     
     

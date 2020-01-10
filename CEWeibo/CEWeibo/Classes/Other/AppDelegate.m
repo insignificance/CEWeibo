@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import "CEViewController.h"
-
+#import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/SDWebImage.h>
+#import "CEAccount.h"
+#import "CEAccountTool.h"
+#import "UIWindow+Extension.h"
 
 @interface AppDelegate ()
 
@@ -50,6 +54,7 @@
          
          */
         
+        //1. 创建窗口 并成为主窗口
         
         self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
         
@@ -64,12 +69,99 @@
         //统一修改图片文字颜色
         //[[UITabBar appearance] setTintColor:[UIColor redColor]];
         
+        
+        
+        // 2.判断显示默认界面还是显示新特性或者欢迎界面
+        CEAccount *account = [CEAccountTool account];
+        if (account == nil) {
+            // 显示默认界面
+            CEViewController *tabBarVc = [[CEViewController alloc] init];
+            self.window.rootViewController = tabBarVc;
+        }else
+        {
+            // 如果在此之后才调用makeKeyAndVisible, 那么在chooseRootViewController方法中去到的keywindow是nil
+            [self.window chooseRootViewController];
+        }
+        
+        
+        
+        
+        
     }
     
     
     
     return YES;
 }
+
+
+
+#pragma mark -
+#pragma mark -- 判断网络状态
+
+- (BOOL)isNetWorkReachable{
+    
+    
+    //创建afn网络管理者
+    AFNetworkReachabilityManager *afNetWorkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    
+    //开启 网络监视器
+    
+    [afNetWorkReachabilityManager startMonitoring];
+    
+    [afNetWorkReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        
+        
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:{
+                NSLog(@"网络不通");
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWiFi:{
+                
+                NSLog(@"网络通过WIFI连接");
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWWAN:{
+                
+                NSLog(@"网络通过流量连接");
+                break;
+            }
+            default:
+                
+                break;
+        }
+        
+        
+        
+    }];
+    
+    
+    
+    
+    return [AFNetworkReachabilityManager sharedManager].isReachable;
+    
+    
+}
+
+// 接收到内存警告就会调用
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    //    DDActionLog;
+    
+    // 1.停止当前下载
+    [[SDWebImageManager sharedManager] cancelAll];
+    
+    // 2.清空内存缓存
+    [[SDWebImageManager sharedManager].imageCache clearWithCacheType:SDImageCacheTypeMemory completion:NULL];
+}
+
+
+
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

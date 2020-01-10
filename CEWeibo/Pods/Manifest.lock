@@ -1,34 +1,62 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - CFAlertViewController (3.1)
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
+  - JGProgressHUD (2.1)
   - Masonry (1.1.0)
   - ProgressHUD (2.51)
+  - SDWebImage (5.3.2):
+    - SDWebImage/Core (= 5.3.2)
+  - SDWebImage/Core (5.3.2)
   - XHPopMenu (1.1.0)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
   - CFAlertViewController
   - CocoaLumberjack
+  - JGProgressHUD
   - Masonry
   - ProgressHUD
+  - SDWebImage (~> 5.0)
   - XHPopMenu
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - CFAlertViewController
     - CocoaLumberjack
+    - JGProgressHUD
     - Masonry
     - ProgressHUD
+    - SDWebImage
     - XHPopMenu
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CFAlertViewController: a27cf0512d0fa9ef6a3b966862039c295fb0ef69
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
+  SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   XHPopMenu: c3032f86250f56562ae7eb39c1c0239544554f04
 
-PODFILE CHECKSUM: 4ca2cd33f910922fb97afab43e1a8d1e33b3f0ab
+PODFILE CHECKSUM: 1af7d26a0e936cb6f598918a256339121c6aca6e
 
 COCOAPODS: 1.8.4

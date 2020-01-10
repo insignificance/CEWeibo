@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CENewfeatureVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_feature_h" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-zN-HXL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGY-YM-FIB">
+                    <rect key="frame" x="92.5" y="543" width="190" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="MSR-OQ-3bC"/>
+                        <constraint firstAttribute="width" constant="190" id="pAD-BQ-MSY"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="new_feature_button"/>
+                    <connections>
+                        <action selector="ClickEnterBtn:" destination="-1" eventType="touchUpInside" id="W14-Eh-Sxi"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="DKD-zN-HXL" secondAttribute="trailing" id="FEw-e1-L7B"/>
+                <constraint firstItem="DKD-zN-HXL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="V6D-h3-NdR"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="bGY-YM-FIB" secondAttribute="bottom" constant="80" id="W3u-xn-w7b"/>
+                <constraint firstItem="DKD-zN-HXL" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="ZPW-GQ-i7V"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="DKD-zN-HXL" secondAttribute="bottom" id="e5j-eS-mMr"/>
+                <constraint firstItem="bGY-YM-FIB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oUc-47-ZgM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-252" y="-156"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="new_feature_button" width="190" height="44"/>
+        <image name="new_feature_h" width="375" height="667"/>
+    </resources>
+</document>

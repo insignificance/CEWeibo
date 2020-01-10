@@ -24,6 +24,10 @@
 @implementation CEHomeViewController
 
 
+
+#pragma mark -
+#pragma mark -- viewcontroller life recycle
+
 - (void)viewWillAppear:(BOOL)animated{
     
     
@@ -46,10 +50,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
     
     
-    [self setUpImgAndTitle];
+    if (self.defaultView !=nil) {
+        
+        //初始化中间视图
+        [self setUpImgAndTitle];
+        
+    }
+    
     
     
     

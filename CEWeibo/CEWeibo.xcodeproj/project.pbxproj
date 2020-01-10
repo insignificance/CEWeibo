@@ -14,6 +14,13 @@
 		5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */; };
 		5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381965223C3154A0064B8FA /* CEOAuthViewController.m */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
+		53CBB45B23C456660064C575 /* CEAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB45A23C456660064C575 /* CEAccount.m */; };
+		53CBB46023C45E290064C575 /* CENewfeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB45E23C45E290064C575 /* CENewfeatureVC.m */; };
+		53CBB46123C45E290064C575 /* CENewfeatureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CBB45F23C45E290064C575 /* CENewfeatureVC.xib */; };
+		53CBB46523C45E4A0064C575 /* CEWelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB46323C45E4A0064C575 /* CEWelcomeVC.m */; };
+		53CBB46623C45E4A0064C575 /* CEWelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CBB46423C45E4A0064C575 /* CEWelcomeVC.xib */; };
+		53CBB46923C4685A0064C575 /* CEAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB46823C4685A0064C575 /* CEAccountTool.m */; };
+		53CBB46F23C47B120064C575 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB46E23C47B120064C575 /* UIWindow+Extension.m */; };
 		53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */; };
 		53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28B23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m */; };
 		53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EBE28E23BC8EAE005E5B5A /* CEColorUtils.m */; };
@@ -55,6 +62,18 @@
 		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53CBB45923C456660064C575 /* CEAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAccount.h; sourceTree = "<group>"; };
+		53CBB45A23C456660064C575 /* CEAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEAccount.m; sourceTree = "<group>"; };
+		53CBB45D23C45E290064C575 /* CENewfeatureVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CENewfeatureVC.h; sourceTree = "<group>"; };
+		53CBB45E23C45E290064C575 /* CENewfeatureVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CENewfeatureVC.m; sourceTree = "<group>"; };
+		53CBB45F23C45E290064C575 /* CENewfeatureVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CENewfeatureVC.xib; sourceTree = "<group>"; };
+		53CBB46223C45E4A0064C575 /* CEWelcomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEWelcomeVC.h; sourceTree = "<group>"; };
+		53CBB46323C45E4A0064C575 /* CEWelcomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEWelcomeVC.m; sourceTree = "<group>"; };
+		53CBB46423C45E4A0064C575 /* CEWelcomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEWelcomeVC.xib; sourceTree = "<group>"; };
+		53CBB46723C4685A0064C575 /* CEAccountTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAccountTool.h; sourceTree = "<group>"; };
+		53CBB46823C4685A0064C575 /* CEAccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEAccountTool.m; sourceTree = "<group>"; };
+		53CBB46D23C47B120064C575 /* UIWindow+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		53CBB46E23C47B120064C575 /* UIWindow+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		53D819AC23B2FB7D0050C650 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		53EBE28223BC80BC005E5B5A /* CEMyCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEMyCardVC.h; sourceTree = "<group>"; };
 		53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEMyCardVC.m; sourceTree = "<group>"; };
@@ -133,6 +152,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5379EE9223C36E3400690CD0 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				5379EE9523C36E7B00690CD0 /* Tool */,
+				5379EE9423C36E6F00690CD0 /* Model */,
+				5379EE9323C36E5E00690CD0 /* Controller */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		5379EE9323C36E5E00690CD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5381965123C3154A0064B8FA /* CEOAuthViewController.h */,
+				5381965223C3154A0064B8FA /* CEOAuthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5379EE9423C36E6F00690CD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53CBB45923C456660064C575 /* CEAccount.h */,
+				53CBB45A23C456660064C575 /* CEAccount.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5379EE9523C36E7B00690CD0 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				53CBB46723C4685A0064C575 /* CEAccountTool.h */,
+				53CBB46823C4685A0064C575 /* CEAccountTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		5387895123B24E390083B362 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +218,19 @@
 			path = CEWeibo;
 			sourceTree = "<group>";
 		};
+		53CBB45C23C45D910064C575 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				53CBB45D23C45E290064C575 /* CENewfeatureVC.h */,
+				53CBB45E23C45E290064C575 /* CENewfeatureVC.m */,
+				53CBB45F23C45E290064C575 /* CENewfeatureVC.xib */,
+				53CBB46223C45E4A0064C575 /* CEWelcomeVC.h */,
+				53CBB46323C45E4A0064C575 /* CEWelcomeVC.m */,
+				53CBB46423C45E4A0064C575 /* CEWelcomeVC.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		53EBE28923BC8E58005E5B5A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +245,8 @@
 		53F555C823B8428A00CBECEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				53CBB45C23C45D910064C575 /* Welcome */,
+				5379EE9223C36E3400690CD0 /* OAuth */,
 				53F555C923B8428A00CBECEA /* Home */,
 				53F555D023B8428A00CBECEA /* Discover */,
 				53F555D723B8428A00CBECEA /* Other */,
@@ -295,6 +366,8 @@
 				53F5563523B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.h */,
 				53F5563623B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m */,
 				53F555DA23B8428A00CBECEA /* .gitkeep */,
+				53CBB46D23C47B120064C575 /* UIWindow+Extension.h */,
+				53CBB46E23C47B120064C575 /* UIWindow+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -399,8 +472,6 @@
 				53F55DCE23BD8C1500180F20 /* CENavigationController.m */,
 				5381964E23C2E36F0064B8FA /* CEDefaultCenterVC.h */,
 				5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */,
-				5381965123C3154A0064B8FA /* CEOAuthViewController.h */,
-				5381965223C3154A0064B8FA /* CEOAuthViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -513,6 +584,8 @@
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
 				53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */,
 				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
+				53CBB46623C45E4A0064C575 /* CEWelcomeVC.xib in Resources */,
+				53CBB46123C45E290064C575 /* CENewfeatureVC.xib in Resources */,
 				5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,23 +642,28 @@
 				53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */,
 				5381964D23C2DAAD0064B8FA /* CEDefaultCenterView.m in Sources */,
 				53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */,
+				53CBB46923C4685A0064C575 /* CEAccountTool.m in Sources */,
 				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
 				5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */,
+				53CBB46F23C47B120064C575 /* UIWindow+Extension.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
 				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
 				53F5562523B8468D00CBECEA /* CEBarcodeVC.m in Sources */,
 				53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */,
+				53CBB46023C45E290064C575 /* CENewfeatureVC.m in Sources */,
 				53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */,
 				53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */,
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
 				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
 				53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */,
 				53F55DCF23BD8C1500180F20 /* CENavigationController.m in Sources */,
+				53CBB45B23C456660064C575 /* CEAccount.m in Sources */,
 				5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */,
 				53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */,
 				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
+				53CBB46523C45E4A0064C575 /* CEWelcomeVC.m in Sources */,
 				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
 				53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */,
 				53F5561623B8455A00CBECEA /* CETabBar.m in Sources */,

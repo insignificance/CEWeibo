@@ -106,7 +106,7 @@
 
 
 #pragma mark -
-#pragma mark -- 初始化自控制器
+#pragma mark -- 初始化子控制器
 
 
 - (void)setUpChildVC {

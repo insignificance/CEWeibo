@@ -91,7 +91,7 @@
     
     if ([self.delegate respondsToSelector:@selector(defaultCenterView:didClickSignInBtn:)]) {
         
-        [self.delegate defaultCenterView:self didClickLogInBtn:sender];
+        [self.delegate defaultCenterView:self didClickSignInBtn:sender];
         
     }
     
