@@ -72,7 +72,7 @@
         
         
         // 2.判断显示默认界面还是显示新特性或者欢迎界面
-        CEAccount *account = [CEAccountTool account];
+        CEAccount *account = [CEAccountTool accountFromSandbox];
         if (account == nil) {
             // 显示默认界面
             CEViewController *tabBarVc = [[CEViewController alloc] init];

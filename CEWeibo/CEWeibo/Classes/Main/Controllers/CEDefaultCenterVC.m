@@ -24,7 +24,7 @@
     
     
     //1. 取出沙河中存储的授权信息
-    CEAccount *account = [CEAccountTool account];
+    CEAccount *account = [CEAccountTool accountFromSandbox];
     
     
     //2. 判断时候有授权信息

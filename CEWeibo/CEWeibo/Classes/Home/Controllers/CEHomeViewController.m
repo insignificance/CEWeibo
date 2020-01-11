@@ -10,6 +10,7 @@
 #import "CEScannerController.h"
 #import "CETitleView.h"
 #import <XHPopMenu/XHPopMenu.h>
+#import <AFNetworking/AFNetworking.h>
 
 
 
@@ -40,7 +41,7 @@
         
     }
     
-
+    
     
 }
 
@@ -57,12 +58,23 @@
         //初始化中间视图
         [self setUpImgAndTitle];
         
+    }else{
+        
+        //设置用户数据
+        [self setUpUserInfo];
+        
+        
     }
     
     
     
     
 }
+
+
+
+
+
 
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -104,7 +116,7 @@
         
         [self setUpBarButtonItem];
         
-     
+        
         //创建自定义titleview
         
         [self setUpTitleView:@"首页" andImage:@"navigationbar_arrow_down"];
@@ -124,6 +136,92 @@
     return self;
     
 }
+
+#pragma mark -
+#pragma mark -- 设置用户数据
+
+
+- (void)setUpUserInfo{
+    
+    //1. 获取管理对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //2. 封装请求参数
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    
+    //2.1 获取用户模型对象
+    
+    CEAccount *accout = [CEAccountTool accountFromSandbox];
+    
+    parameters[@"access_token"] = accout.access_token;
+    parameters[@"uid"] = accout.uid;
+    
+    
+    //3. api urlString
+    NSString *urlString  = @"https://api.weibo.com/2/users/show.json";
+    //4. 发送请求
+    [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //取出头像urlString
+        NSString *profile_imgae_url = [responseObject valueForKeyPath:@"profile_image_url"];
+        
+        //判断和本地的已存储的用户头像url 是否一致 一致就返回
+        if ([accout.profile_image_url isEqualToString:profile_imgae_url]) {
+            return ;
+        }else{ //不一致就更新本地头像url
+            
+            accout.profile_image_url =  profile_imgae_url;
+            
+            [CEAccountTool savaAccount:accout];
+            
+        }
+        
+        
+        //取出高清用户头像urlString
+        
+        NSString *avatar_large = [responseObject valueForKeyPath:@"avatar_large"];
+        
+        //判断和本地的已存储的用户头像url 是否一致 一致就返回
+        if ([accout.avatar_large isEqualToString:avatar_large]) {
+            return ;
+        }else{ //不一致就更新本地高清头像url
+            
+            accout.avatar_large = avatar_large;
+            
+            [CEAccountTool savaAccount:accout];
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        DDLogDebug(@"%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        
+        DDLogDebug(@"%@",error);
+        
+        
+    }];
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
 
 
 
@@ -152,10 +250,10 @@
     
     
     //设置leftBarButton
-         self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highlightedImg:@"navigationbar_friendsearch_highlighted" target:self action:@selector(ClikLeftBarButton:)];
-         //设置rightBarButton
-         self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highlightedImg:@"navigationbar_pop_highlighted" target:self action:@selector(ClickRightBarButton:)];
-         
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_friendsearch" highlightedImg:@"navigationbar_friendsearch_highlighted" target:self action:@selector(ClikLeftBarButton:)];
+    //设置rightBarButton
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"navigationbar_pop" highlightedImg:@"navigationbar_pop_highlighted" target:self action:@selector(ClickRightBarButton:)];
+    
     
     
 }

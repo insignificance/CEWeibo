@@ -48,7 +48,8 @@
 #import <ProgressHUD/ProgressHUD.h>
 #import "CEDefaultCenterVC.h"
 #import "CEDefaultCenterView.h"
-
+#import "CEAccount.h"
+#import "CEAccountTool.h"
 
 
 #endif /* PrefixHeader_pch */

@@ -36,7 +36,7 @@
 }
 
 
-+ (CEAccount*)account{
++ (CEAccount*)accountFromSandbox{
     
     
     DDLogDebug(@"%@",CEAccountPath);

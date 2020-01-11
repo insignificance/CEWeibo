@@ -11,6 +11,7 @@
 #import "CEAccount.h"
 #import "CEAccountTool.h"
 #import "CEViewController.h"
+#import "UIImage+Extension.h"
 
 @interface CEWelcomeVC ()
 @property (weak, nonatomic) IBOutlet UILabel *welcomLabel;
@@ -28,21 +29,35 @@
     
     //1. 设置圆角
     
-    self.icon.layer.cornerRadius = 50;
-    self.icon.layer.masksToBounds = YES;
-    
+//    self.icon.layer.cornerRadius = 50;
+//    self.icon.layer.masksToBounds = YES;
+//
     
     //下载头像
     
-    CEAccount *account = [CEAccountTool account];
+    CEAccount *account = [CEAccountTool accountFromSandbox];
     
-    NSURL *url = [NSURL URLWithString:account.profile_image_url];
+    NSURL *url = [NSURL URLWithString:account.avatar_large];
     
     
     //若不为空
     if (url) {
         
-        [self.icon sd_setImageWithURL:url];
+        //[self.icon sd_setImageWithURL:url];
+        
+        [self.icon sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+           
+            
+            UIImage *newImage = [image circleImageWithBorderWidth:2 borderColor:[UIColor orangeColor]];
+            
+            
+            self.icon.image = newImage;
+            
+            
+        }];
+        
+        
         
     }
     
@@ -65,7 +80,7 @@
         
         //修改头像位置
         
-        self.iconConstraintY.constant = -200;
+        self.iconConstraintY.constant = -[UIScreen mainScreen].bounds.size.height *0.3;
         self.icon.alpha = 1.0;
         [self.view layoutIfNeeded];
         

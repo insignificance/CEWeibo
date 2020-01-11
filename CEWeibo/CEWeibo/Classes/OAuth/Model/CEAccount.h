@@ -47,9 +47,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)BOOL isRealName;
 
 /**
- 用户头像
+ 用户头像地址
  */
 @property(nonatomic,copy)NSString *profile_image_url;
+
+/**
+ 高清用户头像图片地址
+ */
+
+@property(nonatomic,copy)NSString *avatar_large;
+
+
 
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
