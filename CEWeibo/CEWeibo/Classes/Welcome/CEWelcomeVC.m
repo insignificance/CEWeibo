@@ -38,9 +38,17 @@
     
     NSURL *url = [NSURL URLWithString:account.profile_image_url];
     
-    //1. 先下载图片
     
-    [self.icon sd_setImageWithURL:url];
+    //若不为空
+    if (url) {
+        
+        [self.icon sd_setImageWithURL:url];
+        
+    }
+    
+    
+    
+    
     
     
     
@@ -51,22 +59,23 @@
     
     [super viewDidAppear:animated];
     
-    [UIView animateWithDuration:5.0 animations:^{
+    
+    [UIView animateWithDuration:2.0 animations:^{
         
         
         //修改头像位置
         
-        self.iconConstraintY.constant = 200;
+        self.iconConstraintY.constant = -200;
         self.icon.alpha = 1.0;
-        [self.icon layoutIfNeeded];
+        [self.view layoutIfNeeded];
         
-        
+    
         
     }completion:^(BOOL finished) {
         
         //让欢迎回来的文字做动画
         
-        [UIView animateWithDuration:3.0 animations:^{
+        [UIView animateWithDuration:1.5 animations:^{
             
             
             self.welcomLabel.alpha = 1.0;
@@ -85,6 +94,10 @@
         
         
     }];
+    
+    
+    
+    
     
     
 }

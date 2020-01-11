@@ -57,12 +57,12 @@
         //1. 创建窗口 并成为主窗口
         
         self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        
-        UIViewController *vc = [[CEViewController alloc]init];
-        
-        vc.view.backgroundColor = [UIColor orangeColor];
-        
-        [self.window setRootViewController:vc];
+//
+//        UIViewController *vc = [[CEViewController alloc]init];
+//
+//        vc.view.backgroundColor = [UIColor orangeColor];
+//
+//        [self.window setRootViewController:vc];
         [self.window makeKeyWindow];
         [self.window makeKeyAndVisible];
         
@@ -82,9 +82,6 @@
             // 如果在此之后才调用makeKeyAndVisible, 那么在chooseRootViewController方法中去到的keywindow是nil
             [self.window chooseRootViewController];
         }
-        
-        
-        
         
         
     }
