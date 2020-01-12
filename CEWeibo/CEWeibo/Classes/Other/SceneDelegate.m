@@ -1,5 +1,8 @@
 #import "SceneDelegate.h"
 #import "CEViewController.h"
+#import "UIWindow+Extension.h"
+
+
 
 @interface SceneDelegate ()
 
@@ -14,29 +17,50 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
     
-    self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
-    self.window.rootViewController = [[CEViewController alloc]init];
-    
-    self.window.rootViewController.view.backgroundColor = [UIColor orangeColor];
- 
-    //UIWindowScene *windowScene = [[UIWindowScene alloc]initWithSession:session connectionOptions:connectionOptions];
-    
-    
-    
-    self.window.windowScene = (UIWindowScene *)scene;
-    
-    [self.window makeKeyWindow];
-    
-    [self.window makeKeyAndVisible];
+//    self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//
+//    self.window.rootViewController = [[CEViewController alloc]init];
+//
+//    self.window.rootViewController.view.backgroundColor = [UIColor orangeColor];
+//
+//    //UIWindowScene *windowScene = [[UIWindowScene alloc]initWithSession:session connectionOptions:connectionOptions];
+//
+//
+//
+//    self.window.windowScene = (UIWindowScene *)scene;
+//
+//    [self.window makeKeyWindow];
+//
+//    [self.window makeKeyAndVisible];
     
     //统一修改图片文字颜色
     //[[UITabBar appearance] setTintColor:[UIColor redColor]];
     
+    
+    //初始化windos
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.window.windowScene = (UIWindowScene *)scene;
+    
+    //成为keywindow
+    [self.window makeKeyWindow];
+    [self.window makeKeyAndVisible];
+    
+    
+    // 2.判断显示默认界面还是显示新特性或者欢迎界面
+    CEAccount *account = [CEAccountTool accountFromSandbox];
+    if (account == nil) {
+        // 显示默认界面
+        CEViewController *tabBarVc = [[CEViewController alloc] init];
+        self.window.rootViewController = tabBarVc;
+    }else
+    {
+        // 如果在此之后才调用makeKeyAndVisible, 那么在chooseRootViewController方法中去到的keywindow是nil
+        [self.window chooseRootViewController];
+    }
 
-    
-    
-    
+
+
 }
 
 

@@ -63,6 +63,9 @@
 //        vc.view.backgroundColor = [UIColor orangeColor];
 //
 //        [self.window setRootViewController:vc];
+        
+        
+        //成为keywindow
         [self.window makeKeyWindow];
         [self.window makeKeyAndVisible];
         

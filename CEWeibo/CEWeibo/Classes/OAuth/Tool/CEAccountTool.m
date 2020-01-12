@@ -51,7 +51,7 @@
     //CEAccount *account = [NSKeyedUnarchiver unarchivedObjectOfClass:[CEAccount class] fromData:data error:NULL];
     
     
-    DDLogDebug(@"%@",account);
+    DDLogDebug(@"account from sandbox %@",account);
     
     
     //判断是否过期
@@ -92,7 +92,7 @@
         NSString *attributesString = [NSString stringWithUTF8String:property_getAttributes(property)];
         
         
-        NSLog(@"%@",attributesString);
+        //NSLog(@"%@",attributesString);
         
         //按照指定的字符串分割字符串
         

@@ -219,7 +219,59 @@
     
 }
 
+#pragma mark -
+#pragma mark -- 获取微博数据
 
+- (void)setUpWeiboInfo{
+    
+    
+    //1.获取管理对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    
+    //2.封装参数
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    //2.1获取模型对象
+    
+    CEAccount *account = [CEAccountTool accountFromSandbox];
+    
+    //2.2 获取令牌
+    
+    parameters[@"access_token"] = account.access_token;
+    
+    //2.3 设置默认返回的数据量（可选默认20条)
+    
+    parameters[@"count"] = @5;
+    
+
+    NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    
+    
+    
+    [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        DDLogDebug(@"%@",responseObject);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        
+        DDLogDebug(@"%@",error);
+        
+    }];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
 
 
 
