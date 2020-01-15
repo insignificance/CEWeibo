@@ -40,6 +40,10 @@
         
         [self setUpPlceholderLabel];
         
+        //注册通知
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textViewDidChange) name:UITextViewTextDidChangeNotification object:nil];
+        
 
         
     }
@@ -136,6 +140,37 @@
     
 }
 
+
+
+
+
+#pragma mark -
+#pragma mark -- notification
+
+
+- (void)textViewDidChange{
+    
+    
+    self.placeholderLabel.hidden = (self.text.length >0);
+
+    
+    
+    
+}
+
+
+
+
+- (void)dealloc{
+    
+    
+    //移除通知
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextViewTextDidChangeNotification object:nil];
+    
+    
+    
+}
 
 
 @end

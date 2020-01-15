@@ -31,6 +31,19 @@
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    
+  
+
+
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,7 +54,12 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发送微博" style:UIBarButtonItemStylePlain target:self action:@selector(compose)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(compose)];
+    
+    
+    //默认发送微博按钮禁用
+    
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     
     
@@ -69,22 +87,36 @@
     inputTextView.alwaysBounceVertical = YES;
     
     inputTextView.placeholder = @"分享感兴趣的内容......";
+        
+    inputTextView.delegate = self;
     
     
   
-    inputTextView.delegate = self;
+    
     
     self.inputTextView = inputTextView;
     
     [self.view addSubview:inputTextView];
     
-    
-    
-    
-    
 
 
 }
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    
+    [super viewDidAppear:animated];
+
+    
+    
+    
+}
+
+
+
+
+
 
 #pragma mark -
 #pragma mark -- 关闭按钮
@@ -123,12 +155,14 @@
 }
 
 
-
-- (void)textViewDidBeginEditing:(UITextView *)textView{
+- (void)textViewDidChange:(UITextView *)textView{
     
     
+    //DDLogDebug(@"textViewDidChange");
     
-    self.inputTextView.placeholder = @"";
+    
+    self.navigationItem.rightBarButtonItem.enabled = (textView.text.length >0);
+    
     
     
 }
