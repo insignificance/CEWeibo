@@ -11,6 +11,8 @@
 #import "CETitleView.h"
 #import <XHPopMenu/XHPopMenu.h>
 #import <AFNetworking/AFNetworking.h>
+#import "CEStatues.h"
+#import "CEUser.h"
 
 
 
@@ -20,11 +22,19 @@
 
 @property (nonatomic,weak)CETitleView *cetitleView;
 
+/* statues 模型数组 */
+@property (nonatomic,strong) NSMutableArray *statuesDateArr;
+
+
+
+
 @end
 
 @implementation CEHomeViewController
 
 
+/* cell 重用标识符 */
+static NSString *reuseID = @"reuseID";
 
 #pragma mark -
 #pragma mark -- viewcontroller life recycle
@@ -53,6 +63,8 @@
     
     
     
+    
+    
     if (self.defaultView !=nil) {
         
         //初始化中间视图
@@ -63,10 +75,18 @@
         //设置用户数据
         [self setUpUserInfo];
         
+        //设置微博数据
+        
+        //[self loadNewStatuese];
+        
+        //设置微博数据 兼顾下拉刷新控件
+        
+        [self setUpRefresh];
+        
         
     }
     
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     
 }
@@ -137,6 +157,28 @@
     
 }
 
+
+#pragma mark -
+#pragma mark -- 懒加载数据
+
+- (NSMutableArray *)statuesDateArr{
+    
+    if (nil == _statuesDateArr) {
+        
+        
+        _statuesDateArr = [NSMutableArray array];
+        
+        
+    }
+    
+    
+    return _statuesDateArr;
+    
+}
+
+
+
+
 #pragma mark -
 #pragma mark -- 设置用户数据
 
@@ -193,15 +235,7 @@
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        DDLogDebug(@"%@",responseObject);
+        //DDLogDebug(@"%@",responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -220,9 +254,9 @@
 }
 
 #pragma mark -
-#pragma mark -- 获取微博数据
+#pragma mark -- 获取微博数据 / 兼顾下拉刷新
 
-- (void)setUpWeiboInfo{
+- (void)loadNewStatuese{
     
     
     //1.获取管理对象
@@ -242,9 +276,25 @@
     
     //2.3 设置默认返回的数据量（可选默认20条)
     
-    parameters[@"count"] = @5;
+    parameters[@"count"] = @20;
     
-
+    
+    //2.4 取出数组中第一个元素的id
+    
+    NSString *firstStatusIdStr = [[self.statuesDateArr firstObject] idstr];
+    
+    //有数据则 添加下拉刷新需要的参数
+    if (firstStatusIdStr != nil) {
+        
+        parameters[@"since_id"] = firstStatusIdStr;
+        
+    }
+    
+    
+    
+    DDLogDebug(@"access_token%@",account.access_token);
+    
+    
     NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
     
     
@@ -252,10 +302,141 @@
     [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         
+        
         DDLogDebug(@"%@",responseObject);
         
         
+        //获取statues 字典数组
+        NSArray *dictArray = responseObject[@"statuses"];
+        
+        //转换成模型 数组
+        NSMutableArray *statuesArray = [CEStatues mj_objectArrayWithKeyValuesArray:dictArray];
+        
+        //[self.statuesDateArr addObjectsFromArray:statuesArray];
+        
+        //第一次启动 数组里没数据 所以从第一个开始插入和末尾拆入都是一个意思
+        
+        NSRange range = NSMakeRange(0, statuesArray.count);
+        
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        
+        [self.statuesDateArr insertObjects:statuesArray atIndexes:indexSet];
+        
+        //刷新tableview 数据
+        
+        [self.tableView reloadData];
+        
+        
+        //关闭刷新
+        
+        [self.tableView.mj_header endRefreshing];
+        
+        
+        // DDLogDebug(@"%@",responseObject);
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        //关闭刷新
+        
+        [self.tableView.mj_header endRefreshing];
+        
+        
+        
+        DDLogDebug(@"%@",error);
+        
+    }];
+    
+    
+    
+    
+    
+}
+
+
+
+#pragma mark -
+#pragma mark -- 上拉加载更多
+
+
+- (void)loadMoreStatues{
+    
+    
+    //1.获取管理对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    
+    //2.封装参数
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    //2.1获取模型对象
+    
+    CEAccount *account = [CEAccountTool accountFromSandbox];
+    
+    //2.2 获取令牌
+    
+    parameters[@"access_token"] = account.access_token;
+    
+    //2.3 设置默认返回的数据量（可选默认20条)
+    
+    parameters[@"count"] = @20;
+    
+    
+    //2.4 取出数组中第一个元素的id
+    
+    NSString *lastStatusIdStr = [[self.statuesDateArr lastObject] idstr];
+    
+    //有数据则 添加下拉刷新需要的参数
+    if (lastStatusIdStr != nil) {
+        
+        parameters[@"max_id"] = @([lastStatusIdStr longLongValue] - 1);
+        
+    }
+    
+    
+    
+    DDLogDebug(@"access_token%@",account.access_token);
+    
+    
+    NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    
+    
+    
+    [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        
+        DDLogDebug(@"%@",responseObject);
+        
+        
+        //获取statues 字典数组
+        NSArray *dictArray = responseObject[@"statuses"];
+        
+        //转换成模型 数组
+        NSMutableArray *statuesArray = [CEStatues mj_objectArrayWithKeyValuesArray:dictArray];
+        
+        [self.statuesDateArr addObjectsFromArray:statuesArray];
+        
+        
+        //刷新tableview 数据
+        
+        [self.tableView reloadData];
+        
+        
+        //关闭刷新
+        
+        [self.tableView.mj_footer endRefreshing];
+        
+        
+        // DDLogDebug(@"%@",responseObject);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        //关闭刷新
+        
+        [self.tableView.mj_footer endRefreshing];
+        
         
         
         DDLogDebug(@"%@",error);
@@ -270,10 +451,124 @@
     
     
     
+}
+
+
+
+
+
+
+
+
+
+#pragma mark -
+#pragma mark -- 设置刷新控件
+
+- (void)setUpRefresh{
+    
+    
+    
+    //UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
+    
+    //[self.tableView addSubview:refreshControl];
+    
+    
+    //[refreshControl addTarget:self action:@selector(refreshStatus:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    //MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshStatus)];
+    
+    
+    //@property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetTop;
+    
+    //CGFloat LargTitleHeight = 60.5;
+    
+    //header.ignoredScrollViewContentInsetTop = LargTitleHeight;
+    
+    
+    // 1. 添加下拉刷新
+    
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatuese)];
+    
+    self.tableView.mj_header  = header;
+    
+    //启动的时候立即调用一次刷新
+    [self.tableView.mj_header beginRefreshing];
+    
+    
+    
+    //1. 添加上拉刷新
+    
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreStatues)];
+    
+    
+    
+    
+    
     
 }
 
 
+#pragma mark -
+#pragma mark -- 刷新提醒
+
+- (void)showNewStatusWithCount: (NSInteger)count{
+    
+    //1. 创建UILabel
+    
+    UILabel *label = [UILabel new];
+    
+    //2. 设置相关属性
+    
+    label.backgroundColor = [UIColor orangeColor];
+    
+    label.textColor = [UIColor whiteColor];
+    
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    label.alpha = 0.0;
+    
+    if (count > 0) {
+        
+        label.text = [NSString stringWithFormat:@"更新到%tu条微博数据",count];
+        
+    }else{
+        
+        
+        label.text = @"未发现新的微博数据";
+        
+    }
+    
+    label.mj_x = 0;
+    label.mj_h = 30;
+    label.mj_y = 64 - label.mj_h;
+    label.mj_w = self.view.mj_w;
+    
+    //3. 添加到父控件
+    
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    
+    // 4.执行动画显示UILable
+    [UIView animateWithDuration:1 animations:^{
+        label.alpha = 1.0;
+        // 让label慢慢出现
+        label.transform = CGAffineTransformMakeTranslation(0, label.mj_h);
+        
+    } completion:^(BOOL finished) {
+        // 让label慢慢会去
+        [UIView animateWithDuration:1 delay:1 options:0 animations:^{
+            label.alpha = 0.0;
+            label.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+    }];
+    
+    
+    
+    
+}
 
 
 
@@ -484,7 +779,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    return 20;
+    return self.statuesDateArr.count;
     
     
 }
@@ -493,14 +788,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"123"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+    
+    //下面这个必须注册cell
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
     
     if (cell == nil) {
         
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"123"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseID];
         
         
     }
+    
+    
+    
+    //取出用户模型对象
+    CEStatues *statues = self.statuesDateArr[indexPath.row];
+    
+    CEUser *user = statues.user;
+    
+    cell.textLabel.text = user.name;
+    
+    cell.detailTextLabel.text = statues.text;
+    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
+    
+    
+    
     
     return cell;
     

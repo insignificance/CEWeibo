@@ -20,6 +20,8 @@ PODS:
   - CocoaLumberjack/Core (3.6.0)
   - JGProgressHUD (2.1)
   - Masonry (1.1.0)
+  - MJExtension (3.2.1)
+  - MJRefresh (3.3.1)
   - ProgressHUD (2.51)
   - SDWebImage (5.3.2):
     - SDWebImage/Core (= 5.3.2)
@@ -32,6 +34,8 @@ DEPENDENCIES:
   - CocoaLumberjack
   - JGProgressHUD
   - Masonry
+  - MJExtension
+  - MJRefresh
   - ProgressHUD
   - SDWebImage (~> 5.0)
   - XHPopMenu
@@ -43,6 +47,8 @@ SPEC REPOS:
     - CocoaLumberjack
     - JGProgressHUD
     - Masonry
+    - MJExtension
+    - MJRefresh
     - ProgressHUD
     - SDWebImage
     - XHPopMenu
@@ -53,10 +59,12 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   ProgressHUD: 54b4c2fa202bf3da7dddc1c698ae4e6376333bd9
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   XHPopMenu: c3032f86250f56562ae7eb39c1c0239544554f04
 
-PODFILE CHECKSUM: 1af7d26a0e936cb6f598918a256339121c6aca6e
+PODFILE CHECKSUM: a40c20facba9f7e57f33691b5fd2652c8951794e
 
 COCOAPODS: 1.8.4

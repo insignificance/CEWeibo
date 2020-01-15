@@ -10,4 +10,6 @@ target 'CEWeibo' do
   pod 'AFNetworking', '~> 3.0'
   pod 'JGProgressHUD'
   pod 'SDWebImage', '~> 5.0'
+  pod 'MJExtension'
+  pod 'MJRefresh'
 end

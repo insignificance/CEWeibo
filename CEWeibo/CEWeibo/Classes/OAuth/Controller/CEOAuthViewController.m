@@ -16,9 +16,12 @@
 #import "CEAccountTool.h"
 
 
-#define client_id @"3018889502"
+//#define client_id @"3018889502"
+//#define redirect_uri @"http://www.youku.com"
+//#define secret @"8af3169367d05364544835dbf1598e40"
+#define client_id @"2223713944"
 #define redirect_uri @"http://www.youku.com"
-#define secret @"c32db8b2ae6ac32ac6bc470ba3c94835"
+#define secret @"2224f1cb88b3236a9039cd6cd607c5da"
 
 
 

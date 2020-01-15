@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		537F803823CAC2C40064EE06 /* CEStatues.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803723CAC2C40064EE06 /* CEStatues.m */; };
+		537F803B23CACF4B0064EE06 /* CEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803A23CACF4B0064EE06 /* CEUser.m */; };
+		537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803D23CAD3D70064EE06 /* CEPhoto.m */; };
 		53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814D9D23C070CD0057245C /* UIView+Frame.m */; };
 		53814DA723C086E50057245C /* CETitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814DA623C086E50057245C /* CETitleView.m */; };
 		5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */; };
@@ -49,6 +52,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		537F803623CAC2C40064EE06 /* CEStatues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEStatues.h; sourceTree = "<group>"; };
+		537F803723CAC2C40064EE06 /* CEStatues.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEStatues.m; sourceTree = "<group>"; };
+		537F803923CACF4B0064EE06 /* CEUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEUser.h; sourceTree = "<group>"; };
+		537F803A23CACF4B0064EE06 /* CEUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEUser.m; sourceTree = "<group>"; };
+		537F803C23CAD3D70064EE06 /* CEPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEPhoto.h; sourceTree = "<group>"; };
+		537F803D23CAD3D70064EE06 /* CEPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEPhoto.m; sourceTree = "<group>"; };
 		53814D9C23C070CD0057245C /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		53814D9D23C070CD0057245C /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		53814DA523C086E50057245C /* CETitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETitleView.h; sourceTree = "<group>"; };
@@ -274,6 +283,12 @@
 			isa = PBXGroup;
 			children = (
 				53F555CB23B8428A00CBECEA /* .gitkeep */,
+				537F803623CAC2C40064EE06 /* CEStatues.h */,
+				537F803723CAC2C40064EE06 /* CEStatues.m */,
+				537F803923CACF4B0064EE06 /* CEUser.h */,
+				537F803A23CACF4B0064EE06 /* CEUser.m */,
+				537F803C23CAD3D70064EE06 /* CEPhoto.h */,
+				537F803D23CAD3D70064EE06 /* CEPhoto.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -651,6 +666,8 @@
 				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
 				5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */,
 				53CBB46F23C47B120064C575 /* UIWindow+Extension.m in Sources */,
+				537F803823CAC2C40064EE06 /* CEStatues.m in Sources */,
+				537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
 				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
@@ -659,6 +676,7 @@
 				53CBB46023C45E290064C575 /* CENewfeatureVC.m in Sources */,
 				53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */,
 				53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */,
+				537F803B23CACF4B0064EE06 /* CEUser.m in Sources */,
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
 				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
 				53F5562923B8468D00CBECEA /* CEHomeViewController.m in Sources */,
