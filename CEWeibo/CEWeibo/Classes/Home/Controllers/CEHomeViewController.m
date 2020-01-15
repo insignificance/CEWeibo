@@ -820,7 +820,13 @@ static NSString *reuseID = @"reuseID";
     
     cell.textLabel.text = user.name;
     
-    cell.detailTextLabel.text = statues.text;
+    //cell.detailTextLabel.text = statues.text;
+    
+    //cell.detailTextLabel.text = statues.source;
+    
+    cell.detailTextLabel.text = statues.created_at;
+    
+    
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
     

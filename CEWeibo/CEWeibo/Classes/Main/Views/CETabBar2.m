@@ -9,6 +9,7 @@
 #import "CETabBar2.h"
 #import "CEItem.h"
 #import "Masonry.h"
+#import "CEComposeVC.h"
 
 
 //定义addBtnTag值
@@ -131,6 +132,61 @@
     
     
     [self.addButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+    
+    
+    
+    //4. 添加监听事件
+    
+    [addButton addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    
+    
+}
+
+
+
+#pragma mark -
+#pragma mark -- 加号按钮点击时间
+
+
+- (void)addBtnClick:(UIButton *)btn{
+    
+    
+    
+    //方法1
+    
+    //1. 创建发现界面
+    
+//    CEComposeVC *cmpVc = [[CEComposeVC alloc]init];
+//
+//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//
+//    UIViewController *rootVC = window.rootViewController;
+//
+//    [rootVC presentViewController:cmpVc animated:YES completion:nil];
+//
+    
+ 
+    //2. 弹出发现界面
+    //view 没用这个方法
+    //[self presentviewcontroller ]
+    
+
+    //方法2
+
+    //判断代理对象是否实现代理方法
+    if ([self.delegate respondsToSelector:@selector(CETabBar2:selectedAddbtn:)]) {
+
+        [self.delegate CETabBar2:self selectedAddbtn:btn];
+
+    }
+
+
+    
+        
+
     
     
     

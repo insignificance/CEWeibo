@@ -13,6 +13,7 @@
 #import "CEProfileViewController.h"
 #import "CEDiscoverViewController.h"
 #import "CENavigationController.h"
+#import "CEComposeVC.h"
 
 
 
@@ -283,6 +284,27 @@
     
     [self setSelectedIndex:to];
     
+    
+    
+}
+
+
+- (void)CETabBar2:(CETabBar2 *)tabBar selectedAddbtn:(UIButton *)addBtn{
+    
+    
+    //创建发送界面
+     CEComposeVC *compVC  = [[CEComposeVC alloc]init];
+    
+ 
+    
+     CENavigationController *nav = [[CENavigationController alloc]initWithRootViewController:compVC];
+    
+   
+    
+    
+    //弹出发送界面
+    
+    [self presentViewController:nav animated:YES completion:nil];
     
     
 }

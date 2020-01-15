@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5379947F23CF4006008A7CBB /* CEComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5379947E23CF4006008A7CBB /* CEComposeVC.m */; };
+		5379948523CF466D008A7CBB /* CEInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5379948423CF466D008A7CBB /* CEInputTextView.m */; };
 		537F803823CAC2C40064EE06 /* CEStatues.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803723CAC2C40064EE06 /* CEStatues.m */; };
 		537F803B23CACF4B0064EE06 /* CEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803A23CACF4B0064EE06 /* CEUser.m */; };
 		537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803D23CAD3D70064EE06 /* CEPhoto.m */; };
@@ -16,6 +18,7 @@
 		5381964D23C2DAAD0064B8FA /* CEDefaultCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964C23C2DAAD0064B8FA /* CEDefaultCenterView.m */; };
 		5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */; };
 		5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381965223C3154A0064B8FA /* CEOAuthViewController.m */; };
+		5382CFFB23CF146500E6F332 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5382CFFA23CF146500E6F332 /* NSDate+Extension.m */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
 		538F6E0E23C9CDD600628251 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 538F6E0D23C9CDD600628251 /* UIImage+Extension.m */; };
 		53CBB45B23C456660064C575 /* CEAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB45A23C456660064C575 /* CEAccount.m */; };
@@ -52,6 +55,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5379947423CF3E69008A7CBB /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		5379947723CF3E69008A7CBB /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		5379947D23CF4006008A7CBB /* CEComposeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEComposeVC.h; sourceTree = "<group>"; };
+		5379947E23CF4006008A7CBB /* CEComposeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEComposeVC.m; sourceTree = "<group>"; };
+		5379948323CF466D008A7CBB /* CEInputTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEInputTextView.h; sourceTree = "<group>"; };
+		5379948423CF466D008A7CBB /* CEInputTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEInputTextView.m; sourceTree = "<group>"; };
 		537F803623CAC2C40064EE06 /* CEStatues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEStatues.h; sourceTree = "<group>"; };
 		537F803723CAC2C40064EE06 /* CEStatues.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEStatues.m; sourceTree = "<group>"; };
 		537F803923CACF4B0064EE06 /* CEUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEUser.h; sourceTree = "<group>"; };
@@ -70,6 +79,8 @@
 		5381965123C3154A0064B8FA /* CEOAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEOAuthViewController.h; sourceTree = "<group>"; };
 		5381965223C3154A0064B8FA /* CEOAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEOAuthViewController.m; sourceTree = "<group>"; };
 		53824DE823B9EBE000B32FE9 /* CEWeibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CEWeibo-Bridging-Header.h"; sourceTree = "<group>"; };
+		5382CFF923CF146500E6F332 /* NSDate+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		5382CFFA23CF146500E6F332 /* NSDate+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		538F6E0C23C9CDD600628251 /* UIImage+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
@@ -164,6 +175,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5379947223CF3E69008A7CBB /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				5379947323CF3E69008A7CBB /* Models */,
+				5379947523CF3E69008A7CBB /* Controllers */,
+				5379947623CF3E69008A7CBB /* Views */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		5379947323CF3E69008A7CBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5379947423CF3E69008A7CBB /* .gitkeep */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5379947523CF3E69008A7CBB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5379947D23CF4006008A7CBB /* CEComposeVC.h */,
+				5379947E23CF4006008A7CBB /* CEComposeVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5379947623CF3E69008A7CBB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5379947723CF3E69008A7CBB /* .gitkeep */,
+				5379948323CF466D008A7CBB /* CEInputTextView.h */,
+				5379948423CF466D008A7CBB /* CEInputTextView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5379EE9223C36E3400690CD0 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +305,7 @@
 		53F555C823B8428A00CBECEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5379947223CF3E69008A7CBB /* Compose */,
 				53CBB45C23C45D910064C575 /* Welcome */,
 				5379EE9223C36E3400690CD0 /* OAuth */,
 				53F555C923B8428A00CBECEA /* Home */,
@@ -388,6 +437,8 @@
 				53CBB46E23C47B120064C575 /* UIWindow+Extension.m */,
 				538F6E0C23C9CDD600628251 /* UIImage+Extension.h */,
 				538F6E0D23C9CDD600628251 /* UIImage+Extension.m */,
+				5382CFF923CF146500E6F332 /* NSDate+Extension.h */,
+				5382CFFA23CF146500E6F332 /* NSDate+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -667,6 +718,7 @@
 				5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */,
 				53CBB46F23C47B120064C575 /* UIWindow+Extension.m in Sources */,
 				537F803823CAC2C40064EE06 /* CEStatues.m in Sources */,
+				5382CFFB23CF146500E6F332 /* NSDate+Extension.m in Sources */,
 				537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
@@ -689,6 +741,8 @@
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
 				53CBB46523C45E4A0064C575 /* CEWelcomeVC.m in Sources */,
 				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
+				5379947F23CF4006008A7CBB /* CEComposeVC.m in Sources */,
+				5379948523CF466D008A7CBB /* CEInputTextView.m in Sources */,
 				53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */,
 				53F5561623B8455A00CBECEA /* CETabBar.m in Sources */,
 				53814DA723C086E50057245C /* CETitleView.m in Sources */,
