@@ -331,6 +331,10 @@ static NSString *reuseID = @"reuseID";
         
         [self.tableView.mj_header endRefreshing];
         
+        // 显示提醒
+        [self showNewStatusWithCount:statuesArray.count];
+              
+        
         
         // DDLogDebug(@"%@",responseObject);
         
@@ -360,6 +364,10 @@ static NSString *reuseID = @"reuseID";
 
 
 - (void)loadMoreStatues{
+    
+    
+    // 0.清空提醒数字
+    self.tabBarItem.badgeValue = nil;
     
     
     //1.获取管理对象
@@ -429,6 +437,9 @@ static NSString *reuseID = @"reuseID";
         
         
         // DDLogDebug(@"%@",responseObject);
+        
+        
+      
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
