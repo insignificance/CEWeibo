@@ -14,6 +14,8 @@
 #import "CEStatues.h"
 #import "CEUser.h"
 
+#import "CERefreshGifHeader.h"
+
 
 
 
@@ -499,7 +501,9 @@ static NSString *reuseID = @"reuseID";
     
     // 1. 添加下拉刷新
     
-    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatuese)];
+    //MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatuese)];
+    
+    CERefreshGifHeader *header = [CERefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewStatuese)];
     
     self.tableView.mj_header  = header;
     

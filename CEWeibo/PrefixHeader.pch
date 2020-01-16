@@ -53,6 +53,8 @@
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/SDWebImage.h>
 #import <MJRefresh/MJRefresh.h>
+#import <AFNetworking/AFNetworking.h>
+#import <JGProgressHUD/JGProgressHUD.h>
 
 
 #endif /* PrefixHeader_pch */

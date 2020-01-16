@@ -12,6 +12,7 @@
 		537F803823CAC2C40064EE06 /* CEStatues.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803723CAC2C40064EE06 /* CEStatues.m */; };
 		537F803B23CACF4B0064EE06 /* CEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803A23CACF4B0064EE06 /* CEUser.m */; };
 		537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803D23CAD3D70064EE06 /* CEPhoto.m */; };
+		537F9C7723D0025D008A2565 /* CERefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F9C7623D0025D008A2565 /* CERefreshGifHeader.m */; };
 		53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814D9D23C070CD0057245C /* UIView+Frame.m */; };
 		53814DA723C086E50057245C /* CETitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814DA623C086E50057245C /* CETitleView.m */; };
 		5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */; };
@@ -67,6 +68,8 @@
 		537F803A23CACF4B0064EE06 /* CEUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEUser.m; sourceTree = "<group>"; };
 		537F803C23CAD3D70064EE06 /* CEPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEPhoto.h; sourceTree = "<group>"; };
 		537F803D23CAD3D70064EE06 /* CEPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEPhoto.m; sourceTree = "<group>"; };
+		537F9C7523D0025D008A2565 /* CERefreshGifHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CERefreshGifHeader.h; sourceTree = "<group>"; };
+		537F9C7623D0025D008A2565 /* CERefreshGifHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CERefreshGifHeader.m; sourceTree = "<group>"; };
 		53814D9C23C070CD0057245C /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		53814D9D23C070CD0057245C /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		53814DA523C086E50057245C /* CETitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETitleView.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				53F555CF23B8428A00CBECEA /* .gitkeep */,
 				53814DA523C086E50057245C /* CETitleView.h */,
 				53814DA623C086E50057245C /* CETitleView.m */,
+				537F9C7523D0025D008A2565 /* CERefreshGifHeader.h */,
+				537F9C7623D0025D008A2565 /* CERefreshGifHeader.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -740,6 +745,7 @@
 				538F6E0E23C9CDD600628251 /* UIImage+Extension.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
 				53CBB46523C45E4A0064C575 /* CEWelcomeVC.m in Sources */,
+				537F9C7723D0025D008A2565 /* CERefreshGifHeader.m in Sources */,
 				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
 				5379947F23CF4006008A7CBB /* CEComposeVC.m in Sources */,
 				5379948523CF466D008A7CBB /* CEInputTextView.m in Sources */,

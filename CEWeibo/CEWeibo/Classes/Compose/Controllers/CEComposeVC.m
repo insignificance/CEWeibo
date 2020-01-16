@@ -9,9 +9,11 @@
 #import "CEComposeVC.h"
 #import "CEInputTextView.h"
 
+
 @interface CEComposeVC ()<UITextViewDelegate>
 
 @property (nonatomic,weak)CEInputTextView *inputTextView;
+@property (nonatomic,strong)JGProgressHUD *hub;
 
 
 @end
@@ -115,7 +117,21 @@
 
 
 
+#pragma mark -
+#pragma mark -- 懒加载hub
 
+-(JGProgressHUD *)hub{
+    
+    if (_hub == nil) {
+        
+        _hub = [[JGProgressHUD alloc]initWithStyle:JGProgressHUDStyleDark];
+        
+    }
+    
+    return _hub;
+    
+    
+}
 
 
 #pragma mark -
@@ -134,9 +150,91 @@
 - (void)compose{
     
     
+    //创建网络管理者
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    
+    //封装请求参数
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    
+    CEAccount *account = [CEAccountTool accountFromSandbox];
+    
+    parameters[@"access_token"] = account.access_token;
+    
+    //parameters[@"status"] = self.inputTextView.text;
+    
+    
+    parameters[@"status"] = [NSString stringWithFormat:@"%@ http://www.baidu.com/",self.inputTextView.text];
+
+    NSString *urlString = @"https://api.weibo.com/2/statuses/share.json";
+      
+    //处理status 参数
+    [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:parameters error:nil];
+    
+    //发送请求
+
+    [manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        DDLogDebug(@"发送成功");
+        
+        //关闭键盘
+        [self.inputTextView resignFirstResponder];
+        
+        //关闭当前视图
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+              
+            
+            
+             self.hub.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc]init];
+             //显示发送成功提示
+             self.hub.textLabel.text  = @"发送成功";
+
+             [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
+            
+             [self.hub dismissAfterDelay:0.5 animated:YES];
+                  
+        
+            
+        }];
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+          DDLogDebug(@"发送失败");
+ 
+          DDLogDebug(@"%@",error);
+        
+          //显示发送失败提示
+                     
+               self.hub.indicatorView = [[JGProgressHUDErrorIndicatorView alloc]init];
+               //显示发送成功提示
+               self.hub.textLabel.text  = @"发送失败";
+
+               [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
+              
+               [self.hub dismissAfterDelay:0.5 animated:YES];
+                    
+        
+        
+    }];
+    
+    
+    
+    
+    
+    
     
     
 }
+
+
+
+
 
 
 #pragma mark -

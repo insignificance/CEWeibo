@@ -87,6 +87,27 @@
 
 
 
+- (instancetype)initWithStyle:(UITableViewStyle)style{
+    
+    
+    if (self = [super initWithStyle:style]) {
+        
+        
+        //self.tableView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+        
+        
+        
+    }
+    
+    return self;
+    
+    
+}
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

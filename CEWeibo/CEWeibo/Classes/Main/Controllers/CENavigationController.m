@@ -19,10 +19,10 @@
     // Do any additional setup after loading the view.
     //设置大字体
        
-       //[self.navigationBar setPrefersLargeTitles:YES];
+       [self.navigationBar setPrefersLargeTitles:YES];
         
     
-       //self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+       self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     
     
        
