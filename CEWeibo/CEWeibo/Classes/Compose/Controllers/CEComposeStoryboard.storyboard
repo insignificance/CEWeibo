@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eq3-Nv-J8R">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ComposeVC-->
+        <scene sceneID="IrU-QQ-4Yt">
+            <objects>
+                <viewController id="Eq3-Nv-J8R" customClass="CEComposeVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gk8-4V-7PF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjc-HT-RbZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="aY0-FV-l1z"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0r-UG-6C7">
+                                <rect key="frame" x="0.0" y="228" width="375" height="439"/>
+                                <connections>
+                                    <segue destination="lCr-vq-Q3E" kind="embed" id="zJm-ZR-6Gn"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qjc-HT-RbZ" firstAttribute="top" secondItem="hyH-Jx-GUZ" secondAttribute="top" id="4aB-D8-ioI"/>
+                            <constraint firstItem="hyH-Jx-GUZ" firstAttribute="bottom" secondItem="J0r-UG-6C7" secondAttribute="bottom" id="74I-qq-KBR"/>
+                            <constraint firstItem="qjc-HT-RbZ" firstAttribute="trailing" secondItem="hyH-Jx-GUZ" secondAttribute="trailing" id="DCI-wh-QaU"/>
+                            <constraint firstItem="qjc-HT-RbZ" firstAttribute="leading" secondItem="hyH-Jx-GUZ" secondAttribute="leading" id="JZn-Wq-VOf"/>
+                            <constraint firstItem="J0r-UG-6C7" firstAttribute="leading" secondItem="hyH-Jx-GUZ" secondAttribute="leading" id="Ymo-g3-Yyu"/>
+                            <constraint firstItem="hyH-Jx-GUZ" firstAttribute="trailing" secondItem="J0r-UG-6C7" secondAttribute="trailing" id="oTH-9b-zvF"/>
+                            <constraint firstItem="J0r-UG-6C7" firstAttribute="top" secondItem="qjc-HT-RbZ" secondAttribute="bottom" constant="8" symbolic="YES" id="sPW-wI-I1U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hyH-Jx-GUZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputViewContainer" destination="qjc-HT-RbZ" id="Ebu-0Z-XNi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PUJ-cB-SIM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194.40000000000001" y="182.15892053973016"/>
+        </scene>
+        <!--CollectionVC-->
+        <scene sceneID="6sl-fR-YK8">
+            <objects>
+                <collectionViewController id="lCr-vq-Q3E" customClass="CECollectionVC" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0Wc-9u-lw1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="439"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jfe-zb-MuJ">
+                            <size key="itemSize" width="67" height="73"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photo" id="OjQ-Ct-Qaq" customClass="CEPhotoCell">
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="I7b-np-q49">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxy-uI-74x">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <state key="normal" backgroundImage="compose_pic_add"/>
+                                            <state key="highlighted" backgroundImage="compose_pic_add_highlighted"/>
+                                            <connections>
+                                                <action selector="didClickAddBtn:" destination="OjQ-Ct-Qaq" eventType="touchUpInside" id="KTW-Cm-BsZ"/>
+                                            </connections>
+                                        </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMs-ld-IuU">
+                                            <rect key="frame" x="54" y="2" width="14" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="14" id="Ezv-6w-WYc"/>
+                                                <constraint firstAttribute="height" constant="14" id="gjK-vk-MF7"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="compose_location_icon_delete"/>
+                                            <connections>
+                                                <action selector="didClickDeleteBtn:" destination="OjQ-Ct-Qaq" eventType="touchUpInside" id="12t-xy-m4c"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="mxy-uI-74x" secondAttribute="bottom" constant="0.10000000000000001" id="9eH-LN-vmq"/>
+                                        <constraint firstAttribute="trailing" secondItem="sMs-ld-IuU" secondAttribute="trailing" constant="2" id="WdJ-xW-ucU"/>
+                                        <constraint firstItem="mxy-uI-74x" firstAttribute="leading" secondItem="I7b-np-q49" secondAttribute="leading" constant="0.10000000000000001" id="e1e-BY-QM6"/>
+                                        <constraint firstItem="mxy-uI-74x" firstAttribute="top" secondItem="I7b-np-q49" secondAttribute="top" constant="0.10000000000000001" id="eqC-8n-Bsx"/>
+                                        <constraint firstItem="sMs-ld-IuU" firstAttribute="top" secondItem="I7b-np-q49" secondAttribute="top" constant="2" id="ggv-54-xmr"/>
+                                        <constraint firstAttribute="trailing" secondItem="mxy-uI-74x" secondAttribute="trailing" constant="0.10000000000000001" id="yt9-Nq-Yo0"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="70" height="70"/>
+                                <connections>
+                                    <outlet property="addPhotoBtn" destination="mxy-uI-74x" id="aMa-NZ-lZQ"/>
+                                    <outlet property="deletePhotoBtn" destination="sMs-ld-IuU" id="J7Y-o6-wL4"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="lCr-vq-Q3E" id="5Zt-q7-0Pj"/>
+                            <outlet property="delegate" destination="lCr-vq-Q3E" id="zWn-En-oQw"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="flowlayout" destination="jfe-zb-MuJ" id="h3p-x5-IT6"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QUW-4f-QlC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="663" y="152"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="compose_location_icon_delete" width="7" height="7"/>
+        <image name="compose_pic_add" width="70" height="70"/>
+        <image name="compose_pic_add_highlighted" width="70" height="70"/>
+    </resources>
+</document>

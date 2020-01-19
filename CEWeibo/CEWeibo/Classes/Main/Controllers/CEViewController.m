@@ -293,14 +293,17 @@
     
     
     //创建发送界面
-     CEComposeVC *compVC  = [[CEComposeVC alloc]init];
+     //CEComposeVC *compVC  = [[CEComposeVC alloc]init];
     
- 
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CEComposeStoryboard"bundle:nil];
     
+    CEComposeVC *compVC = [sb instantiateInitialViewController];
+    
+
      CENavigationController *nav = [[CENavigationController alloc]initWithRootViewController:compVC];
     
-   
-    
+        
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     
     //弹出发送界面
     
