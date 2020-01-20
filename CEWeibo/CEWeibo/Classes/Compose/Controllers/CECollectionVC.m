@@ -9,6 +9,7 @@
 #import "CECollectionVC.h"
 #import "CEPhotoCell.h"
 
+
 @interface CECollectionVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowlayout;
@@ -31,9 +32,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewWillAppear:animated];
     
     //1. 注册通知监听 item 的添加和删除通知
-       
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addPhoto:) name:CEAddPhotoNotification object:nil];
-       
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deletePhoto:) name:CEDeletePhotoNotification object:nil];
     
     
@@ -52,7 +53,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
     
     
-   
+    
     
     
     
@@ -107,11 +108,15 @@ static NSString * const reuseIdentifier = @"Cell";
     //1. 创建图片选择控制器
     
     UIImagePickerController *picker = [UIImagePickerController new];
- 
+    
+    
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
     self.picker = picker;
     //2. 弹出图片选择控制器
- 
+    
     [self presentViewController:picker animated:YES completion:nil];
+    
     
     //设置代理 监听选中图片
     self.picker.delegate = self;
@@ -156,51 +161,52 @@ static NSString * const reuseIdentifier = @"Cell";
     //1. 取出选中的图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    NSURL *mediaUrl=(NSURL*)[info objectForKey:UIImagePickerControllerImageURL];
     
-    NSData *imageData = UIImagePNGRepresentation(image);
     
-    if ((imageData.length /1024.0/1024.0) > 7) {
-
-
-        NSLog(@"%f",(imageData.length/1024.0/1024.0));
-
-
+    //获取图片file size (单位byte)
+    CGFloat fileSize = [self getImageFileSizeWithURL:mediaUrl];
+    
+    
+    //新浪服务器允许上传的最大图片大小5.0 MB
+    
+    CGFloat maxSize = 5000000; //byte
+    
+    if (fileSize > maxSize) {
+        
         JGProgressHUD *progressHUB = [[JGProgressHUD alloc]initWithStyle:JGProgressHUDStyleLight];
 
         progressHUB.indicatorView = [[JGProgressHUDIndicatorView alloc]init];
 
-        progressHUB.textLabel.text = @"图片大小超出7M 请重新选择";
+        progressHUB.textLabel.text = @"图片大小超出5M 请重新选择";
 
         [progressHUB showInView:[UIApplication sharedApplication].keyWindow animated:YES];
         [progressHUB dismissAfterDelay:1.0 animated:YES];
-
+        
+        
         return;
-
+        
     }
     
-    
-    
-    
-    
-    
+
     //2. 保存图片
     [self.images addObject:image];
     
     //3. 刷新数据
     [self.collectionView reloadData];
-  
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.images.count-1 inSection:1];
-//
-//    [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//
     
-    
+    //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.images.count-1 inSection:1];
+    //
+    //    [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    //
     
 
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     
 }
+
+
 
 //点击取消按钮调用
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -212,6 +218,36 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
+#pragma mark -
+#pragma mark --  计算从相册选择图片的大小
+
+- (CGFloat)getImageFileSizeWithURL:(NSURL *)mediaUrl
+{
+    
+    
+    //Error Container
+    NSError *attributesError;
+    NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[mediaUrl path] error:&attributesError];
+    NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
+    long double fileSize = [fileSizeNumber longLongValue];
+    
+//   DDLogDebug(@"%Lf",fileSize);
+    
+    
+//    NSArray *typeArray = @[@"bytes",@"KB",@"MB",@"GB",@"TB",@"PB", @"EB",@"ZB",@"YB"];
+//
+//    NSInteger index = 0;
+//
+//    while (fileSize > 1000) {
+//        fileSize /= 1000.0;
+//        index ++;
+//    }
+    
+//    DDLogDebug(@"fileSize =%Lf %@",fileSize,typeArray[index]);
+    
+    return fileSize;
+}
+
 
 
 
@@ -221,13 +257,13 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewWillLayoutSubviews{
     
     //初始化每一个item 相关属性
-
+    
     //边距
     CGFloat margin = 10;
     //设置水平间隙
     
     self.flowlayout.minimumInteritemSpacing = margin;
-
+    
     
     //设置垂直间隙
     
@@ -235,13 +271,13 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //设置全局间隙
     
-   
+    
     
     self.flowlayout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
     
     
     //设置全局item size
-                   
+    
     //定义每一行需要显示的item 个数
     //列数
     
@@ -249,7 +285,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     
     //计算item size
- 
+    
     CGFloat itemWidth = ([UIScreen mainScreen].bounds.size.width - (column+1)*margin)/(column*1.0);
     
     CGFloat itemHeignt = itemWidth;
@@ -257,7 +293,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //CGFloat width = (self.view.mj_w - ((col +1) * 10)) / col;
     self.flowlayout.itemSize = CGSizeMake(itemWidth, itemHeignt);
     
-
+    
     
     
     
@@ -269,25 +305,25 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-
+    
     return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
+    
     return self.images.count + 1;
 }
 
@@ -323,32 +359,38 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 /*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
+ // Uncomment this method to specify if the specified item should be highlighted during tracking
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+ return YES;
+ }
+ */
 
 /*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
+ // Uncomment this method to specify if the specified item should be selected
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+ return YES;
+ }
+ */
 
 /*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
+ // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+ return NO;
+ }
+ 
+ - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+ return NO;
+ }
+ 
+ - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+ 
+ }
+ */
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
+
+
+
+
 
 @end

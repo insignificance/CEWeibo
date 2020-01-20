@@ -394,8 +394,9 @@
 //            });
 //        }
 //
-        NSData *imageData = UIImagePNGRepresentation(image);
+        //NSData *imageData = UIImagePNGRepresentation(image);
         
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
  
         [formData appendPartWithFileData:imageData name:@"pic" fileName:@"abc" mimeType:@"image/png"];
         
