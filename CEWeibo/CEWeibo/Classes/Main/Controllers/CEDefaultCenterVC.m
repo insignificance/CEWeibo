@@ -11,8 +11,9 @@
 #import "CEOAuthViewController.h"
 #import "CEAccountTool.h"
 #import "CEAccount.h"
-
-@interface CEDefaultCenterVC ()<CEDeflaultCenterViewDelegate>
+#import <WebKit/WebKit.h>
+@interface CEDefaultCenterVC ()<CEDeflaultCenterViewDelegate,WKNavigationDelegate>
+@property (nonatomic,strong)JGProgressHUD *hub;
 
 @end
 
@@ -51,6 +52,23 @@
 }
 
 
+#pragma mark -
+#pragma mark -- 懒加载hub
+
+-(JGProgressHUD *)hub{
+    
+    if (_hub == nil) {
+        
+        _hub = [[JGProgressHUD alloc]initWithStyle:JGProgressHUDStyleDark];
+        
+    }
+    
+    return _hub;
+    
+    
+}
+
+
 
 #pragma mark -
 #pragma mark -- CEDefaultViewDelegate
@@ -76,13 +94,89 @@
 }
 
 
-- (void)defaultCenterView:(CEDefaultCenterView *)defaultView didClickSignInBtn:(UIButton *)signInBtn{
+- (void)defaultCenterView:(CEDefaultCenterView *)defaultView didClickSignUpBtn:(UIButton *)signUpBtn{
     
+   
+
     //打开注册界面
+    UIViewController *sigInVC = [[UIViewController alloc]init];
+  
+    WKWebView *webView = [[WKWebView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    sigInVC.view = webView;
+    
+    
+    //显示加载提示
+    self.hub.textLabel.text  = @"正在加载";
+                
+    [self.hub showInView:webView animated:YES];
+    
+    
+    webView.navigationDelegate = self;
+    
+    
+    UINavigationController *sigInNav = [[UINavigationController alloc]initWithRootViewController:sigInVC];
+    
+    sigInVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    
+    [self presentViewController:sigInNav animated:YES completion:^{
+        
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://m.weibo.cn/login?backURL=https%253A%252F%252Fm.weibo.cn%252F"]]];
+  
+    }];
+    
+    
+    
+    
+    
+    
+    
     DDFunc;
     
     
 }
+
+#pragma mark -
+#pragma mark -- 取消注册
+- (void)cancel{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    
+}
+
+//加载结束
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    
+    //[ProgressHUD dismiss];
+    DDFunc;
+    
+    [self.hub dismissAnimated:YES];
+    
+    
+}
+
+
+
+//加载失败
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
+    
+    
+    DDFunc;
+    
+    self.hub.textLabel.text = @"加载失败";
+    
+    [self.hub dismissAfterDelay:1.5 animated:YES];
+    
+    
+}
+
+
+
+
 
 
 

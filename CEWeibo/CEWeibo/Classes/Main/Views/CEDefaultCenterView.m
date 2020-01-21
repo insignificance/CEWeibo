@@ -89,9 +89,9 @@
 #pragma mark -- 注册按钮事件
 - (IBAction)signIn:(UIButton *)sender {
     
-    if ([self.delegate respondsToSelector:@selector(defaultCenterView:didClickSignInBtn:)]) {
+    if ([self.delegate respondsToSelector:@selector(defaultCenterView:didClickSignUpBtn:)]) {
         
-        [self.delegate defaultCenterView:self didClickSignInBtn:sender];
+        [self.delegate defaultCenterView:self didClickSignUpBtn:sender];
         
     }
     

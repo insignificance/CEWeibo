@@ -25,6 +25,10 @@
 		5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381965223C3154A0064B8FA /* CEOAuthViewController.m */; };
 		5382CFFB23CF146500E6F332 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5382CFFA23CF146500E6F332 /* NSDate+Extension.m */; };
 		5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5387896B23B24E3B0083B362 /* LaunchScreen.storyboard */; };
+		538B20AF23D691E400D0E8EA /* CEHomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538B20AE23D691E400D0E8EA /* CEHomeViewController.storyboard */; };
+		538B20B123D691FC00D0E8EA /* CEDiscoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538B20B023D691FC00D0E8EA /* CEDiscoverViewController.storyboard */; };
+		538B20B323D6921800D0E8EA /* CEMessageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538B20B223D6921800D0E8EA /* CEMessageViewController.storyboard */; };
+		538B20B523D6922A00D0E8EA /* CEProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538B20B423D6922A00D0E8EA /* CEProfileViewController.storyboard */; };
 		538F6E0E23C9CDD600628251 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 538F6E0D23C9CDD600628251 /* UIImage+Extension.m */; };
 		53CBB45B23C456660064C575 /* CEAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB45A23C456660064C575 /* CEAccount.m */; };
 		53CBB46023C45E290064C575 /* CENewfeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CBB45E23C45E290064C575 /* CENewfeatureVC.m */; };
@@ -97,6 +101,10 @@
 		5382CFFA23CF146500E6F332 /* NSDate+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		5387895A23B24E390083B362 /* CEWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5387896C23B24E3B0083B362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		538B20AE23D691E400D0E8EA /* CEHomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CEHomeViewController.storyboard; sourceTree = "<group>"; };
+		538B20B023D691FC00D0E8EA /* CEDiscoverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CEDiscoverViewController.storyboard; sourceTree = "<group>"; };
+		538B20B223D6921800D0E8EA /* CEMessageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CEMessageViewController.storyboard; sourceTree = "<group>"; };
+		538B20B423D6922A00D0E8EA /* CEProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CEProfileViewController.storyboard; sourceTree = "<group>"; };
 		538F6E0C23C9CDD600628251 /* UIImage+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		538F6E0D23C9CDD600628251 /* UIImage+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		53CBB45923C456660064C575 /* CEAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAccount.h; sourceTree = "<group>"; };
@@ -327,14 +335,14 @@
 			isa = PBXGroup;
 			children = (
 				5379947223CF3E69008A7CBB /* Compose */,
-				53CBB45C23C45D910064C575 /* Welcome */,
-				5379EE9223C36E3400690CD0 /* OAuth */,
 				53F555C923B8428A00CBECEA /* Home */,
 				53F555D023B8428A00CBECEA /* Discover */,
-				53F555D723B8428A00CBECEA /* Other */,
 				53F555DF23B8428A00CBECEA /* Message */,
 				53F555E623B8428A00CBECEA /* Profile */,
 				53F555ED23B8428A00CBECEA /* Main */,
+				53F555D723B8428A00CBECEA /* Other */,
+				5379EE9223C36E3400690CD0 /* OAuth */,
+				53CBB45C23C45D910064C575 /* Welcome */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				53EBE28323BC80BC005E5B5A /* CEMyCardVC.m */,
 				53F5561D23B8468C00CBECEA /* CEStoryboard.storyboard */,
 				53F555CD23B8428A00CBECEA /* .gitkeep */,
+				538B20AE23D691E400D0E8EA /* CEHomeViewController.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +431,7 @@
 				53F5562C23B8469E00CBECEA /* CEDiscoverViewController.h */,
 				53F5562D23B8469E00CBECEA /* CEDiscoverViewController.m */,
 				53F555D423B8428A00CBECEA /* .gitkeep */,
+				538B20B023D691FC00D0E8EA /* CEDiscoverViewController.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -490,6 +500,7 @@
 				53F5562F23B846C100CBECEA /* CEMessageViewController.h */,
 				53F5563023B846C100CBECEA /* CEMessageViewController.m */,
 				53F555E323B8428A00CBECEA /* .gitkeep */,
+				538B20B223D6921800D0E8EA /* CEMessageViewController.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -526,6 +537,7 @@
 				53F5563323B846DA00CBECEA /* CEProfileViewController.h */,
 				53F5563223B846D900CBECEA /* CEProfileViewController.m */,
 				53F555EA23B8428A00CBECEA /* .gitkeep */,
+				538B20B423D6922A00D0E8EA /* CEProfileViewController.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -678,9 +690,13 @@
 				5387896D23B24E3B0083B362 /* LaunchScreen.storyboard in Resources */,
 				53F5562623B8468D00CBECEA /* CEStoryboard.storyboard in Resources */,
 				53F5560A23B8429000CBECEA /* Assets.xcassets in Resources */,
+				538B20B523D6922A00D0E8EA /* CEProfileViewController.storyboard in Resources */,
 				53CBB46623C45E4A0064C575 /* CEWelcomeVC.xib in Resources */,
+				538B20B123D691FC00D0E8EA /* CEDiscoverViewController.storyboard in Resources */,
 				53CBB46123C45E290064C575 /* CENewfeatureVC.xib in Resources */,
 				5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */,
+				538B20B323D6921800D0E8EA /* CEMessageViewController.storyboard in Resources */,
+				538B20AF23D691E400D0E8EA /* CEHomeViewController.storyboard in Resources */,
 				5380930423D309FA00A2E75F /* CEComposeStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

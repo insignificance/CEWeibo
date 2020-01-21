@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CEDeflaultCenterViewDelegate <NSObject>
 
-- (void)defaultCenterView:(CEDefaultCenterView*)defaultView didClickSignInBtn:(UIButton *)signInBtn;
+- (void)defaultCenterView:(CEDefaultCenterView*)defaultView didClickSignUpBtn:(UIButton *)signInBtn;
 - (void)defaultCenterView:(CEDefaultCenterView*)defaultView didClickLogInBtn:(UIButton *)logInBtn;
 
 

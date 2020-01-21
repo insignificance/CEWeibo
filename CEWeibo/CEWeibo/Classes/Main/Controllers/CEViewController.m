@@ -113,7 +113,7 @@
 - (void)setUpChildVC {
     
     
-    
+    /*
     UIViewController *home = [self addViewControllerWithClass:[CENavigationController class] withObj: [CEHomeViewController new] image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
     
     UIViewController *message = [self addViewControllerWithClass:[CENavigationController class]withObj: [CEMessageViewController new]  image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
@@ -122,8 +122,20 @@
     
     
     UIViewController *profile = [self addViewControllerWithClass:[CENavigationController class]withObj: [CEProfileViewController new]  image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
- 
+     */
     
+    
+    UIViewController *home = [self addViewControllerWithSbName:NSStringFromClass([CEHomeViewController class])  image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
+     
+     UIViewController *message = [self addViewControllerWithSbName:NSStringFromClass([CEMessageViewController class]) image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
+     
+     UIViewController *discover = [self addViewControllerWithSbName:NSStringFromClass([CEDiscoverViewController class])image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
+     
+     
+     UIViewController *profile = [self addViewControllerWithSbName:NSStringFromClass([CEProfileViewController class])image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
+    
+    
+        
     
     
     self.viewControllers = @[home,message,discover,profile];
@@ -179,6 +191,35 @@
 }
 
 
+
+
+#pragma mark -
+#pragma mark -- 根据指定的storyboard 初始化对应的vc
+
+
+
+/// Description 获取自定义vc
+/// @param name storyBoardName
+/// @param image tabBarButton item 图片
+/// @param selectImg 选中图片
+/// @param title 标题
+- (UIViewController *)addViewControllerWithSbName:(NSString *)name image:(NSString *)image selectedImage: (NSString *)selectImg andTitile:(NSString *)title{
+    
+    
+   
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:name bundle:nil];
+     
+    CEDefaultCenterVC *rootVC = [sb instantiateInitialViewController];
+    
+    CENavigationController *nav = [[CENavigationController alloc]initWithRootViewController:rootVC];
+    
+    rootVC.navigationItem.title = title;
+    
+    [self addViewControllerWithVc:nav image:image selectedImage:selectImg andTitile:title];
+
+    return nav;
+    
+}
 
 
 

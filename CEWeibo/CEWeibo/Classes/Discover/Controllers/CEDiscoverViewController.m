@@ -22,6 +22,14 @@
     // Do any additional setup after loading the view.
     
     
+    
+    
+    //设置BarButtonItem
+          
+          
+    [self setUpBarButtonItem];
+    
+    
     //设置searchbar
     [self.navigationController.navigationBar setPrefersLargeTitles:YES];
     

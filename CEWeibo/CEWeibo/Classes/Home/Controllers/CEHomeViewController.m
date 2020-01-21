@@ -65,6 +65,18 @@ static NSString *reuseID = @"reuseID";
     
     
     
+    //设置BarButtonItem
+        
+        
+    [self setUpBarButtonItem];
+        
+        
+    //创建自定义titleview
+        
+    [self setUpTitleView:@"首页" andImage:@"navigationbar_arrow_down"];
+    
+    
+    
     
     
     if (self.defaultView !=nil) {
@@ -96,9 +108,6 @@ static NSString *reuseID = @"reuseID";
 
 
 
-
-
-
 - (void)viewWillDisappear:(BOOL)animated{
     
     
@@ -126,6 +135,10 @@ static NSString *reuseID = @"reuseID";
 
 
 
+#pragma mark -
+#pragma mark -- 初始化方法
+
+
 - (instancetype)initWithStyle:(UITableViewStyle)style{
     
     
@@ -148,9 +161,7 @@ static NSString *reuseID = @"reuseID";
         //设置默认view 的 图片 文字 应该延后
         
         //[self setUpImgAndTitle];
-        
-        
-        
+    
         
     }
     
