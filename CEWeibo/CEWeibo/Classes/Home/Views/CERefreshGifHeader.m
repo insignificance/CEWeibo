@@ -20,59 +20,59 @@
 
 
 
-- (instancetype)init{
-    
-    
-    if (self = [super init]) {
-        
-        
-        
-        if (@available(iOS 11.0,*)) {
-            
-            self.ignoredScrollViewContentInsetTop = 60.5;
-            
-            
-        }
-        
-        
-        
-    }
-    
-    
-    return self;
-    
-}
+//- (instancetype)init{
+//
+//
+//    if (self = [super init]) {
+//
+//
+//
+//        if (@available(iOS 11.0,*)) {
+//
+//            self.ignoredScrollViewContentInsetTop = 60.5;
+//
+//
+//        }
+//
+//
+//
+//    }
+//
+//
+//    return self;
+//
+//}
 
 
 
-- (instancetype)initWithFrame:(CGRect)frame{
-    
-    
-    
-    if (self = [super initWithFrame:frame]) {
-        
-        
-        if (@available(iOS 11.0,*)) {
-                 
-                 self.ignoredScrollViewContentInsetTop = 60.5;
-                 
-                 
-             }
-             
-      
-        
-        
-        
-    }
-    
-    
-    return self;
-    
-    
-    
-    
-    
-}
+//- (instancetype)initWithFrame:(CGRect)frame{
+//
+//
+//
+//    if (self = [super initWithFrame:frame]) {
+//
+//
+//        if (@available(iOS 11.0,*)) {
+//
+//                 self.ignoredScrollViewContentInsetTop = 60.5;
+//
+//
+//             }
+//
+//
+//
+//
+//
+//    }
+//
+//
+//    return self;
+//
+//
+//
+//
+//
+//}
 
 
 

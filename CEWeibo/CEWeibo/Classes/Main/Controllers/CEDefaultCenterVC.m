@@ -80,7 +80,7 @@
     
     CEOAuthViewController *oauthVc = [[CEOAuthViewController alloc]init];
     
-    oauthVc.view.backgroundColor = [UIColor greenColor];
+    //oauthVc.view.backgroundColor = [UIColor greenColor];
     
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:oauthVc];
     

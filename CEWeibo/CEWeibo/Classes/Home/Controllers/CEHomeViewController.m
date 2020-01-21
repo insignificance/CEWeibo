@@ -9,6 +9,7 @@
 #import "CEHomeViewController.h"
 #import "CEScannerController.h"
 #import "CETitleView.h"
+#import "CEHomeCell.h"
 #import <XHPopMenu/XHPopMenu.h>
 #import <AFNetworking/AFNetworking.h>
 #import "CEStatues.h"
@@ -36,7 +37,7 @@
 
 
 /* cell 重用标识符 */
-static NSString *reuseID = @"reuseID";
+static NSString *reuseID = @"CEHomeCell";
 
 #pragma mark -
 #pragma mark -- viewcontroller life recycle
@@ -478,13 +479,6 @@ static NSString *reuseID = @"reuseID";
 }
 
 
-
-
-
-
-
-
-
 #pragma mark -
 #pragma mark -- 设置刷新控件
 
@@ -814,36 +808,38 @@ static NSString *reuseID = @"reuseID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+    CEHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
     
     //下面这个必须注册cell
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
     
-    if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseID];
-        
-        
-    }
+//    if (cell == nil) {
+//
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseID];
+//
+//
+//    }
     
-    
-    
+
     //取出用户模型对象
     CEStatues *statues = self.statuesDateArr[indexPath.row];
     
-    CEUser *user = statues.user;
     
-    cell.textLabel.text = user.name;
+    cell.statues = statues;
+    
+    //CEUser *user = statues.user;
+    
+    //cell.textLabel.text = user.name;
     
     //cell.detailTextLabel.text = statues.text;
     
     //cell.detailTextLabel.text = statues.source;
     
-    cell.detailTextLabel.text = statues.created_at;
+    //cell.detailTextLabel.text = statues.created_at;
     
     
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
+    //[cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
     
     
     
@@ -862,6 +858,24 @@ static NSString *reuseID = @"reuseID";
     
     
 }
+
+
+//返回cell的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+   
+    CEHomeCell *homeCell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+  
+    CEStatues *statues = self.statuesDateArr[indexPath.row];
+                
+    return [homeCell cellHeightWithStatus:statues];
+    
+    
+    
+    
+}
+
 
 
 

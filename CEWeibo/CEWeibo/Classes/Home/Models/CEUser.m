@@ -10,4 +10,14 @@
 
 @implementation CEUser
 
+
+- (BOOL)isVip{
+    
+    
+    return [self.mbtype intValue] >2;
+    
+    
+}
+
+
 @end
