@@ -43,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSArray *pic_urls;
 
-
 /**
  (暂未支持）回复ID
 */

@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef enum {
+
+typedef NS_ENUM(NSInteger,CEUserVerifiedType) {
     
     IWUserVerifiedTypeNone = -1, // 没有任何认证
     
@@ -26,7 +27,9 @@ typedef enum {
     // 红色行星
     IWUserVerifiedDaren = 220 // 微博达人
     
-} CEUserVerifiedType;
+    
+};
+
 
 
 
