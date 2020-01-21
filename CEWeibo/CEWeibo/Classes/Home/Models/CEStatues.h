@@ -108,11 +108,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,unsafe_unretained) int mblog_vip_type;
 
 //转发数
-@property (nonatomic,unsafe_unretained) int reposts_count;
+@property (nonatomic,unsafe_unretained) NSUInteger reposts_count;
 //评论数
-@property (nonatomic,unsafe_unretained) int comments_count;
+@property (nonatomic,unsafe_unretained) NSUInteger comments_count;
 //表太数（赞）
-@property (nonatomic,unsafe_unretained) int attitudes_count;
+@property (nonatomic,unsafe_unretained) NSUInteger attitudes_count;
 
 @property (nonatomic,unsafe_unretained) int pending_approval_count;
 
