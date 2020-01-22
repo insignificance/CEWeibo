@@ -135,7 +135,7 @@
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="1U1-A5-p4u" firstAttribute="bottom" secondItem="I44-3H-7IT" secondAttribute="bottom" id="4A7-b2-YPV"/>
                                                 <constraint firstItem="0MF-dG-6Kb" firstAttribute="leading" secondItem="I44-3H-7IT" secondAttribute="leading" id="62d-7U-if7"/>
@@ -228,7 +228,7 @@
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.98030010622400077" green="0.98030010622400077" blue="0.98030010622400077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="N2e-nZ-Z74" firstAttribute="leading" secondItem="Kv4-Zu-D77" secondAttribute="leading" constant="10" id="5zV-ZL-5xJ"/>
                                                 <constraint firstItem="N2e-nZ-Z74" firstAttribute="top" secondItem="Kv4-Zu-D77" secondAttribute="top" constant="10" id="6er-9v-DHX"/>
@@ -292,6 +292,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="8fv-Dy-mhB" firstAttribute="top" secondItem="ZDg-zs-fHK" secondAttribute="top" constant="0.10000000000000001" id="Ah9-rf-LYF"/>
                                         <constraint firstItem="vsQ-W3-Azr" firstAttribute="top" secondItem="Kv4-Zu-D77" secondAttribute="bottom" constant="10" id="En1-2J-7iS"/>
@@ -304,7 +305,7 @@
                                         <constraint firstItem="Kv4-Zu-D77" firstAttribute="top" secondItem="8fv-Dy-mhB" secondAttribute="bottom" id="zp8-MP-1qq"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="HeightOfSection2" destination="d5b-lY-QsE" id="LQz-6O-aN8"/>
                                     <outlet property="commitBtn" destination="f9g-3Q-Buy" id="sdP-sP-DCu"/>

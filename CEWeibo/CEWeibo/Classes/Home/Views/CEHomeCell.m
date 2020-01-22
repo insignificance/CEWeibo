@@ -106,9 +106,7 @@ static NSString *reuseID = @"photoCell";
     _statues = statues;
     
     //[self layoutIfNeeded];
-    
-   
-    
+
     
     //1. 原创微博
     
@@ -393,52 +391,24 @@ static NSString *reuseID = @"photoCell";
              
              [self.retweetedphotoCollectionView reloadData];
              
-         //修改原创微博的高度 = 原来的高度 + 配图管理器的高度 + margin
+         //重新计算转发微博的高度 = 原来的高度 + 配图管理器的高度 + margin
              
              self.heightOfSection2.constant +=photosHeight + margin;
+
+             
              
          }else{
              //没有配图
-             self.heightOfSection2.constant = 0;
+            
+            
+             self.retweetedPhotoViewHeight.constant = 0;
+            
              
          }
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
-
-
-- (CGFloat)cellHeightWithStatus:(CEStatues *)statues{
-    
-    //重新计算高度
-    self.statues = statues;
-    
-    CGFloat cellHeight = 0;
     
     
-    CEStatues *retweektedStatus = statues.retweeted_status;
     
-    
-    if (retweektedStatus != nil) {
-        
-        cellHeight = self.heightOfSection1.constant + self.heightOfSection2.constant + self.heightOfToolBar.constant + 2*margin;
-        
-    }else{
-        
-        cellHeight = self.heightOfSection1.constant + self.heightOfToolBar.constant + 2*margin;
-        
-    }
-    
-    
-    //计算高度并返回
-    
-    return cellHeight;
     
     
     
@@ -485,6 +455,41 @@ static NSString *reuseID = @"photoCell";
     
     
 }
+
+
+
+
+- (CGFloat)cellHeightWithStatus:(CEStatues *)statues{
+    
+    //重新计算高度
+    self.statues = statues;
+    
+    CGFloat cellHeight = 0;
+    
+    
+    CEStatues *retweektedStatus = statues.retweeted_status;
+    
+    
+    if (retweektedStatus != nil) {
+        
+        cellHeight = self.heightOfSection1.constant + self.heightOfSection2.constant + self.heightOfToolBar.constant + 2*margin;
+        
+    }else{
+        
+        cellHeight = self.heightOfSection1.constant + self.heightOfToolBar.constant + 2*margin;
+        
+    }
+    
+    
+    //计算高度并返回
+    
+    return cellHeight;
+    
+    
+    
+}
+
+
 
 
 
