@@ -57,4 +57,8 @@
 #import <JGProgressHUD/JGProgressHUD.h>
 
 
+#define margin 10
+
+
+
 #endif /* PrefixHeader_pch */

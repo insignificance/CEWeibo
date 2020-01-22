@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fv-Dy-mhB" userLabel="原创微博">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fv-Dy-mhB" userLabel="原创微博" customClass="CEStatusOriginalView">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I44-3H-7IT" userLabel="头像">
@@ -130,8 +130,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="scX-tq-2fb" id="J6c-eC-Yvg"/>
-                                                        <outlet property="delegate" destination="scX-tq-2fb" id="VS1-El-lxy"/>
+                                                        <outlet property="dataSource" destination="8fv-Dy-mhB" id="71I-yd-Bzu"/>
+                                                        <outlet property="delegate" destination="8fv-Dy-mhB" id="2jp-gq-CpP"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -155,8 +155,20 @@
                                                 <constraint firstItem="2QJ-ON-cKU" firstAttribute="leading" secondItem="I44-3H-7IT" secondAttribute="trailing" constant="10" id="ySG-9n-8jT"/>
                                                 <constraint firstItem="UBc-el-JnY" firstAttribute="leading" secondItem="8fv-Dy-mhB" secondAttribute="leading" constant="10" id="zVV-AY-5i3"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="contentLabel" destination="0MF-dG-6Kb" id="1d6-k7-0dU"/>
+                                                <outlet property="heightOfSection1" destination="PAI-AK-HFm" id="tXB-o7-dvi"/>
+                                                <outlet property="iconImageView" destination="I44-3H-7IT" id="ZfV-ze-mdv"/>
+                                                <outlet property="nameLabel" destination="2QJ-ON-cKU" id="eD2-o4-8LE"/>
+                                                <outlet property="photoCollectionView" destination="UBc-el-JnY" id="7C9-kh-Pi6"/>
+                                                <outlet property="photoViewHeight" destination="PIz-VP-6kZ" id="Tkq-GW-nYb"/>
+                                                <outlet property="sourceLabel" destination="jz4-Zr-HQH" id="OcN-cW-y1n"/>
+                                                <outlet property="timeLabel" destination="7wR-TH-WJ2" id="cUQ-NN-GdQ"/>
+                                                <outlet property="typeImageView" destination="1U1-A5-p4u" id="Woa-v7-HEh"/>
+                                                <outlet property="vipImageView" destination="UVG-Y7-WtD" id="dlZ-ov-zhB"/>
+                                            </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kv4-Zu-D77" userLabel="转发微博">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kv4-Zu-D77" userLabel="转发微博" customClass="CEStatusRetweetedView">
                                             <rect key="frame" x="0.0" y="200" width="375" height="180"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2e-nZ-Z74" userLabel="转发微博内容">
@@ -223,8 +235,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="scX-tq-2fb" id="exu-Nr-Xjm"/>
-                                                        <outlet property="delegate" destination="scX-tq-2fb" id="hBi-ti-CCn"/>
+                                                        <outlet property="dataSource" destination="Kv4-Zu-D77" id="bsR-RN-61H"/>
+                                                        <outlet property="delegate" destination="Kv4-Zu-D77" id="h4D-qF-Ih2"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -236,8 +248,14 @@
                                                 <constraint firstAttribute="height" constant="180" id="d5b-lY-QsE"/>
                                                 <constraint firstItem="EZa-aV-XN4" firstAttribute="top" secondItem="N2e-nZ-Z74" secondAttribute="bottom" constant="10" id="rgC-yL-cvt"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="heightOfSection2" destination="d5b-lY-QsE" id="KHa-cd-aQC"/>
+                                                <outlet property="retweetedPhotoViewHeight" destination="iGn-8P-bqv" id="gXv-z8-MSj"/>
+                                                <outlet property="retweetedphotoCollectionView" destination="EZa-aV-XN4" id="zeP-bR-nz1"/>
+                                                <outlet property="reweetedContentLabel" destination="N2e-nZ-Z74" id="ohe-zA-nJd"/>
+                                            </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsQ-W3-Azr" userLabel="工具条">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsQ-W3-Azr" userLabel="工具条" customClass="CEBottomView">
                                             <rect key="frame" x="0.0" y="390" width="375" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVz-L8-xPY" userLabel="转发">
@@ -290,6 +308,12 @@
                                                 <constraint firstItem="zO2-CV-gHE" firstAttribute="leading" secondItem="f9g-3Q-Buy" secondAttribute="trailing" id="ssB-7f-ojj"/>
                                                 <constraint firstItem="gVz-L8-xPY" firstAttribute="top" secondItem="vsQ-W3-Azr" secondAttribute="top" constant="0.10000000000000001" id="wAK-un-cjl"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="commitBtn" destination="f9g-3Q-Buy" id="pWY-pw-QS1"/>
+                                                <outlet property="heightOfToolBar" destination="Nmz-PP-uFS" id="uFR-fb-Nbk"/>
+                                                <outlet property="likeBtn" destination="zO2-CV-gHE" id="LQ8-Tf-ou0"/>
+                                                <outlet property="reweekBtn" destination="gVz-L8-xPY" id="70n-AN-1DH"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -307,25 +331,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="HeightOfSection2" destination="d5b-lY-QsE" id="LQz-6O-aN8"/>
-                                    <outlet property="commitBtn" destination="f9g-3Q-Buy" id="sdP-sP-DCu"/>
-                                    <outlet property="contentLabel" destination="0MF-dG-6Kb" id="I4X-QY-lMK"/>
-                                    <outlet property="heightOfSection1" destination="PAI-AK-HFm" id="iRA-N7-ncw"/>
-                                    <outlet property="heightOfToolBar" destination="Nmz-PP-uFS" id="Y8c-FQ-v3d"/>
-                                    <outlet property="iconImageView" destination="I44-3H-7IT" id="21W-z8-5ze"/>
-                                    <outlet property="likeBtn" destination="zO2-CV-gHE" id="dJr-ab-vjl"/>
-                                    <outlet property="nameLabel" destination="2QJ-ON-cKU" id="sHk-jf-FQh"/>
-                                    <outlet property="photoCollectionView" destination="UBc-el-JnY" id="2yo-OF-o8P"/>
-                                    <outlet property="photoViewHeight" destination="PIz-VP-6kZ" id="GrV-Fe-5rn"/>
-                                    <outlet property="retweetedPhotoViewHeight" destination="iGn-8P-bqv" id="qTD-E4-3fs"/>
-                                    <outlet property="retweetedphotoCollectionView" destination="EZa-aV-XN4" id="OgG-Yl-kpu"/>
-                                    <outlet property="reweekBtn" destination="gVz-L8-xPY" id="8F6-uY-YeW"/>
-                                    <outlet property="reweetedContentLabel" destination="N2e-nZ-Z74" id="r42-JS-ThS"/>
-                                    <outlet property="reweetedView" destination="Kv4-Zu-D77" id="H7j-JT-mhF"/>
-                                    <outlet property="sourceLabel" destination="jz4-Zr-HQH" id="bY0-lI-SFW"/>
-                                    <outlet property="timeLabel" destination="7wR-TH-WJ2" id="gzF-SQ-Ljl"/>
-                                    <outlet property="typeImageView" destination="1U1-A5-p4u" id="6Ph-lV-eXA"/>
-                                    <outlet property="vipImageView" destination="UVG-Y7-WtD" id="QPM-OS-H8n"/>
+                                    <outlet property="bottomView" destination="vsQ-W3-Azr" id="vTz-6u-SdL"/>
+                                    <outlet property="statusOriginalView" destination="8fv-Dy-mhB" id="9eF-e3-2I3"/>
+                                    <outlet property="statusRetweetedView" destination="Kv4-Zu-D77" id="UXk-Qo-5sU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

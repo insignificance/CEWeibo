@@ -19,6 +19,9 @@
 		5380930A23D31DBB00A2E75F /* CECollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5380930923D31DBB00A2E75F /* CECollectionVC.m */; };
 		53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814D9D23C070CD0057245C /* UIView+Frame.m */; };
 		53814DA723C086E50057245C /* CETitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53814DA623C086E50057245C /* CETitleView.m */; };
+		53817ADB23D84617000EB46C /* CEStatusOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53817ADA23D84617000EB46C /* CEStatusOriginalView.m */; };
+		53817ADE23D8463B000EB46C /* CEStatusRetweetedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53817ADD23D8463B000EB46C /* CEStatusRetweetedView.m */; };
+		53817AE123D84662000EB46C /* CEBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53817AE023D84662000EB46C /* CEBottomView.m */; };
 		5381964A23C2D45A0064B8FA /* CEDfaultCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */; };
 		5381964D23C2DAAD0064B8FA /* CEDefaultCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964C23C2DAAD0064B8FA /* CEDefaultCenterView.m */; };
 		5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381964F23C2E36F0064B8FA /* CEDefaultCenterVC.m */; };
@@ -91,6 +94,12 @@
 		53814D9D23C070CD0057245C /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		53814DA523C086E50057245C /* CETitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETitleView.h; sourceTree = "<group>"; };
 		53814DA623C086E50057245C /* CETitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CETitleView.m; sourceTree = "<group>"; };
+		53817AD923D84617000EB46C /* CEStatusOriginalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEStatusOriginalView.h; sourceTree = "<group>"; };
+		53817ADA23D84617000EB46C /* CEStatusOriginalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEStatusOriginalView.m; sourceTree = "<group>"; };
+		53817ADC23D8463B000EB46C /* CEStatusRetweetedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEStatusRetweetedView.h; sourceTree = "<group>"; };
+		53817ADD23D8463B000EB46C /* CEStatusRetweetedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEStatusRetweetedView.m; sourceTree = "<group>"; };
+		53817ADF23D84662000EB46C /* CEBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEBottomView.h; sourceTree = "<group>"; };
+		53817AE023D84662000EB46C /* CEBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEBottomView.m; sourceTree = "<group>"; };
 		5381964923C2D45A0064B8FA /* CEDfaultCenterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CEDfaultCenterView.xib; sourceTree = "<group>"; };
 		5381964B23C2DAAD0064B8FA /* CEDefaultCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEDefaultCenterView.h; sourceTree = "<group>"; };
 		5381964C23C2DAAD0064B8FA /* CEDefaultCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEDefaultCenterView.m; sourceTree = "<group>"; };
@@ -284,6 +293,32 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		53817AD723D8454F000EB46C /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				53814DA523C086E50057245C /* CETitleView.h */,
+				53814DA623C086E50057245C /* CETitleView.m */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		53817AD823D845D0000EB46C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				538B20B623D6B8B600D0E8EA /* CEHomeCell.h */,
+				538B20B723D6B8B600D0E8EA /* CEHomeCell.m */,
+				538B20B923D6D28200D0E8EA /* CEColPhotoCell.h */,
+				538B20BA23D6D28200D0E8EA /* CEColPhotoCell.m */,
+				53817AD923D84617000EB46C /* CEStatusOriginalView.h */,
+				53817ADA23D84617000EB46C /* CEStatusOriginalView.m */,
+				53817ADC23D8463B000EB46C /* CEStatusRetweetedView.h */,
+				53817ADD23D8463B000EB46C /* CEStatusRetweetedView.m */,
+				53817ADF23D84662000EB46C /* CEBottomView.h */,
+				53817AE023D84662000EB46C /* CEBottomView.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5387895123B24E390083B362 = {
 			isa = PBXGroup;
 			children = (
@@ -404,15 +439,11 @@
 		53F555CE23B8428A00CBECEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				53817AD823D845D0000EB46C /* Cell */,
+				53817AD723D8454F000EB46C /* Title */,
 				53F555CF23B8428A00CBECEA /* .gitkeep */,
-				53814DA523C086E50057245C /* CETitleView.h */,
-				53814DA623C086E50057245C /* CETitleView.m */,
 				537F9C7523D0025D008A2565 /* CERefreshGifHeader.h */,
 				537F9C7623D0025D008A2565 /* CERefreshGifHeader.m */,
-				538B20B623D6B8B600D0E8EA /* CEHomeCell.h */,
-				538B20B723D6B8B600D0E8EA /* CEHomeCell.m */,
-				538B20B923D6D28200D0E8EA /* CEColPhotoCell.h */,
-				538B20BA23D6D28200D0E8EA /* CEColPhotoCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -766,8 +797,11 @@
 				53CBB46923C4685A0064C575 /* CEAccountTool.m in Sources */,
 				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
 				5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */,
+				53817ADB23D84617000EB46C /* CEStatusOriginalView.m in Sources */,
 				537C315923D1524600BAFF59 /* CEComposeToolbar.m in Sources */,
+				53817ADE23D8463B000EB46C /* CEStatusRetweetedView.m in Sources */,
 				538B20BB23D6D28200D0E8EA /* CEColPhotoCell.m in Sources */,
+				53817AE123D84662000EB46C /* CEBottomView.m in Sources */,
 				53CBB46F23C47B120064C575 /* UIWindow+Extension.m in Sources */,
 				537F803823CAC2C40064EE06 /* CEStatues.m in Sources */,
 				5382CFFB23CF146500E6F332 /* NSDate+Extension.m in Sources */,

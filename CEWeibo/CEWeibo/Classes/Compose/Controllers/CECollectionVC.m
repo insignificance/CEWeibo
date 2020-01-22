@@ -259,7 +259,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //初始化每一个item 相关属性
     
     //边距
-    CGFloat margin = 10;
+   
     //设置水平间隙
     
     self.flowlayout.minimumInteritemSpacing = margin;
