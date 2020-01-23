@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CEStatues;
+#import "CEStatusColView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface CEStatusRetweetedView : UIView
-/*数据模型*/
-@property (nonatomic,strong)CEStatues *statues;
+@interface CEStatusRetweetedView : CEStatusColView
+
 
 @end
 

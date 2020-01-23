@@ -1,6 +1,6 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
-
 target 'CEWeibo' do
   pod 'CocoaLumberjack'
   pod 'Masonry' 
@@ -12,4 +12,5 @@ target 'CEWeibo' do
   pod 'SDWebImage', '~> 5.0'
   pod 'MJExtension'
   pod 'MJRefresh'
+  pod 'GKPhotoBrowser'
 end

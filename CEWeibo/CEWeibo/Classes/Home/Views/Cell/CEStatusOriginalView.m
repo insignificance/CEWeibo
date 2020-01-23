@@ -10,10 +10,11 @@
 #import "CEStatues.h"
 #import "CEPhoto.h"
 #import "CEColPhotoCell.h"
+#import <GKPhotoBrowser/GKPhotoBrowser.h>
 
 
 static NSString *reuseID = @"photoCell";
-@interface CEStatusOriginalView ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface CEStatusOriginalView ()
 
 /*原创微博区域的高度约束*/
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightOfSection1;
@@ -58,13 +59,14 @@ static NSString *reuseID = @"photoCell";
 - (void)setStatues:(CEStatues *)statues{
     
     
-    _statues = statues;
+    //_statues = statues; f父类私有
     
-    
+    [super setStatues:statues];
+
     //1. 原创微博
     
     [self setUpOriginalStatus:statues];
-    
+
     
     
 }
@@ -82,13 +84,13 @@ static NSString *reuseID = @"photoCell";
     //昵称
     self.nameLabel.text = user.name;
     //vip
-    if ([_statues.user isVip]) {
+    if ([self.statues.user isVip]) {
         //是会员
         //显示会员
         self.vipImageView.hidden = NO;
         
         //设置会员图标
-        NSString *imageName = [NSString stringWithFormat:@"common_icon_membership_level%d",[_statues.user.mbrank intValue] % 6 + 1]; //[1,6]
+        NSString *imageName = [NSString stringWithFormat:@"common_icon_membership_level%d",[self.statues.user.mbrank intValue] % 6 + 1]; //[1,6]
         //DDLogDebug(@"%@",imageName);
         
         self.vipImageView.image = [UIImage imageNamed:imageName];
@@ -135,7 +137,7 @@ static NSString *reuseID = @"photoCell";
     
     self.typeImageView.hidden = NO;
     
-    switch (_statues.user.verified_type) {
+    switch (self.statues.user.verified_type) {
             
         case IWUserVerifiedPersonal:
             self.typeImageView.image  = [UIImage imageNamed:@"avatar_vip"];
@@ -157,15 +159,15 @@ static NSString *reuseID = @"photoCell";
     //时间
     
     [self.timeLabel setTextColor: [UIColor grayColor]];
-    self.timeLabel.text = _statues.created_at;
+    self.timeLabel.text = self.statues.created_at;
     
     //来源
     
-    self.sourceLabel.text = _statues.source;
+    self.sourceLabel.text = self.statues.source;
     
     //正文
     
-    self.contentLabel.text = _statues.text;
+    self.contentLabel.text = self.statues.text;
     
     //原创微博区域高度 = 正文的y + 正文的高
     //1. 计算紧凑状态下 正文的高度
@@ -175,7 +177,7 @@ static NSString *reuseID = @"photoCell";
     
     
     //设置配图
-    NSUInteger count = _statues.pic_urls.count;
+    NSUInteger count = self.statues.pic_urls.count;
     
     
     if (count > 0) {
@@ -224,44 +226,9 @@ static NSString *reuseID = @"photoCell";
     
 }
 
-#pragma mark -
-#pragma mark -- UICollectionViewDataSource
 
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
-    return 1;
-    
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
-    
-    NSInteger count = self.statues.pic_urls.count;
-    
-    return count;
-    
-}
 
 
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //获取cell
-    
-    CEColPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
-    
-    //设置数据
-    
-    CEPhoto *photo = self.statues.pic_urls[indexPath.row];
-    
-    cell.photo = photo;
-    
-    //返回
-    return cell;
-    
-    
-    
-    
-}
 
 @end

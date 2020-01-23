@@ -12,7 +12,7 @@
 #import "CEColPhotoCell.h"
 
 static NSString *reuseID = @"photoCell";
-@interface CEStatusRetweetedView ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface CEStatusRetweetedView ()
 
 /*转发微博正文*/
 @property (weak, nonatomic) IBOutlet UILabel *reweetedContentLabel;
@@ -43,7 +43,9 @@ static NSString *reuseID = @"photoCell";
 - (void)setStatues:(CEStatues *)statues{
     
     
-    _statues = statues;
+    //_statues = statues; 父类私有
+    
+    [super setStatues:statues];
     
     
     //2. 转发微博
@@ -73,7 +75,7 @@ static NSString *reuseID = @"photoCell";
 - (void)setUpRetweetedStatus:(CEStatues *)statues{
     
     
-    CEStatues *retweeyedStatus = statues.retweeted_status;
+    CEStatues *retweeyedStatus = statues;
     
     
     //1. 设置转发正文
@@ -146,44 +148,5 @@ static NSString *reuseID = @"photoCell";
     
 }
 
-#pragma mark -
-#pragma mark -- UICollectionViewDataSource
 
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
-    return 1;
-    
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
-    
-    NSInteger count = self.statues.retweeted_status.pic_urls.count;
- 
-    return count;
-    
-}
-
-
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //获取cell
-    
-    CEColPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseID forIndexPath:indexPath];
-
-    //设置数据
-    
-    CEPhoto *photo = self.statues.retweeted_status.pic_urls[indexPath.row];
-    cell.photo = photo;
-
-    cell.photo = photo;
-    
-    //返回
-    return cell;
-    
-    
-    
-    
-}
 @end

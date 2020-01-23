@@ -56,10 +56,9 @@
     
     // 传递数据给原创/转发/底部视图
     self.statusOriginalView.statues = statues;
-    self.statusRetweetedView.statues = statues;
+    self.statusRetweetedView.statues = statues.retweeted_status;
     self.bottomView.statues = statues;
     
-
 
     
     
@@ -104,6 +103,7 @@
     
     
     return CGRectGetMaxY(self.bottomView.frame) + margin;
+    
     
     
     

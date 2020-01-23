@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5339163023D9902C008AF984 /* CEStatusColView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5339162F23D9902C008AF984 /* CEStatusColView.m */; };
 		5379947F23CF4006008A7CBB /* CEComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5379947E23CF4006008A7CBB /* CEComposeVC.m */; };
 		5379948523CF466D008A7CBB /* CEInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5379948423CF466D008A7CBB /* CEInputTextView.m */; };
 		537C315923D1524600BAFF59 /* CEComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 537C315823D1524600BAFF59 /* CEComposeToolbar.m */; };
@@ -69,6 +70,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5339162E23D9902C008AF984 /* CEStatusColView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEStatusColView.h; sourceTree = "<group>"; };
+		5339162F23D9902C008AF984 /* CEStatusColView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEStatusColView.m; sourceTree = "<group>"; };
 		5379947423CF3E69008A7CBB /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5379947723CF3E69008A7CBB /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5379947D23CF4006008A7CBB /* CEComposeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEComposeVC.h; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				53817ADD23D8463B000EB46C /* CEStatusRetweetedView.m */,
 				53817ADF23D84662000EB46C /* CEBottomView.h */,
 				53817AE023D84662000EB46C /* CEBottomView.m */,
+				5339162E23D9902C008AF984 /* CEStatusColView.h */,
+				5339162F23D9902C008AF984 /* CEStatusColView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */,
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				5380930A23D31DBB00A2E75F /* CECollectionVC.m in Sources */,
+				5339163023D9902C008AF984 /* CEStatusColView.m in Sources */,
 				53F5560E23B8451500CBECEA /* CEViewController.m in Sources */,
 				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
 				53F5562523B8468D00CBECEA /* CEBarcodeVC.m in Sources */,
