@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)CETabBar2:(CETabBar2 *)tabBar withCEItem:(CEItem *)item from:(NSInteger)from to:(NSInteger)to;
 
-
 - (void)CETabBar2:(CETabBar2 *)tabBar selectedAddbtn:(UIButton *)addBtn;
 
 @end
@@ -24,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CETabBar2 : UIView
 
 @property (nonatomic,weak)id<CETabBar2Delegate>delegate;
+
+
 
 /// 对外提供添加 item 方法
 - (void)addItemFromBarItem:(UITabBarItem *)item;

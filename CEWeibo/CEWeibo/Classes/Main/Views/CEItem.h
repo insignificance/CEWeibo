@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CEItem : UIButton
 
+//数据模型
+@property (nonatomic,strong) UITabBarItem *item;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

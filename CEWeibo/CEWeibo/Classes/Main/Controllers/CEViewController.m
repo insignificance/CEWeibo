@@ -15,11 +15,18 @@
 #import "CENavigationController.h"
 #import "CEComposeVC.h"
 
-
-
+//模拟小红点
+static NSInteger badgeValue = 0;
 @interface CEViewController ()<CETabBar2Delegate>
 
 @property (nonatomic,weak)CETabBar2 *customTabBar;
+
+@property (nonatomic,strong)UINavigationController *homeNavViewControlle;
+@property (nonatomic,strong)UINavigationController *messageNavViewController;
+@property (nonatomic,strong)UINavigationController *profileNavViewController;
+@property (nonatomic,strong)UINavigationController *discoverNavViewController;
+
+
 
 @end
 
@@ -42,11 +49,93 @@
     
     //[self setValue:tabBar forKeyPath:@"tabBar"];
     
+    
+    //5 . 开启定时器 获取为读信息
+     CEAccount *account = [CEAccountTool accountFromSandbox];
+    
+    //若已经有账号
+    if (account) {
+
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(getUnread:) userInfo:nil repeats:YES];
+        
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        
+       }
 
     
   
     
 }
+
+#pragma mark -
+#pragma mark -- 获取未读数
+
+
+- (void)getUnread:(NSTimer *)timer{
+    
+    
+    //CEAccount *account = [timer userInfo];
+    
+   // AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    //NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    
+    
+   // parameters[@"access_token"] = account.access_token;
+    //parameters[@"uid"] = account.uid;
+    
+   // NSString *urlString = @"https://rm.api.weibo.com/2/remind/unread_count.json";
+    
+    //DDLogDebug(@"self.homeViewControlle = %@",self.homeViewControlle);
+    
+    badgeValue += 2;
+    
+    self.homeNavViewControlle.tabBarItem.badgeValue  = [NSString stringWithFormat:@"%ld",badgeValue];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeValue;
+    
+    
+//    [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//
+//
+//        //设置tabbarbutton badgevalue 小红点提醒
+//        //DDLogDebug(@"responseObjc = %@",responseObject);
+//        NSNumber *number = responseObject[@"status"];
+//
+//        if (number.intValue > 0) {
+//            //有未读消息
+//            DDLogDebug(@"有未读消息");
+//
+//            self.homeViewControlle.tabBarItem.badgeValue = [number description];
+//
+//            //设置应用图标上的提醒
+//
+//           [UIApplication sharedApplication].applicationIconBadgeNumber = number.integerValue;
+//
+//
+//        }
+//
+//
+//
+//
+//
+//
+//
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//        DDLogDebug(@"error = %@",error);
+//
+//
+//    }];
+//
+    
+    
+    
+    
+}
+
 
 - (void)viewDidAppear:(BOOL)animated{
     
@@ -125,20 +214,33 @@
      */
     
     
-    UIViewController *home = [self addViewControllerWithSbName:NSStringFromClass([CEHomeViewController class])  image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
-     
-     UIViewController *message = [self addViewControllerWithSbName:NSStringFromClass([CEMessageViewController class]) image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
-     
-     UIViewController *discover = [self addViewControllerWithSbName:NSStringFromClass([CEDiscoverViewController class])image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
-     
-     
-     UIViewController *profile = [self addViewControllerWithSbName:NSStringFromClass([CEProfileViewController class])image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
+    UINavigationController *homeNav = (UINavigationController *)[self addViewControllerWithSbName:NSStringFromClass([CEHomeViewController class])  image:@"tabbar_home" selectedImage:@"tabbar_home_selected" andTitile:@"首页"];
+
+    
+    self.homeNavViewControlle = homeNav;
+    
+    //self.homeViewControlle  = (CEHomeViewController *)homeNav.topViewController;
     
     
+     UINavigationController *messageNav = (UINavigationController *)[self addViewControllerWithSbName:NSStringFromClass([CEMessageViewController class]) image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected" andTitile:@"消息"];
+    
+    //self.messageViewController = (CEMessageViewController *)messageNav.topViewController;
+    
+    self.messageNavViewController = messageNav;
+
+     UINavigationController *discoverNav = (UINavigationController *)[self addViewControllerWithSbName:NSStringFromClass([CEDiscoverViewController class])image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected" andTitile:@"发现"];
+    
+    //self.discoverViewController  = (CEDiscoverViewController *)discoverNav.topViewController;
+    
+    self.discoverNavViewController = discoverNav;
+     
+     UINavigationController *profileNav = (UINavigationController *)[self addViewControllerWithSbName:NSStringFromClass([CEProfileViewController class])image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected" andTitile:@"我"];
+    
+    //self.profileViewController = (CEProfileViewController *)profileNav.topViewController;
         
+    self.profileNavViewController = profileNav;
     
-    
-    self.viewControllers = @[home,message,discover,profile];
+    self.viewControllers = @[homeNav,messageNav,discoverNav,profileNav];
     
     
     
@@ -324,6 +426,61 @@
     
     
     [self setSelectedIndex:to];
+    
+    UINavigationController *nav = self.childViewControllers[to];
+    
+    UIViewController *vc = [nav topViewController];
+    
+    
+    if ([vc isKindOfClass:[CEHomeViewController class]]) {
+        //点击的是首页
+        CEHomeViewController *tableViewVC = (CEHomeViewController *)vc;
+        
+        //判断是否是当前控制器界面点击
+        
+        if (from == 0 && to == 0) {
+            
+            
+            if (self.homeNavViewControlle.tabBarItem.badgeValue.intValue >0 ) {
+                //存在数据
+                
+                [tableViewVC.tableView.mj_header beginRefreshing];
+                DDLogDebug(@"下拉刷新");
+                
+                //清除小红点
+                self.homeNavViewControlle.tabBarItem.badgeValue = @"0";
+                [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+                
+                
+                
+            }else{
+                //不存在数据 滑动到顶部
+                
+               
+                DDLogDebug(@"滚动到顶部");
+                
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                
+                [tableViewVC.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                
+                
+                
+            }
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
     
     
     

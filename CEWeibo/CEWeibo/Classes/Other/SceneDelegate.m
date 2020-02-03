@@ -3,10 +3,11 @@
 #import "UIWindow+Extension.h"
 
 
-
 @interface SceneDelegate ()
 
 @end
+
+
 
 @implementation SceneDelegate
 
@@ -15,15 +16,14 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-    
-    
+
 //    self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //
 //    self.window.rootViewController = [[CEViewController alloc]init];
 //
 //    self.window.rootViewController.view.backgroundColor = [UIColor orangeColor];
 //
-//    //UIWindowScene *windowScene = [[UIWindowScene alloc]initWithSession:session connectionOptions:connectionOptions];
+//    //UIWindowScene *windowScene = [[UIWindowScene alloc]initWithSession:session connectionOptions:connectionOptions]; //bad
 //
 //
 //
@@ -57,6 +57,10 @@
     {
         // 如果在此之后才调用makeKeyAndVisible, 那么在chooseRootViewController方法中去到的keywindow是nil
         [self.window chooseRootViewController];
+        
+       
+        
+        
     }
 
 
@@ -94,6 +98,24 @@
     // Called as the scene transitions from the foreground to the background.
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
+    
+//    NSLog(@"=== DID ENTER BACKGROUND ===");
+//    self.bgTask = [[UIApplication  sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+//           NSLog(@"End of tolerate time. Application should be suspended now if we do not ask more 'tolerance'");
+//           // [self askToRunMoreBackgroundTask]; This code seems to be unnecessary. I'll verify it.
+//       }];
+//
+//       if (self.bgTask == UIBackgroundTaskInvalid) {
+//           NSLog(@"This application does not support background mode");
+//       } else {
+//           //if application supports background mode, we'll see this log.
+//           NSLog(@"Application will continue to run in background");
+//       }
+//
+
+    
+
+    
 }
 
 

@@ -81,9 +81,8 @@
     
     
     //2. 为按钮添加属性
-    [button setTitle:item.title forState:UIControlStateNormal];
-    [button setImage:item.image forState:UIControlStateNormal];
-    [button setImage:item.selectedImage forState:UIControlStateHighlighted];
+    
+    button.item = item;
     
     //3. 将按钮添加到 视图中
     
@@ -101,6 +100,7 @@
     
     
 }
+
 
 
 
@@ -213,15 +213,7 @@
     //[ProgressHUD showSuccess:@"123" Interaction:YES];
     
     
-    //1. 点击按钮的时候 按钮变为高亮状态
-    
-    [NSOperationQueue.mainQueue addOperationWithBlock:^{
-        
-        item.highlighted = YES;
-        self.lastItem = item;
-        
-    }];
-    
+  
     
     //通知代理对象调用代理方法
     
@@ -230,6 +222,19 @@
         [self.delegate CETabBar2:self withCEItem:item from:self.lastItem.tag to:item.tag];
         
     }
+    
+    
+    // 点击按钮的时候 按钮变为高亮状态 重新获取当前item
+      
+      [NSOperationQueue.mainQueue addOperationWithBlock:^{
+          
+          item.highlighted = YES;
+          self.lastItem = item;
+          
+      }];
+      
+    
+    
     
     
     //为选项卡添加动画效果

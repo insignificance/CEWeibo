@@ -67,13 +67,13 @@ static NSString *reuseID = @"CEHomeCell";
     
     
     //设置BarButtonItem
-        
-        
+    
+    
     [self setUpBarButtonItem];
-        
-        
+    
+    
     //创建自定义titleview
-        
+    
     [self setUpTitleView:@"首页" andImage:@"navigationbar_arrow_down"];
     
     
@@ -162,7 +162,7 @@ static NSString *reuseID = @"CEHomeCell";
         //设置默认view 的 图片 文字 应该延后
         
         //[self setUpImgAndTitle];
-    
+        
         
     }
     
@@ -273,6 +273,11 @@ static NSString *reuseID = @"CEHomeCell";
 - (void)loadNewStatuese{
     
     
+    // 0.清空提醒数字
+    self.tabBarItem.badgeValue= @"";
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     //1.获取管理对象
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -317,7 +322,7 @@ static NSString *reuseID = @"CEHomeCell";
         
         
         
-        DDLogDebug(@"%@",responseObject);
+        //DDLogDebug(@"%@",responseObject);
         
         
         //获取statues 字典数组
@@ -347,7 +352,7 @@ static NSString *reuseID = @"CEHomeCell";
         
         // 显示提醒
         [self showNewStatusWithCount:statuesArray.count];
-              
+        
         
         
         // DDLogDebug(@"%@",responseObject);
@@ -381,7 +386,9 @@ static NSString *reuseID = @"CEHomeCell";
     
     
     // 0.清空提醒数字
-    self.tabBarItem.badgeValue = nil;
+    self.tabBarItem.badgeValue = @"";
+    
+    DDLogDebug(@"homeViewControlle = %@",self);
     
     
     //1.获取管理对象
@@ -453,7 +460,7 @@ static NSString *reuseID = @"CEHomeCell";
         // DDLogDebug(@"%@",responseObject);
         
         
-      
+        
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -529,6 +536,14 @@ static NSString *reuseID = @"CEHomeCell";
 }
 
 
+//- (void)viewDidLayoutSubviews{
+//
+//    [super viewDidLayoutSubviews];
+//
+//   NSLog(@"-----%f",self.view.safeAreaInsets.top);
+//}
+
+
 #pragma mark -
 #pragma mark -- 刷新提醒
 
@@ -561,7 +576,33 @@ static NSString *reuseID = @"CEHomeCell";
     
     label.mj_x = 0;
     label.mj_h = 30;
-    label.mj_y = 64 - label.mj_h;
+    
+//    //判断是否刘海屏
+//    if (@available(iOS 11.0, *)) {
+//
+//        //CGFloat a = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;
+//
+//        CGFloat a = self.view.safeAreaInsets.top;
+//
+//        //NSLog(@"%@",NSStringFromUIEdgeInsets([UIApplication sharedApplication].delegate.window.safeAreaInsets));
+//
+//        if (a > 64) {
+//            //是
+//        label.mj_y = 88 - label.mj_h;
+//
+//        }else{
+//
+//            //不是
+//            label.mj_y = 64 - label.mj_h;
+//
+//        }
+//
+//
+//    }
+    
+    //根据safeAreaInsets 适配各类屏幕
+    label.mj_y = self.view.safeAreaInsets.top - label.mj_h;
+
     label.mj_w = self.view.mj_w;
     
     //3. 添加到父控件
@@ -813,14 +854,14 @@ static NSString *reuseID = @"CEHomeCell";
     //下面这个必须注册cell
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID forIndexPath:indexPath];
     
-//    if (cell == nil) {
-//
-//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseID];
-//
-//
-//    }
+    //    if (cell == nil) {
+    //
+    //        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseID];
+    //
+    //
+    //    }
     
-
+    
     //取出用户模型对象
     CEStatues *statues = self.statuesDateArr[indexPath.row];
     
@@ -864,11 +905,11 @@ static NSString *reuseID = @"CEHomeCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-   
+    
     CEHomeCell *homeCell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-  
+    
     CEStatues *statues = self.statuesDateArr[indexPath.row];
-                
+    
     return [homeCell cellHeightWithStatus:statues];
     
     
