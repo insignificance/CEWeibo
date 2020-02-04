@@ -627,6 +627,13 @@ static NSString *reuseID = @"CEHomeCell";
     }];
     
     
+    //清除小红点
+    
+    self.navigationController.tabBarItem.badgeValue = @"0";
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    
+    
     
     
 }
