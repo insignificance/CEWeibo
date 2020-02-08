@@ -12,6 +12,7 @@
 
 #define CEAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"]
 
+
 @implementation CEAccountTool
 
 + (BOOL)savaAccount:(CEAccount *)account{

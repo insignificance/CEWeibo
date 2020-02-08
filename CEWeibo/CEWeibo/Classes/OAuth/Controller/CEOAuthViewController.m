@@ -166,82 +166,41 @@
 -(void)accessTokenWithCode:(NSString *)code{
     
     
-    //1. 创建afn 管理者
-    AFHTTPSessionManager *sessionMd = [AFHTTPSessionManager manager];
+
+    
+    CENetWorkingTools *tools = [CENetWorkingTools shareNetworkTools];
     
     
-    //2. 封装请求参数
-    
-    NSMutableDictionary *md = [NSMutableDictionary dictionary];
-    md[@"client_id"] = client_id;
-    md[@"client_secret"] = secret;
-    md[@"grant_type"] = @"authorization_code";
-    
-    md[@"code"] = code;
-    md[@"redirect_uri"] = redirect_uri;
-    
-    NSString *url = @"https://api.weibo.com/oauth2/access_token";
-    
-    //3. 发送请求
-    
-    
-    [sessionMd POST:url parameters:md progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [tools loadAccessTokenWithCode:code success:^(CEAccount * _Nonnull account) {
         
         
-        DDLogDebug(@"请求成功 responseObject = %@",responseObject);
-        
-        CEAccount *account = [CEAccount accountWithDict:responseObject];
-        
-        NSLog(@"%@",account);
+        DDLogDebug(@"获取accesstoken 成功 %@",account);
         
         
-        BOOL success = [CEAccountTool savaAccount:account];
-        
-        
-        if (success) {
+        if (account) {
             
-            DDLogDebug(@"保存成功");
-            
-        }else{
-            
-            DDLogDebug(@"保存失败");
-            
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+                //判断应该显示新特性还是欢迎界面
+                
+                [[UIApplication sharedApplication].keyWindow chooseRootViewController];
+                
+                
+            }];
         }
         
         
         
-        [self dismissViewControllerAnimated:YES completion:^{
-            //切换窗口
-            
-            [[UIApplication sharedApplication].keyWindow chooseRootViewController];
-            
-            
-        }];
+    } failure:^(NSError * _Nonnull error) {
         
         
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        
-        DDLogDebug(@"请求失败 error = %@",error);
-        
+        DDLogDebug(@"获取accesstoken 失败%@",error);
         
     }];
     
-    
-    
-    
-    
-    
-    
-    
+
     
 }
-
-
-
-
 
 
 

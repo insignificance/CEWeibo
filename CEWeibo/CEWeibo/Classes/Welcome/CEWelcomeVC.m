@@ -10,7 +10,7 @@
 #import <SDWebImage.h>
 #import "CEAccount.h"
 #import "CEAccountTool.h"
-#import "CEViewController.h"
+#import "CETabBarController.h"
 #import "UIImage+Extension.h"
 
 @interface CEWelcomeVC ()
@@ -97,7 +97,7 @@
             
         }completion:^(BOOL finished) {
             
-            CEViewController *tabBarVc = [[CEViewController alloc]init];
+            CETabBarController *tabBarVc = [[CETabBarController alloc]init];
             
             //切换主窗口
             

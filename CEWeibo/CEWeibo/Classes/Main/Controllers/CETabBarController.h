@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CEViewController : UITabBarController
+@interface CETabBarController : UITabBarController
 
 @end
 

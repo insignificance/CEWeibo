@@ -14,6 +14,8 @@
 #import <AFNetworking/AFNetworking.h>
 #import "CEStatues.h"
 #import "CEUser.h"
+#import "CEStatuesRequest.h"
+#import "CEStatuesResult.h"
 
 #import "CERefreshGifHeader.h"
 
@@ -199,47 +201,30 @@ static NSString *reuseID = @"CEHomeCell";
 
 - (void)setUpUserInfo{
     
+    
     //1. 获取管理对象
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //2. 封装请求参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    //AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
+    CENetWorkingTools *tools = [CENetWorkingTools shareNetworkTools];
     
-    //2.1 获取用户模型对象
-    
-    CEAccount *accout = [CEAccountTool accountFromSandbox];
-    
-    parameters[@"access_token"] = accout.access_token;
-    parameters[@"uid"] = accout.uid;
-    
-    
-    //3. api urlString
-    NSString *urlString  = @"https://api.weibo.com/2/users/show.json";
-    //4. 发送请求
-    [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    //2. 加载用户数据
+    [tools loadUserInfo:^(CEUser *responseObject){
         
-        //取出头像urlString
-        NSString *profile_imgae_url = [responseObject valueForKeyPath:@"profile_image_url"];
+        DDLogDebug(@"获取用户信息成功 = %@",responseObject);
         
-        //判断和本地的已存储的用户头像url 是否一致 一致就返回
-        if ([accout.profile_image_url isEqualToString:profile_imgae_url]) {
-            return ;
-        }else{ //不一致就更新本地头像url
-            
-            accout.profile_image_url =  profile_imgae_url;
-            
-            [CEAccountTool savaAccount:accout];
-            
-        }
-        
+        CEAccount *accout = [CEAccountTool accountFromSandbox];
         
         //取出高清用户头像urlString
         
-        NSString *avatar_large = [responseObject valueForKeyPath:@"avatar_large"];
+        //NSString *avatar_large = [responseObject valueForKeyPath:@"avatar_large"];
+        
+        NSString *avatar_large = responseObject.avatar_large;
         
         //判断和本地的已存储的用户头像url 是否一致 一致就返回
         if ([accout.avatar_large isEqualToString:avatar_large]) {
+            
             return ;
+            
         }else{ //不一致就更新本地高清头像url
             
             accout.avatar_large = avatar_large;
@@ -249,19 +234,81 @@ static NSString *reuseID = @"CEHomeCell";
         }
         
         
-        //DDLogDebug(@"%@",responseObject);
+    } failure:^(NSError * _Nonnull error){
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        DDLogDebug(@"获取用户信息失败");
         
+        DDLogDebug(@"error = %@",error);
         
-        DDLogDebug(@"%@",error);
         
         
     }];
     
     
+    /*
+     //2. 封装请求参数
+     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+     
+     
+     //2.1 获取用户模型对象
+     
+     CEAccount *accout = [CEAccountTool accountFromSandbox];
+     
+     parameters[@"access_token"] = accout.access_token;
+     parameters[@"uid"] = accout.uid;
+     
+     */
     
     
+    /*
+     
+     //3. api urlString
+     NSString *urlString  = @"https://api.weibo.com/2/users/show.json";
+     //4. 发送请求
+     [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+     
+     //取出头像urlString
+     NSString *profile_imgae_url = [responseObject valueForKeyPath:@"profile_image_url"];
+     
+     //判断和本地的已存储的用户头像url 是否一致 一致就返回
+     if ([accout.profile_image_url isEqualToString:profile_imgae_url]) {
+     return ;
+     }else{ //不一致就更新本地头像url
+     
+     accout.profile_image_url =  profile_imgae_url;
+     
+     [CEAccountTool savaAccount:accout];
+     
+     }
+     
+     
+     //取出高清用户头像urlString
+     
+     NSString *avatar_large = [responseObject valueForKeyPath:@"avatar_large"];
+     
+     //判断和本地的已存储的用户头像url 是否一致 一致就返回
+     if ([accout.avatar_large isEqualToString:avatar_large]) {
+     return ;
+     }else{ //不一致就更新本地高清头像url
+     
+     accout.avatar_large = avatar_large;
+     
+     [CEAccountTool savaAccount:accout];
+     
+     }
+     
+     
+     //DDLogDebug(@"%@",responseObject);
+     
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     
+     
+     DDLogDebug(@"%@",error);
+     
+     
+     }];
+     
+     */
     
     
     
@@ -270,76 +317,91 @@ static NSString *reuseID = @"CEHomeCell";
 #pragma mark -
 #pragma mark -- 获取微博数据 / 兼顾下拉刷新
 
-- (void)loadNewStatuese{
+-(void)loadNewStatuese{
     
     
     // 0.清空提醒数字
     self.tabBarItem.badgeValue= @"";
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    /*
+     //1.获取管理对象
+     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+     
+     
+     //2.封装参数
+     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+     
+     //2.1获取模型对象
+     
+     CEAccount *account = [CEAccountTool accountFromSandbox];
+     
+     //2.2 获取令牌
+     
+     parameters[@"access_token"] = account.access_token;
+     
+     //2.3 设置默认返回的数据量（可选默认20条)
+     
+     parameters[@"count"] = @20;
+     
+     
+     //2.4 取出数组中第一个元素的id
+     
+     NSString *firstStatusIdStr = [[self.statuesDateArr firstObject] idstr];
+     
+     //有数据则 添加下拉刷新需要的参数
+     if (firstStatusIdStr != nil) {
+     
+     parameters[@"since_id"] = firstStatusIdStr;
+     
+     }
+     
+     */
     
-    //1.获取管理对象
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //1. 获取管理对象
     
+    CENetWorkingTools *tools = [CENetWorkingTools shareNetworkTools];
     
-    //2.封装参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    
-    //2.1获取模型对象
-    
+    //2. 封装请求参数
+    //2.1 获取用户信息
     CEAccount *account = [CEAccountTool accountFromSandbox];
     
-    //2.2 获取令牌
+    CEStatuesRequest *parameters = [CEStatuesRequest new];
     
-    parameters[@"access_token"] = account.access_token;
+    parameters.access_token = account.access_token;
     
-    //2.3 设置默认返回的数据量（可选默认20条)
-    
-    parameters[@"count"] = @20;
+    parameters.count = @20;
     
     
-    //2.4 取出数组中第一个元素的id
-    
+    //2.2 取出数组中第一个元素的id
     NSString *firstStatusIdStr = [[self.statuesDateArr firstObject] idstr];
     
     //有数据则 添加下拉刷新需要的参数
     if (firstStatusIdStr != nil) {
         
-        parameters[@"since_id"] = firstStatusIdStr;
+        parameters.since_id = [NSNumber numberWithLongLong:[firstStatusIdStr longLongValue]];
         
     }
-    
     
     
     DDLogDebug(@"access_token%@",account.access_token);
     
     
-    NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    
-    
-    
-    [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        
+    [tools loadHomeStatusWithParameters:parameters success:^(CEStatuesResult * _Nonnull result) {
         
         //DDLogDebug(@"%@",responseObject);
         
         
-        //获取statues 字典数组
-        NSArray *dictArray = responseObject[@"statuses"];
-        
-        //转换成模型 数组
-        NSMutableArray *statuesArray = [CEStatues mj_objectArrayWithKeyValuesArray:dictArray];
         
         //[self.statuesDateArr addObjectsFromArray:statuesArray];
         
         //第一次启动 数组里没数据 所以从第一个开始插入和末尾拆入都是一个意思
         
-        NSRange range = NSMakeRange(0, statuesArray.count);
+        NSRange range = NSMakeRange(0, result.statues.count);
         
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
         
-        [self.statuesDateArr insertObjects:statuesArray atIndexes:indexSet];
+        [self.statuesDateArr insertObjects:result.statues atIndexes:indexSet];
         
         //刷新tableview 数据
         
@@ -351,14 +413,15 @@ static NSString *reuseID = @"CEHomeCell";
         [self.tableView.mj_header endRefreshing];
         
         // 显示提醒
-        [self showNewStatusWithCount:statuesArray.count];
+        [self showNewStatusWithCount:result.statues.count];
         
         
         
         // DDLogDebug(@"%@",responseObject);
         
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    } failure:^(NSError * _Nonnull error) {
         
         //关闭刷新
         
@@ -368,9 +431,69 @@ static NSString *reuseID = @"CEHomeCell";
         
         DDLogDebug(@"%@",error);
         
+        
+        
     }];
     
     
+    /*
+     NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
+     
+     
+     
+     [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+     
+     
+     
+     //DDLogDebug(@"%@",responseObject);
+     
+     
+     //获取statues 字典数组
+     NSArray *dictArray = responseObject[@"statuses"];
+     
+     //转换成模型 数组
+     NSMutableArray *statuesArray = [CEStatues mj_objectArrayWithKeyValuesArray:dictArray];
+     
+     //[self.statuesDateArr addObjectsFromArray:statuesArray];
+     
+     //第一次启动 数组里没数据 所以从第一个开始插入和末尾拆入都是一个意思
+     
+     NSRange range = NSMakeRange(0, statuesArray.count);
+     
+     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+     
+     [self.statuesDateArr insertObjects:statuesArray atIndexes:indexSet];
+     
+     //刷新tableview 数据
+     
+     [self.tableView reloadData];
+     
+     
+     //关闭刷新
+     
+     [self.tableView.mj_header endRefreshing];
+     
+     // 显示提醒
+     [self showNewStatusWithCount:statuesArray.count];
+     
+     
+     
+     // DDLogDebug(@"%@",responseObject);
+     
+     
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     
+     //关闭刷新
+     
+     [self.tableView.mj_header endRefreshing];
+     
+     
+     
+     DDLogDebug(@"%@",error);
+     
+     }];
+     
+     */
     
     
     
@@ -390,62 +513,86 @@ static NSString *reuseID = @"CEHomeCell";
     
     DDLogDebug(@"homeViewControlle = %@",self);
     
+    /*
+     //1.获取管理对象
+     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+     
+     
+     //2.封装参数
+     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+     
+     //2.1获取模型对象
+     
+     CEAccount *account = [CEAccountTool accountFromSandbox];
+     
+     //2.2 获取令牌
+     
+     parameters[@"access_token"] = account.access_token;
+     
+     //2.3 设置默认返回的数据量（可选默认20条)
+     
+     parameters[@"count"] = @20;
+     
+     
+     //2.4 取出数组中第一个元素的id
+     
+     NSString *lastStatusIdStr = [[self.statuesDateArr lastObject] idstr];
+     
+     //有数据则 添加下拉刷新需要的参数
+     if (lastStatusIdStr != nil) {
+     
+     parameters[@"max_id"] = @([lastStatusIdStr longLongValue] - 1);
+     
+     }
+     
+     */
     
-    //1.获取管理对象
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //1. 获取管理对象
     
+    CENetWorkingTools *tools = [CENetWorkingTools shareNetworkTools];
     
-    //2.封装参数
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    //2.封装请求参数
     
-    //2.1获取模型对象
+    CEStatuesRequest *parameters = [CEStatuesRequest new];
+    
+    //2.1 获取模型对象
     
     CEAccount *account = [CEAccountTool accountFromSandbox];
     
-    //2.2 获取令牌
+    //获取令牌
     
-    parameters[@"access_token"] = account.access_token;
+    parameters.access_token = account.access_token;
     
-    //2.3 设置默认返回的数据量（可选默认20条)
+    //设置默认返回的数据量 (可默认选20条)
     
-    parameters[@"count"] = @20;
+    parameters.count = @20;
     
-    
-    //2.4 取出数组中第一个元素的id
+    //取出数组中第一个元素的id
     
     NSString *lastStatusIdStr = [[self.statuesDateArr lastObject] idstr];
     
-    //有数据则 添加下拉刷新需要的参数
-    if (lastStatusIdStr != nil) {
+    //有数据则 调价上拉刷新需要的参数
+    
+    if (lastStatusIdStr !=nil) {
         
-        parameters[@"max_id"] = @([lastStatusIdStr longLongValue] - 1);
+        parameters.max_id = @([lastStatusIdStr longLongValue] - 1);
         
     }
-    
     
     
     DDLogDebug(@"access_token%@",account.access_token);
     
     
-    NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    
-    
-    
-    [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [tools loadHomeStatusWithParameters:parameters success:^(CEStatuesResult * _Nonnull result) {
         
         
+        DDLogDebug(@"%@",result);
         
-        DDLogDebug(@"%@",responseObject);
         
-        
-        //获取statues 字典数组
-        NSArray *dictArray = responseObject[@"statuses"];
-        
-        //转换成模型 数组
-        NSMutableArray *statuesArray = [CEStatues mj_objectArrayWithKeyValuesArray:dictArray];
+        //获取模型 数组
+        NSArray *statuesArray = result.statues;
         
         [self.statuesDateArr addObjectsFromArray:statuesArray];
-        
         
         //刷新tableview 数据
         
@@ -460,10 +607,8 @@ static NSString *reuseID = @"CEHomeCell";
         // DDLogDebug(@"%@",responseObject);
         
         
+    } failure:^(NSError * _Nonnull error) {
         
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         //关闭刷新
         
@@ -473,9 +618,59 @@ static NSString *reuseID = @"CEHomeCell";
         
         DDLogDebug(@"%@",error);
         
+        
+        
     }];
     
     
+    
+    /*
+     NSString *urlString = @"https://api.weibo.com/2/statuses/home_timeline.json";
+     
+     
+     
+     [manager GET:urlString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+     
+     
+     
+     DDLogDebug(@"%@",responseObject);
+     
+     
+     //获取statues 字典数组
+     NSArray *dictArray = responseObject[@"statuses"];
+     
+     //转换成模型 数组
+     NSMutableArray *statuesArray = [CEStatues mj_objectArrayWithKeyValuesArray:dictArray];
+     
+     [self.statuesDateArr addObjectsFromArray:statuesArray];
+     
+     
+     //刷新tableview 数据
+     
+     [self.tableView reloadData];
+     
+     
+     //关闭刷新
+     
+     [self.tableView.mj_footer endRefreshing];
+     
+     
+     // DDLogDebug(@"%@",responseObject);
+     
+     
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     
+     //关闭刷新
+     
+     [self.tableView.mj_footer endRefreshing];
+     
+     
+     
+     DDLogDebug(@"%@",error);
+     
+     }];
+     
+     */
     
     
     
@@ -577,32 +772,32 @@ static NSString *reuseID = @"CEHomeCell";
     label.mj_x = 0;
     label.mj_h = 30;
     
-//    //判断是否刘海屏
-//    if (@available(iOS 11.0, *)) {
-//
-//        //CGFloat a = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;
-//
-//        CGFloat a = self.view.safeAreaInsets.top;
-//
-//        //NSLog(@"%@",NSStringFromUIEdgeInsets([UIApplication sharedApplication].delegate.window.safeAreaInsets));
-//
-//        if (a > 64) {
-//            //是
-//        label.mj_y = 88 - label.mj_h;
-//
-//        }else{
-//
-//            //不是
-//            label.mj_y = 64 - label.mj_h;
-//
-//        }
-//
-//
-//    }
+    //    //判断是否刘海屏
+    //    if (@available(iOS 11.0, *)) {
+    //
+    //        //CGFloat a = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;
+    //
+    //        CGFloat a = self.view.safeAreaInsets.top;
+    //
+    //        //NSLog(@"%@",NSStringFromUIEdgeInsets([UIApplication sharedApplication].delegate.window.safeAreaInsets));
+    //
+    //        if (a > 64) {
+    //            //是
+    //        label.mj_y = 88 - label.mj_h;
+    //
+    //        }else{
+    //
+    //            //不是
+    //            label.mj_y = 64 - label.mj_h;
+    //
+    //        }
+    //
+    //
+    //    }
     
     //根据safeAreaInsets 适配各类屏幕
     label.mj_y = self.view.safeAreaInsets.top - label.mj_h;
-
+    
     label.mj_w = self.view.mj_w;
     
     //3. 添加到父控件

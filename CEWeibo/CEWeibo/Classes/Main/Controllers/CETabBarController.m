@@ -6,7 +6,7 @@
 //  Copyright © 2019 insignificance. All rights reserved.
 //
 
-#import "CEViewController.h"
+#import "CETabBarController.h"
 #import "CETabBar2.h"
 #import "CEHomeViewController.h"
 #import "CEMessageViewController.h"
@@ -17,7 +17,7 @@
 
 //模拟小红点
 static NSInteger badgeValue = 0;
-@interface CEViewController ()<CETabBar2Delegate>
+@interface CETabBarController ()<CETabBar2Delegate>
 
 @property (nonatomic,weak)CETabBar2 *customTabBar;
 
@@ -30,7 +30,7 @@ static NSInteger badgeValue = 0;
 
 @end
 
-@implementation CEViewController
+@implementation CETabBarController
 
 
 - (void)viewDidLoad {

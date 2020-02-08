@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CEViewController.h"
+#import "CETabBarController.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/SDWebImage.h>
 #import "CEAccount.h"
@@ -90,7 +90,7 @@
         CEAccount *account = [CEAccountTool accountFromSandbox];
         if (account == nil) {
             // 显示默认界面
-            CEViewController *tabBarVc = [[CEViewController alloc] init];
+            CETabBarController *tabBarVc = [[CETabBarController alloc] init];
             self.window.rootViewController = tabBarVc;
         }else
         {

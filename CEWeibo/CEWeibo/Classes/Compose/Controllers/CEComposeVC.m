@@ -10,6 +10,7 @@
 #import "CEInputTextView.h"
 #import "CEComposeToolbar.h"
 #import "CECollectionVC.h"
+#import "CEStatuesSendRequest.h"
 
 
 @interface CEComposeVC ()<UITextViewDelegate,CEComposeToolbarDelegate>
@@ -141,6 +142,9 @@
     
     CEInputTextView *inputTextView = [[CEInputTextView alloc]init];
     
+    
+    DDLogDebug(@"%@",NSStringFromCGRect(self.inputViewContainer.frame));
+    
     inputTextView.frame = self.inputViewContainer.frame;
     
     //默认情况下(内容未填满)textview 是不能滚动的 但是可以通过设置属性 使其默认可以滚动
@@ -232,7 +236,7 @@
 - (void)compose{
     
     //若有配图
-    if (self.collectionvc.images >0) {
+    if (self.collectionvc.images.count >0) {
         
         [self composeStatusWithImg];
         
@@ -255,11 +259,11 @@
     
     //创建网络管理者
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     
     //封装请求参数
-    
+    /*
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     
     
@@ -273,6 +277,84 @@
     
     parameters[@"status"] = [NSString stringWithFormat:@"%@ http://www.baidu.com/",self.inputTextView.text];
     
+    
+    */
+    
+    
+    CEAccount *account = [CEAccountTool accountFromSandbox];
+    
+    CEStatuesSendRequest *parameters = [CEStatuesSendRequest new];
+    
+    parameters.access_token = account.access_token;
+    
+    parameters.status = [NSString stringWithFormat:@"%@ http://www.baidu.com/",self.inputTextView.text];
+    
+     
+    CENetWorkingTools *tools = [CENetWorkingTools shareNetworkTools];
+    
+    [tools sendStatusWithParameters:parameters success:^(CEStatues * _Nonnull statues) {
+       
+        
+        DDLogDebug(@"发送成功 %@",statues);
+        
+        //关闭键盘
+        [self.inputTextView resignFirstResponder];
+        
+        //关闭当前视图
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+            
+            
+            self.hub.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc]init];
+            //显示发送成功提示
+            self.hub.textLabel.text  = @"发送成功";
+            
+            [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
+            
+            [self.hub dismissAfterDelay:0.5 animated:YES];
+            
+            
+            
+        }];
+        
+        
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+        DDLogDebug(@"发送成功 : %@",error);
+        
+        //关闭键盘
+        [self.inputTextView resignFirstResponder];
+        
+        //关闭当前视图
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+            
+            
+            self.hub.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc]init];
+            //显示发送成功提示
+            self.hub.textLabel.text  = @"发送成功";
+            
+            [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
+            
+            [self.hub dismissAfterDelay:0.5 animated:YES];
+            
+            
+            
+        }];
+        
+        
+        
+        
+        
+    }];
+    
+    
+    /*
     NSString *urlString = @"https://api.weibo.com/2/statuses/share.json";
     
     //处理status 参数
@@ -327,83 +409,41 @@
         
     }];
     
+     */
     
 }
 
 #pragma mark -
 #pragma mark -- 发送文字图片微博
 
+
+
 - (void)composeStatusWithImg{
     
-    
-    //创建网络管理者
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
+  
     //封装请求参数
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    
     
     CEAccount *account = [CEAccountTool accountFromSandbox];
     
+    CEStatuesSendRequest *parameters = [CEStatuesSendRequest new];
     
-    parameters[@"access_token"] = account.access_token;
+    parameters.access_token = account.access_token;
     
-    //parameters[@"status"] = self.inputTextView.text;
+    parameters.status =  parameters.status = [NSString stringWithFormat:@"%@ http://www.baidu.com/",self.inputTextView.text];;
     
+    parameters.image = [self.collectionvc.images firstObject];
     
-    parameters[@"status"] = [NSString stringWithFormat:@"%@ http://www.baidu.com/",self.inputTextView.text];
-    
-    NSString *urlString = @"https://api.weibo.com/2/statuses/share.json";
-    
-    //处理status 参数
-    [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:parameters error:nil];
-    
+
     
     //发送请求
     
-    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    CENetWorkingTools *tools = [CENetWorkingTools shareNetworkTools];
+    
+    
+    [tools sendStatusWithParameters:parameters success:^(CEStatues * _Nonnull statues) {
         
         
-        /**
-         参数1: 需要上传的二进制数据
-         参数2: 服务器参数的名称pic
-         参数3: 文件名称(画用于服务器保存)
-         参数4:文件类型
-         */
-        
-        // 接口限制只能传一张
-        UIImage *image = [self.collectionvc.images firstObject];
-        
-
-        NSLog(@"%@",[NSThread currentThread]);
-        
-        //处理图片大小
-//
-//        __block NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-//
-//        //若大于5m
-//        if (imageData.length/1024 > (5.0*1024)) {
-//
-//            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//
-//               imageData = [self compressOriginalImage:image toMaxDataSizeKBytes:5.0];
-//
-//            });
-//        }
-//
-        //NSData *imageData = UIImagePNGRepresentation(image);
-        
-        NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
- 
-        [formData appendPartWithFileData:imageData name:@"pic" fileName:@"abc" mimeType:@"image/png"];
-        
-        
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        DDLogDebug(@"发送成功");
+        DDLogDebug(@"发送成功:statues = %@",statues);
         
         //关闭键盘
         [self.inputTextView resignFirstResponder];
@@ -411,9 +451,7 @@
         //关闭当前视图
         
         [self dismissViewControllerAnimated:YES completion:^{
-            
-            
-            
+
             self.hub.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc]init];
             //显示发送成功提示
             self.hub.textLabel.text  = @"发送成功";
@@ -421,19 +459,14 @@
             [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
             
             [self.hub dismissAfterDelay:0.5 animated:YES];
-            
-            
-            
+     
         }];
+  
+    } failure:^(NSError * _Nonnull error) {
         
+
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        
-        
-        DDLogDebug(@"发送失败");
-        
-        DDLogDebug(@"%@",error);
+        DDLogDebug(@"发送失败:error = %@",error);
         
         //显示发送失败提示
         
@@ -456,9 +489,135 @@
     
     
     
+    
+    
 }
 
 
+//- (void)composeStatusWithImg{
+//
+//
+//    //创建网络管理者
+//
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//
+//
+//    //封装请求参数
+//
+//    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//
+//
+//    CEAccount *account = [CEAccountTool accountFromSandbox];
+//
+//
+//    parameters[@"access_token"] = account.access_token;
+//
+//    //parameters[@"status"] = self.inputTextView.text;
+//
+//
+//    parameters[@"status"] = [NSString stringWithFormat:@"%@ http://www.baidu.com/",self.inputTextView.text];
+//
+//    NSString *urlString = @"https://api.weibo.com/2/statuses/share.json";
+//
+//    //处理status 参数
+//    [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:parameters error:nil];
+//
+//
+//    //发送请求
+//
+//    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//
+//
+//        /**
+//         参数1: 需要上传的二进制数据
+//         参数2: 服务器参数的名称pic
+//         参数3: 文件名称(画用于服务器保存)
+//         参数4:文件类型
+//         */
+//
+//        // 接口限制只能传一张
+//        UIImage *image = [self.collectionvc.images firstObject];
+//
+//
+//        NSLog(@"%@",[NSThread currentThread]);
+//
+//        //处理图片大小
+////
+////        __block NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+////
+////        //若大于5m
+////        if (imageData.length/1024 > (5.0*1024)) {
+////
+////            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+////
+////               imageData = [self compressOriginalImage:image toMaxDataSizeKBytes:5.0];
+////
+////            });
+////        }
+////
+//        //NSData *imageData = UIImagePNGRepresentation(image);
+//
+//        NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
+//
+//        [formData appendPartWithFileData:imageData name:@"pic" fileName:@"abc" mimeType:@"image/png"];
+//
+//
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        DDLogDebug(@"发送成功");
+//
+//        //关闭键盘
+//        [self.inputTextView resignFirstResponder];
+//
+//        //关闭当前视图
+//
+//        [self dismissViewControllerAnimated:YES completion:^{
+//
+//
+//
+//            self.hub.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc]init];
+//            //显示发送成功提示
+//            self.hub.textLabel.text  = @"发送成功";
+//
+//            [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
+//
+//            [self.hub dismissAfterDelay:0.5 animated:YES];
+//
+//
+//
+//        }];
+//
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//
+//
+//
+//        DDLogDebug(@"发送失败");
+//
+//        DDLogDebug(@"%@",error);
+//
+//        //显示发送失败提示
+//
+//        self.hub.indicatorView = [[JGProgressHUDErrorIndicatorView alloc]init];
+//        //显示发送成功提示
+//        self.hub.textLabel.text  = @"发送失败";
+//
+//        [self.hub showInView:[UIApplication sharedApplication].keyWindow animated:YES];
+//
+//        [self.hub dismissAfterDelay:0.5 animated:YES];
+//
+//
+//
+//    }];
+//
+//
+//
+//
+//
+//
+//
+//
+//}
 
 
 

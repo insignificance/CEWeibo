@@ -55,7 +55,8 @@
 #import <MJRefresh/MJRefresh.h>
 #import <AFNetworking/AFNetworking.h>
 #import <JGProgressHUD/JGProgressHUD.h>
-
+#import "CENetWorkingTools.h"
+#import "CENetWorkingTools.h"
 
 #define margin 10
 

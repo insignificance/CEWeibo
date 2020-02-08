@@ -7,7 +7,7 @@
 //
 
 #import "CENewfeatureVC.h"
-#import "CEViewController.h"
+#import "CETabBarController.h"
 
 @interface CENewfeatureVC ()
 
@@ -21,7 +21,7 @@
 }
 - (IBAction)ClickEnterBtn:(UIButton *)sender {
     
-    CEViewController *tabBarVc = [[CEViewController alloc]init];
+    CETabBarController *tabBarVc = [[CETabBarController alloc]init];
     
     [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVc;
     

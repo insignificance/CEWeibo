@@ -148,7 +148,7 @@
 
 
 #pragma mark -
-#pragma mark -- 加号按钮点击时间
+#pragma mark -- 加号按钮点击事件
 
 
 - (void)addBtnClick:(UIButton *)btn{

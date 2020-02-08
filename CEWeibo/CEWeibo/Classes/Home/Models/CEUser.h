@@ -44,6 +44,10 @@ typedef NS_ENUM(NSInteger,CEUserVerifiedType) {
 /*  用户头像地址 50x50 */
 @property (nonatomic,copy) NSString *profile_image_url;
 
+/* 用户高清头像地址 */
+
+@property (nonatomic,copy) NSString *avatar_large;
+
 /*  背景图片  */
 @property (nonatomic,copy) NSString *cover_image_phone;
 
