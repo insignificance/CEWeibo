@@ -12,10 +12,14 @@
 
 #define CEAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"]
 
+#define CEPreferences  [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingString:@"/Preferences/com.xy.CEWeibo.plist"]
+
 
 @implementation CEAccountTool
 
 + (BOOL)savaAccount:(CEAccount *)account{
+    
+
     
     //计算真正的过期时间
     
@@ -68,6 +72,32 @@
     
     
 }
+
++ (BOOL)deleteUserInfoFromSandbox{
+    
+    BOOL isSuccess = false;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    DDLogDebug(@"%@",CEPreferences);
+    
+    if ([fileManager fileExistsAtPath:CEAccountPath] && [fileManager fileExistsAtPath:CEPreferences]) {
+        
+        isSuccess = [fileManager removeItemAtPath:CEAccountPath error:NULL];
+        
+        isSuccess = [fileManager removeItemAtPath:CEPreferences error:NULL];
+        
+        return isSuccess;
+        
+    }
+    
+    
+    return isSuccess;
+    
+    
+}
+
+
 
 
 

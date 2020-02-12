@@ -10,6 +10,8 @@
 #import "CEArrowCommonItem.h"
 #import "CEGroupCommon.h"
 #import "CEPictureTableViewController.h"
+#import "UIWindow+Extension.h"
+#import <CFAlertViewController-Swift.h>
 
 @interface CESettingTableViewController ()
 
@@ -57,6 +59,9 @@
     [footerBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     [footerBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [footerBtn setBackgroundImage:[UIImage imageNamed:@"common_card_middle_background"] forState:UIControlStateNormal];
+    
+    [footerBtn addTarget:self action:@selector(exitAccount:) forControlEvents:UIControlEventTouchUpInside];
+    
     footerBtn.mj_h = 30;
     // 注意: 如果是tableView的顶部视图, 或者底部视图, 有默认的宽度
     self.tableView.tableFooterView = footerBtn;
@@ -148,6 +153,61 @@
     group.items = @[opinion, about];
 }
 
+
+
+- (void)exitAccount:(UIButton *)button{
+    
+    
+    
+    [self showMessage];
+    
+   
+    
+    
+}
+
+
+#pragma mark -
+#pragma mark -- 提示窗
+
+- (void)showMessage{
+    
+
+    CFAlertViewController *alertController =[CFAlertViewController alertControllerWithTitle:@"是否确定退出当前账号" message:@"" textAlignment:NSTextAlignmentCenter preferredStyle:CFAlertControllerStyleActionSheet didDismissAlertHandler:nil];
+    
+    
+    alertController.containerView.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor blackColor]);
+    alertController.containerView.layer.borderWidth = 5.0;
+    
+    
+    alertController.backgroundStyle = CFAlertControllerBackgroundStylePlain;
+    //alertController.backgroundColor = [UIColor grayColor];
+    
+    
+    
+    CFAlertAction *defaultAction = [CFAlertAction actionWithTitle:@"确定" style:CFAlertActionStyleDefault alignment:CFAlertActionAlignmentJustified backgroundColor:[UIColor redColor] textColor:[UIColor blackColor]handler:nil];
+    
+    defaultAction.handler = ^(CFAlertAction * _Nonnull action) {
+        
+        [CEAccountTool deleteUserInfoFromSandbox];
+        
+         [[UIApplication sharedApplication].keyWindow chooseRootViewController];
+        
+    };
+    
+    CFAlertAction *cancelAction = [CFAlertAction actionWithTitle:@"取消" style:CFAlertActionStyleDefault alignment:CFAlertActionAlignmentJustified backgroundColor:[UIColor whiteColor] textColor:[UIColor blackColor]handler:nil];
+    
+    
+    [alertController setHeaderView:[UIView new]];
+    
+    [alertController addAction:defaultAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+    
+}
 
 
 

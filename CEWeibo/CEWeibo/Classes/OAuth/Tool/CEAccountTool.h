@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 读取授权信息
 + (CEAccount * _Nullable)accountFromSandbox;
 
+
+/// 删除用户信息
++ (BOOL)deleteUserInfoFromSandbox;
+
 @end
 
 NS_ASSUME_NONNULL_END
