@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithFrame:(CGRect)frame imageProtocol:(id<GKWebImageProtocol>)imageProtocol;
 
 // 设置数据
-- (void)setupPhoto:(GKPhoto *)photo;
+- (void)setupPhoto:(GKPhoto * _Nullable )photo;
 
 // 加载原图（必须传originUrl）
 - (void)loadOriginImage;

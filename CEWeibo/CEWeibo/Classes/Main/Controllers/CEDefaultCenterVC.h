@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
-@class CEDefaultCenterView;
+@class CEDefaultCenterView,CEGroupCommon,CECheckGroupCommon;
 
 @interface CEDefaultCenterVC : UITableViewController
 
@@ -18,6 +19,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak,nonatomic) CEDefaultCenterView *defaultView;
 
+
+/**
+ *   添加每组需要显示的数据
+ */
+- (void)addGroup:(CEGroupCommon *)group;
+
+/**
+ *   添加每组需要显示的数据
+ */
+- (CEGroupCommon *)addGroup;
+
+- (CEGroupCommon *)addCheckGroup;
+/**
+ *   根据传入组的索引返回对应的组
+ */
+- (CECheckGroupCommon *)groupWithSection:(NSInteger)section;
 
 @end
 

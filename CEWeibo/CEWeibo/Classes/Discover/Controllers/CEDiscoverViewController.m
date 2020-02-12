@@ -7,6 +7,12 @@
 //
 
 #import "CEDiscoverViewController.h"
+#import "CECheckGroupCommon.h"
+#import "CEGroupCommon.h"
+#import "CEArrowCommonItem.h"
+#import "CESwitchCommonItem.h"
+#import "CELabelCommonItem.h"
+#import "CEMoreTableViewController.h"
 
 @interface CEDiscoverViewController ()<UISearchControllerDelegate>
 
@@ -45,6 +51,22 @@
     
     
     
+    // 初始化数据
+       [self setupitems];
+       
+       // 设置组与组之间的间隙
+       self.tableView.sectionHeaderHeight = 10;
+       self.tableView.sectionFooterHeight = 0;
+       
+       DDLogDebug(@"contentInset = %@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
+       
+       //self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+       
+       // 取出系统自带的分割线
+       self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    
 }
 
 
@@ -56,6 +78,70 @@
     
     
 }
+
+
+
+- (void)setupitems
+{
+    [self setupGroup0];
+    [self setupGroup1];
+    [self setupGroup2];
+}
+
+- (void)setupGroup0
+{
+    // 1.创建第一组数据
+    CEArrowCommonItem *hotStatus = [CEArrowCommonItem itemWithIcon:@"hot_status" title:@"热门微博"];
+    hotStatus.subTitle = @"笑话，娱乐，神最右都搬到这啦";
+    CEArrowCommonItem *findPeople =  [CEArrowCommonItem itemWithIcon:@"find_people" title:@"找人"];
+    hotStatus.subTitle = @"名人、有意思的人尽在这里";
+    CEGroupCommon *group0 = [self addGroup];
+    group0.items = @[hotStatus, findPeople];
+}
+
+- (void)setupGroup1
+{
+    // 2.创建第二组数据
+    CESwitchCommonItem *gameCenter = [CESwitchCommonItem itemWithIcon:@"game_center" title:@"游戏中心"];
+    CESwitchCommonItem *near = [CESwitchCommonItem itemWithIcon:@"near" title:@"周边"];
+    CESwitchCommonItem *app = [CESwitchCommonItem itemWithIcon:@"app" title:@"应用"];
+    CEGroupCommon *group1 = [self addGroup];
+    group1.items = @[gameCenter, near, app];
+}
+
+- (void)setupGroup2
+{
+    CELabelCommonItem *video = [CELabelCommonItem itemWithIcon:@"video" title:@"视频"];
+    video.text = @"label显示的文本";
+    
+    CECommonItem *music = [CECommonItem itemWithIcon:@"music" title:@"音乐"];
+    music.option = ^{
+        //[MBProgressHUD showSuccess:@"播放音乐成功"];
+        
+        JGProgressHUD *hub = [[JGProgressHUD alloc]init];
+        hub.textLabel.text = @"播放音乐成功";
+        
+        [hub showInView:self.view animated:YES];
+        
+        [hub dismissAfterDelay:1.0 animated:YES];
+        
+        
+    };
+    
+    CECommonItem *movie = [CECommonItem itemWithIcon:@"movie" title:@"电影"];
+    CECommonItem *cast = [CECommonItem itemWithIcon:@"cast" title:@"播客"];
+    CECommonItem *more = [CECommonItem itemWithIcon:@"more" title:@"更多"];
+    // 通过属性保存更多选项需要跳转到的目标控制器
+    more.destClass = [CEMoreTableViewController class];
+    
+    CEGroupCommon *group2 = [[CEGroupCommon alloc] init];
+    group2.items = @[video, music, movie, cast, more];
+    
+    // 3.将两组数据添加到数组中
+    [self addGroup:group2];
+}
+
+
 
 
 /*
@@ -157,7 +243,7 @@
     self.navigationItem.searchController = self.searchController;
     
     
-    [self.navigationItem setHidesSearchBarWhenScrolling:YES];
+    [self.navigationItem setHidesSearchBarWhenScrolling:NO];
     
     
     self.searchController.searchBar.placeholder = @"点击搜索感兴趣的事物";

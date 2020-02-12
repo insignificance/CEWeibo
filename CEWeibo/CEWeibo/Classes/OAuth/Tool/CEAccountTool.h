@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 读取授权信息
-+ (CEAccount *)accountFromSandbox;
++ (CEAccount * _Nullable)accountFromSandbox;
 
 @end
 

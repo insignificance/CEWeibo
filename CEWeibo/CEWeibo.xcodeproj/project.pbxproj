@@ -11,6 +11,17 @@
 		5379947F23CF4006008A7CBB /* CEComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5379947E23CF4006008A7CBB /* CEComposeVC.m */; };
 		5379948523CF466D008A7CBB /* CEInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5379948423CF466D008A7CBB /* CEInputTextView.m */; };
 		537C315923D1524600BAFF59 /* CEComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 537C315823D1524600BAFF59 /* CEComposeToolbar.m */; };
+		537D7BD323F3A9140092449B /* CECheckCommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BC523F3A9130092449B /* CECheckCommonItem.m */; };
+		537D7BD423F3A9140092449B /* CEGroupCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BC723F3A9130092449B /* CEGroupCommon.m */; };
+		537D7BD523F3A9140092449B /* CELabelCommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BC923F3A9130092449B /* CELabelCommonItem.m */; };
+		537D7BD623F3A9140092449B /* CECommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BCD23F3A9140092449B /* CECommonItem.m */; };
+		537D7BD723F3A9140092449B /* CESwitchCommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BCE23F3A9140092449B /* CESwitchCommonItem.m */; };
+		537D7BD823F3A9140092449B /* CEArrowCommonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BD023F3A9140092449B /* CEArrowCommonItem.m */; };
+		537D7BD923F3A9140092449B /* CECheckGroupCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BD223F3A9140092449B /* CECheckGroupCommon.m */; };
+		537D7BDC23F3A9270092449B /* CESettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BDB23F3A9270092449B /* CESettingTableViewController.m */; };
+		537D7BDF23F3A9640092449B /* CEItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BDD23F3A9640092449B /* CEItemTableViewCell.m */; };
+		537D7BE223F3C6B60092449B /* CEPictureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BE123F3C6B60092449B /* CEPictureTableViewController.m */; };
+		537D7BE523F3D6B30092449B /* CEMoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537D7BE423F3D6B30092449B /* CEMoreTableViewController.m */; };
 		537F803823CAC2C40064EE06 /* CEStatues.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803723CAC2C40064EE06 /* CEStatues.m */; };
 		537F803B23CACF4B0064EE06 /* CEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803A23CACF4B0064EE06 /* CEUser.m */; };
 		537F803E23CAD3D70064EE06 /* CEPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F803D23CAD3D70064EE06 /* CEPhoto.m */; };
@@ -85,6 +96,28 @@
 		5379948423CF466D008A7CBB /* CEInputTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEInputTextView.m; sourceTree = "<group>"; };
 		537C315723D1524600BAFF59 /* CEComposeToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEComposeToolbar.h; sourceTree = "<group>"; };
 		537C315823D1524600BAFF59 /* CEComposeToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEComposeToolbar.m; sourceTree = "<group>"; };
+		537D7BC523F3A9130092449B /* CECheckCommonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECheckCommonItem.m; sourceTree = "<group>"; };
+		537D7BC623F3A9130092449B /* CECommonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECommonItem.h; sourceTree = "<group>"; };
+		537D7BC723F3A9130092449B /* CEGroupCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEGroupCommon.m; sourceTree = "<group>"; };
+		537D7BC823F3A9130092449B /* CECheckGroupCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECheckGroupCommon.h; sourceTree = "<group>"; };
+		537D7BC923F3A9130092449B /* CELabelCommonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELabelCommonItem.m; sourceTree = "<group>"; };
+		537D7BCA23F3A9130092449B /* CEGroupCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEGroupCommon.h; sourceTree = "<group>"; };
+		537D7BCB23F3A9140092449B /* CELabelCommonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELabelCommonItem.h; sourceTree = "<group>"; };
+		537D7BCC23F3A9140092449B /* CEArrowCommonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEArrowCommonItem.h; sourceTree = "<group>"; };
+		537D7BCD23F3A9140092449B /* CECommonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECommonItem.m; sourceTree = "<group>"; };
+		537D7BCE23F3A9140092449B /* CESwitchCommonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESwitchCommonItem.m; sourceTree = "<group>"; };
+		537D7BCF23F3A9140092449B /* CESwitchCommonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESwitchCommonItem.h; sourceTree = "<group>"; };
+		537D7BD023F3A9140092449B /* CEArrowCommonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEArrowCommonItem.m; sourceTree = "<group>"; };
+		537D7BD123F3A9140092449B /* CECheckCommonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECheckCommonItem.h; sourceTree = "<group>"; };
+		537D7BD223F3A9140092449B /* CECheckGroupCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECheckGroupCommon.m; sourceTree = "<group>"; };
+		537D7BDA23F3A9270092449B /* CESettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CESettingTableViewController.h; sourceTree = "<group>"; };
+		537D7BDB23F3A9270092449B /* CESettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CESettingTableViewController.m; sourceTree = "<group>"; };
+		537D7BDD23F3A9640092449B /* CEItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEItemTableViewCell.m; sourceTree = "<group>"; };
+		537D7BDE23F3A9640092449B /* CEItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEItemTableViewCell.h; sourceTree = "<group>"; };
+		537D7BE023F3C6B60092449B /* CEPictureTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEPictureTableViewController.h; sourceTree = "<group>"; };
+		537D7BE123F3C6B60092449B /* CEPictureTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEPictureTableViewController.m; sourceTree = "<group>"; };
+		537D7BE323F3D6B30092449B /* CEMoreTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEMoreTableViewController.h; sourceTree = "<group>"; };
+		537D7BE423F3D6B30092449B /* CEMoreTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEMoreTableViewController.m; sourceTree = "<group>"; };
 		537F803623CAC2C40064EE06 /* CEStatues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEStatues.h; sourceTree = "<group>"; };
 		537F803723CAC2C40064EE06 /* CEStatues.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEStatues.m; sourceTree = "<group>"; };
 		537F803923CACF4B0064EE06 /* CEUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEUser.h; sourceTree = "<group>"; };
@@ -524,6 +557,8 @@
 				53F5562D23B8469E00CBECEA /* CEDiscoverViewController.m */,
 				53F555D423B8428A00CBECEA /* .gitkeep */,
 				538B20B023D691FC00D0E8EA /* CEDiscoverViewController.storyboard */,
+				537D7BE323F3D6B30092449B /* CEMoreTableViewController.h */,
+				537D7BE423F3D6B30092449B /* CEMoreTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -618,6 +653,20 @@
 		53F555E723B8428A00CBECEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				537D7BCC23F3A9140092449B /* CEArrowCommonItem.h */,
+				537D7BD023F3A9140092449B /* CEArrowCommonItem.m */,
+				537D7BD123F3A9140092449B /* CECheckCommonItem.h */,
+				537D7BC523F3A9130092449B /* CECheckCommonItem.m */,
+				537D7BC823F3A9130092449B /* CECheckGroupCommon.h */,
+				537D7BD223F3A9140092449B /* CECheckGroupCommon.m */,
+				537D7BC623F3A9130092449B /* CECommonItem.h */,
+				537D7BCD23F3A9140092449B /* CECommonItem.m */,
+				537D7BCA23F3A9130092449B /* CEGroupCommon.h */,
+				537D7BC723F3A9130092449B /* CEGroupCommon.m */,
+				537D7BCB23F3A9140092449B /* CELabelCommonItem.h */,
+				537D7BC923F3A9130092449B /* CELabelCommonItem.m */,
+				537D7BCF23F3A9140092449B /* CESwitchCommonItem.h */,
+				537D7BCE23F3A9140092449B /* CESwitchCommonItem.m */,
 				53F555E823B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Models;
@@ -626,10 +675,14 @@
 		53F555E923B8428A00CBECEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				537D7BDA23F3A9270092449B /* CESettingTableViewController.h */,
+				537D7BDB23F3A9270092449B /* CESettingTableViewController.m */,
 				53F5563323B846DA00CBECEA /* CEProfileViewController.h */,
 				53F5563223B846D900CBECEA /* CEProfileViewController.m */,
 				53F555EA23B8428A00CBECEA /* .gitkeep */,
 				538B20B423D6922A00D0E8EA /* CEProfileViewController.storyboard */,
+				537D7BE023F3C6B60092449B /* CEPictureTableViewController.h */,
+				537D7BE123F3C6B60092449B /* CEPictureTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -637,6 +690,8 @@
 		53F555EB23B8428A00CBECEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				537D7BDE23F3A9640092449B /* CEItemTableViewCell.h */,
+				537D7BDD23F3A9640092449B /* CEItemTableViewCell.m */,
 				53F555EC23B8428A00CBECEA /* .gitkeep */,
 			);
 			path = Views;
@@ -848,6 +903,7 @@
 				53F5562B23B8468D00CBECEA /* CEBarcodeNav.m in Sources */,
 				5381964D23C2DAAD0064B8FA /* CEDefaultCenterView.m in Sources */,
 				53814D9E23C070CD0057245C /* UIView+Frame.m in Sources */,
+				537D7BD923F3A9140092449B /* CECheckGroupCommon.m in Sources */,
 				53CBB46923C4685A0064C575 /* CEAccountTool.m in Sources */,
 				53EBE28F23BC8EAE005E5B5A /* CEColorUtils.m in Sources */,
 				5381965023C2E36F0064B8FA /* CEDefaultCenterVC.m in Sources */,
@@ -855,6 +911,8 @@
 				537C315923D1524600BAFF59 /* CEComposeToolbar.m in Sources */,
 				53817ADE23D8463B000EB46C /* CEStatusRetweetedView.m in Sources */,
 				538B20BB23D6D28200D0E8EA /* CEColPhotoCell.m in Sources */,
+				537D7BD623F3A9140092449B /* CECommonItem.m in Sources */,
+				537D7BD823F3A9140092449B /* CEArrowCommonItem.m in Sources */,
 				53817AE123D84662000EB46C /* CEBottomView.m in Sources */,
 				53CBB46F23C47B120064C575 /* UIWindow+Extension.m in Sources */,
 				537F803823CAC2C40064EE06 /* CEStatues.m in Sources */,
@@ -863,14 +921,17 @@
 				53F5562E23B8469E00CBECEA /* CEDiscoverViewController.m in Sources */,
 				53C0B73923E92EA000143F00 /* CENetWorkingTools.m in Sources */,
 				5380930A23D31DBB00A2E75F /* CECollectionVC.m in Sources */,
+				537D7BD423F3A9140092449B /* CEGroupCommon.m in Sources */,
 				5339163023D9902C008AF984 /* CEStatusColView.m in Sources */,
 				53F5560E23B8451500CBECEA /* CETabBarController.m in Sources */,
+				537D7BDC23F3A9270092449B /* CESettingTableViewController.m in Sources */,
 				53F5562823B8468D00CBECEA /* CEQrcodeNav.m in Sources */,
 				53F5562523B8468D00CBECEA /* CEBarcodeVC.m in Sources */,
 				53EBE28C23BC8E87005E5B5A /* JMGenerateQRCodeUtils.m in Sources */,
 				53CBB46023C45E290064C575 /* CENewfeatureVC.m in Sources */,
 				53F5563123B846C100CBECEA /* CEMessageViewController.m in Sources */,
 				53EBE28423BC80BC005E5B5A /* CEMyCardVC.m in Sources */,
+				537D7BD323F3A9140092449B /* CECheckCommonItem.m in Sources */,
 				537F803B23CACF4B0064EE06 /* CEUser.m in Sources */,
 				53F555FC23B8428A00CBECEA /* main.m in Sources */,
 				53F5563723B846FA00CBECEA /* UIBarButtonItem+CEBarButtonItem.m in Sources */,
@@ -881,16 +942,21 @@
 				53CBB45B23C456660064C575 /* CEAccount.m in Sources */,
 				5381965323C3154A0064B8FA /* CEOAuthViewController.m in Sources */,
 				53F5561723B8455A00CBECEA /* CETabBar2.m in Sources */,
+				537D7BD723F3A9140092449B /* CESwitchCommonItem.m in Sources */,
+				537D7BE223F3C6B60092449B /* CEPictureTableViewController.m in Sources */,
+				537D7BD523F3A9140092449B /* CELabelCommonItem.m in Sources */,
 				53F555FB23B8428A00CBECEA /* SceneDelegate.m in Sources */,
 				538F6E0E23C9CDD600628251 /* UIImage+Extension.m in Sources */,
 				53F555FD23B8428A00CBECEA /* AppDelegate.m in Sources */,
 				53CBB46523C45E4A0064C575 /* CEWelcomeVC.m in Sources */,
 				537F9C7723D0025D008A2565 /* CERefreshGifHeader.m in Sources */,
 				53E8BCF123EC57E700C0985F /* CEStatuesSendRequest.m in Sources */,
+				537D7BDF23F3A9640092449B /* CEItemTableViewCell.m in Sources */,
 				53F5561523B8455A00CBECEA /* CEItem.m in Sources */,
 				5379947F23CF4006008A7CBB /* CEComposeVC.m in Sources */,
 				5379948523CF466D008A7CBB /* CEInputTextView.m in Sources */,
 				53F5563423B846DA00CBECEA /* CEProfileViewController.m in Sources */,
+				537D7BE523F3D6B30092449B /* CEMoreTableViewController.m in Sources */,
 				53F5561623B8455A00CBECEA /* CETabBar.m in Sources */,
 				53E8BCF723EC650600C0985F /* CEStatuesResult.m in Sources */,
 				53814DA723C086E50057245C /* CETitleView.m in Sources */,

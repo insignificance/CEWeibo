@@ -90,7 +90,7 @@
     return _loadingView;
 }
 
-- (void)setupPhoto:(GKPhoto *)photo {
+- (void)setupPhoto:(GKPhoto *) photo {
     _photo = photo;
     
     // 加载图片

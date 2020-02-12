@@ -11,9 +11,20 @@
 #import "CEOAuthViewController.h"
 #import "CEAccountTool.h"
 #import "CEAccount.h"
+#import "CEGroupCommon.h"
+#import "CECheckGroupCommon.h"
 #import <WebKit/WebKit.h>
+#import "CECommonItem.h"
+#import "CEItemTableViewCell.h"
 @interface CEDefaultCenterVC ()<CEDeflaultCenterViewDelegate,WKNavigationDelegate>
 @property (nonatomic,strong)JGProgressHUD *hub;
+
+/**
+ *  存储所有组的组模型(IWGroupCommon)
+ */
+@property(nonatomic,strong)NSMutableArray *groups;
+
+
 
 @end
 
@@ -94,6 +105,10 @@
 }
 
 
+
+
+
+/// 注册账号
 - (void)defaultCenterView:(CEDefaultCenterView *)defaultView didClickSignUpBtn:(UIButton *)signUpBtn{
     
    
@@ -211,6 +226,135 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+
+
+
+
+#pragma mark - 数据源代理方法
+// 一共有多少组, 如果不实现默认有1组, 如果返回0代表一组都没有
+// 由于首页中没有实现numberOfSectionsInTableView方法, 但是系统默认会调用该方法询问一共有多少组, 那么子类没有就会调用父类的该方法, 由于首页调用父类的该方法返回0, 所以导致首页数据不显示
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    DDLogDebug(@"%tu", self.groups.count);
+    return self.groups.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    CEGroupCommon *group = self.groups[section];
+    return group.items.count;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    // 1.创建cell
+    CEItemTableViewCell *cell = [CEItemTableViewCell cellWithTableView:tableView];
+    // 2.设置数据模型
+    // 1.取出对应组的数组
+    CEGroupCommon *group = self.groups[indexPath.section];
+    // 2.取出对应行的模型
+    CECommonItem *item = group.items[indexPath.row];
+    cell.item = item;
+    // 传递当前对应的行和当前组总共的行数
+    [cell setcurrentIndex:indexPath.row totalCount:group.items.count];
+    // 3.返回cell
+    return cell;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    // 1.取出对应组的模型
+    if (self.groups.count > 0) {
+        
+        CEGroupCommon *group = self.groups[section];
+        // 2.返回标题
+        return group.header;
+    }
+    return nil;
+}
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    // 1.取出对应组的模型
+    if (self.groups.count > 0) {
+        CEGroupCommon *group = self.groups[section];
+        // 2.返回标题
+        return group.footer;
+    }
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 1.取出点击的组
+    CEGroupCommon *group = self.groups[indexPath.section];
+    // 2.取出点击的行
+    CECommonItem *item = group.items[indexPath.row];
+    // 3.判断行对应的模型的destClass属性是否为nil
+    // 如果不为nil, 那么创建对应的目标控制器跳转即可
+    if (item.destClass != nil) {
+        UIViewController *vc = [[item.destClass alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    // 判断是否有需要执行的代码块
+    if (item.option != nil) {
+        item.option();
+    }
+}
+
+#pragma makr - 懒加载
+- (NSMutableArray *)groups
+{
+    if (!_groups) {
+        _groups = [NSMutableArray array];
+    }
+    return _groups;
+}
+
+- (void)addGroup:(CEGroupCommon *)group
+{
+    [self.groups addObject:group];
+}
+
+
+- (CEGroupCommon *)addGroup
+{
+    CEGroupCommon *group = [[CEGroupCommon alloc] init];
+    [self.groups addObject:group];
+    return group;
+}
+
+- (CEGroupCommon *)addCheckGroup
+{
+    CECheckGroupCommon *group = [[CECheckGroupCommon alloc] init];
+    [self.groups addObject:group];
+    return group;
+}
+
+- (CEGroupCommon *)groupWithSection:(NSInteger)section
+{
+    return self.groups[section];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //#pragma mark - Table view data source
 //
