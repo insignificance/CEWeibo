@@ -61,7 +61,11 @@ static NSInteger badgeValue = 0;
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
         
        }
-
+    
+    
+    
+    
+    
     
   
     
@@ -154,7 +158,27 @@ static NSInteger badgeValue = 0;
     
     //移除系统自带的tabBar
     
-    [self.tabBar removeFromSuperview];
+    //[self.tabBar removeFromSuperview];
+    //NSLog(@"subViews = %@",[self.tabBar subviews]);
+    
+    //删除系统自带的tabbar 中不需要的其它控件
+    
+    for (UIView *childView in self.tabBar.subviews) {
+        
+        
+        if ([childView isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            
+            [childView removeFromSuperview];
+        
+            
+        }
+        
+        
+        
+    }
+    
+    
+    
     
     
 }
@@ -265,14 +289,19 @@ static NSInteger badgeValue = 0;
     
     if (_customTabBar == nil) {
         
-        CETabBar2 *tabBar = [[CETabBar2 alloc]initWithFrame:self.tabBar.frame];
+        CETabBar2 *tabBar = [[CETabBar2 alloc]initWithFrame:self.tabBar.bounds];
         
         //成为代理对象
         tabBar.delegate = self;
         
         self.customTabBar = tabBar;
         
-        [self.view addSubview:tabBar];
+        //[self.view addSubview:tabBar];
+        
+        //将自定义tabbar 添加到系统的tabbar上
+        [self.tabBar addSubview:tabBar];
+        
+        
         
         //移除系统自带UITabBar //注意ios10 以后 写在这里是不行 的 系统在设置layout时会重新添加 tabBar
         

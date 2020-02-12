@@ -135,6 +135,11 @@
 {
     // 跳转到设置界面
    CESettingTableViewController *settingVc = [[CESettingTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    
+    
+    //告诉控制器隐藏底部工具条（系统自带的）
+    settingVc.hidesBottomBarWhenPushed = YES;
+    
     [self.navigationController pushViewController:settingVc animated:YES];
 }
 
