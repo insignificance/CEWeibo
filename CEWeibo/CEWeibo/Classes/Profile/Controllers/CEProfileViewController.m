@@ -142,19 +142,22 @@
 {
     [self setupGroup0];
     [self setupGroup1];
+    
+    [self setupGroup2];
+    
+    [self setupGroup3];
+    
 }
 
 - (void)setupGroup0
 {
     // 1.创建第一组数据
-    CEArrowCommonItem *hotStatus = [CEArrowCommonItem itemWithIcon:@"hot_status" title:@"热门微博"];
-    hotStatus.subTitle = @"(12)";
-    CEArrowCommonItem *findPeople =  [CEArrowCommonItem itemWithIcon:@"find_people" title:@"找人"];
-    findPeople.badgeValue = @"99";
-    CEGroupCommon *group0 = [self addGroup];
-    group0.items = @[hotStatus, findPeople];
-    group0.header = @"上传图片质量";
+    CEArrowCommonItem *newFriend = [CEArrowCommonItem itemWithIcon:@"new_friend" title:@"新的好友"];
+    newFriend.subTitle = @"(12)";
     
+    CEGroupCommon *group0 = [self addGroup];
+    group0.items = @[newFriend];
+   
 
 
 }
@@ -162,13 +165,58 @@
 - (void)setupGroup1
 {
     // 2.创建第二组数据
-    CEArrowCommonItem *gameCenter = [CEArrowCommonItem itemWithIcon:@"game_center" title:@"游戏中心"];
-    gameCenter.badgeValue = @"12";
-    CEArrowCommonItem *near = [CEArrowCommonItem itemWithIcon:@"near" title:@"周边"];
-    CEArrowCommonItem *app = [CEArrowCommonItem itemWithIcon:@"app" title:@"应用"];
+    CEArrowCommonItem *album = [CEArrowCommonItem itemWithIcon:@"album" title:@"我的相册"];
+    album.badgeValue = @"(25)";
+    
+    CEArrowCommonItem *collect = [CEArrowCommonItem itemWithIcon:@"collect" title:@"我的收藏"];
+    
+    CEArrowCommonItem *like = [CEArrowCommonItem itemWithIcon:@"like" title:@"赞"];
     CEGroupCommon *group1 = [self addGroup];
-    group1.items =@[gameCenter, near, app];
-    group1.header = @"下载图片质量";
+    
+    group1.items =@[album, collect, like];
+   
+}
+
+
+- (void)setupGroup2{
+    
+    
+    CEArrowCommonItem *pay = [[CEArrowCommonItem alloc]initWithIcon:@"pay" title:@"微博支付"];
+    
+    CEArrowCommonItem *vip = [[CEArrowCommonItem alloc]initWithIcon:@"vip" title:@"个性化"];
+    
+    
+    CEGroupCommon *group2 = [self addGroup];
+    
+    group2.items = @[pay,vip];
+    
+    
+    
+    
+    
+    
+}
+
+
+- (void)setupGroup3{
+    
+    
+    
+    CEArrowCommonItem *card = [[CEArrowCommonItem alloc]initWithIcon:@"card" title:@"我的名片"];
+    
+    CEArrowCommonItem *draft = [[CEArrowCommonItem alloc]initWithIcon:@"draft" title:@"草稿箱"];
+    
+    
+    CEGroupCommon *group3 = [self addGroup];
+    
+    
+    
+    group3.items = @[card,draft];
+    
+    
+    
+    
+    
 }
 
 
