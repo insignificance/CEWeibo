@@ -85,7 +85,18 @@
         
         isSuccess = [fileManager removeItemAtPath:CEAccountPath error:NULL];
         
-        isSuccess = [fileManager removeItemAtPath:CEPreferences error:NULL];
+        
+        //会存在缓存
+        //isSuccess = [fileManager removeItemAtPath:CEPreferences error:NULL];
+        
+        //方式2
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        // 将当前软件版本号清空
+        [defaults setObject:NULL forKey:@"CFBundleShortVersionString"];
+        [defaults synchronize];
+        
         
         return isSuccess;
         
