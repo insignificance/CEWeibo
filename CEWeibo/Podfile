@@ -13,4 +13,5 @@ target 'CEWeibo' do
   pod 'MJExtension'
   pod 'MJRefresh'
   pod 'GKPhotoBrowser'
+  pod 'FMDB'
 end

@@ -13,6 +13,7 @@
 #import "CEStatuesSendRequest.h"
 #import "CEStatuesResult.h"
 #import "CEStatuesRequest.h"
+#import "CESqliteTools.h"
 
 
 //#define client_id @"3018889502"
@@ -330,8 +331,59 @@
 - (void)loadHomeStatusWithParameters:(CEStatuesRequest *)parameters success:(void (^)(CEStatuesResult * _Nonnull))success failure:(failureBlock)failure{
     
     
+    
+    NSArray *models = [[CESqliteTools shareSqliteTools] statusesWithParameters:parameters];
+  
+    if (models.count > 0) {
+        // 加载本地缓存数据
+        
+        if (success) {
+            
+            //将服务器返回的数据转换成模型对象
+            CEStatuesResult *result = [CEStatuesResult new];
+            
+            //注意statues 里装的是CEStatues 对象
+            result.statues = models;
+            
+            DDLogDebug(@"加载数据库中缓存数据成功");
+            
+            
+            success(result);
+            
+        }
+        
+        
+
+    }else{
+        
+    //加载网络数据
     [self GET:CEWeiboStatus parameters:parameters.mj_keyValues progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       
+        
+  
+        for (NSDictionary *dict  in responseObject[@"statuses"]) {
+            
+            //存储微博数据
+           BOOL success =  [[CESqliteTools shareSqliteTools] insterDict:dict];
+            
+            if (success) {
+                //插入数据成功
+                
+                DDLogDebug(@"插入数据成功");
+                
+            }else{
+                //插入数据失败
+                
+                DDLogDebug(@"插入数据失败");
+                
+                
+            }
+            
+            
+            
+        }
+        
+
+        
         //将服务器返回的数据转换成模型对象
         CEStatuesResult *result = [CEStatuesResult new];
         
@@ -356,10 +408,11 @@
         
         
     }];
+        
+        
+}
     
-    
-    
-    
+
     
 }
 

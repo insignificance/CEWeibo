@@ -18,6 +18,9 @@ PODS:
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - GKPhotoBrowser (1.5.8):
     - SDWebImage
   - JGProgressHUD (2.1)
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - CFAlertViewController
   - CocoaLumberjack
+  - FMDB
   - GKPhotoBrowser
   - JGProgressHUD
   - Masonry
@@ -45,6 +49,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - FMDB
     - GKPhotoBrowser
   trunk:
     - AFNetworking
@@ -62,6 +67,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CFAlertViewController: a27cf0512d0fa9ef6a3b966862039c295fb0ef69
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GKPhotoBrowser: 906f2661106e11f2b3b2e386c6284331764bb4d5
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -71,6 +77,6 @@ SPEC CHECKSUMS:
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   XHPopMenu: c3032f86250f56562ae7eb39c1c0239544554f04
 
-PODFILE CHECKSUM: e2ce29c881ec36c4f58b4595e88d2a9a677b112d
+PODFILE CHECKSUM: 14133cc74598458b33afd93215c225229bc49e35
 
 COCOAPODS: 1.8.4

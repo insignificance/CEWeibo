@@ -14,6 +14,7 @@
 #import "CEDiscoverViewController.h"
 #import "CENavigationController.h"
 #import "CEComposeVC.h"
+#import "CEUnreadCountModel.h"
 
 //模拟小红点
 static NSInteger badgeValue = 0;
@@ -93,10 +94,28 @@ static NSInteger badgeValue = 0;
     
     //DDLogDebug(@"self.homeViewControlle = %@",self.homeViewControlle);
     
-    badgeValue += 2;
     
-    self.homeNavViewControlle.tabBarItem.badgeValue  = [NSString stringWithFormat:@"%ld",badgeValue];
-    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeValue;
+    [[CENetWorkingTools shareNetworkTools] loadUnreadCount:^(CEUnreadCountModel * _Nonnull unreadModel) {
+        
+        badgeValue = [unreadModel.status intValue];
+        
+        self.homeNavViewControlle.tabBarItem.badgeValue  = [NSString stringWithFormat:@"%ld",badgeValue];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = badgeValue;
+        
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        DDLogDebug(@"%@",error);
+        
+        
+    }];
+    
+    
+//    badgeValue += 2;
+//
+//    self.homeNavViewControlle.tabBarItem.badgeValue  = [NSString stringWithFormat:@"%ld",badgeValue];
+//    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeValue;
     
     
 //    [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
