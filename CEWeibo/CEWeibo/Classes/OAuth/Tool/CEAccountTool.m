@@ -9,6 +9,7 @@
 #import "CEAccountTool.h"
 #import "CEAccount.h"
 #import <objc/runtime.h>
+#import "CESqliteTools.h"
 
 #define CEAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"]
 
@@ -96,8 +97,12 @@
         // 将当前软件版本号清空
         [defaults setObject:NULL forKey:@"CFBundleShortVersionString"];
         [defaults synchronize];
+     
+        //从数据库中删除用户数据
         
+        [[CESqliteTools shareSqliteTools]deleteUserCacheFromDBWithAccess_token:[CEAccountTool accountFromSandbox].access_token];
         
+    
         return isSuccess;
         
     }

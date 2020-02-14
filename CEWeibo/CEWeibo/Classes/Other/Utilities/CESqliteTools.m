@@ -172,4 +172,28 @@ static FMDatabase *_db;
 }
 
 
+
+- (BOOL)deleteUserCacheFromDBWithAccess_token:(NSString *)access_token{
+    
+    
+    //2.007TwXcCwZTU7Cb2b5268a77WqTiGB
+    
+    //注意'?' 不需要'' 正确写法直接 ？
+    BOOL success = [_db executeUpdate:@"DELETE FROM t_status WHERE access_token = ?;",access_token];
+    
+    if (success) {
+        
+        DDLogDebug(@"删除当前用户表数据成功");
+    }else{
+        
+        DDLogDebug(@"未发现存在的用户数据表");
+        
+    }
+    
+    
+    return success;
+    
+}
+
+
 @end

@@ -12,6 +12,7 @@
 #import "CEPictureTableViewController.h"
 #import "UIWindow+Extension.h"
 #import <CFAlertViewController-Swift.h>
+#import "CESqliteTools.h"
 
 @interface CESettingTableViewController ()
 
@@ -117,7 +118,7 @@
         [hub showInView:self.view animated:YES];
         
         
-        // 清空缓存
+        // 清空图片缓存
         [[SDWebImageManager sharedManager].imageCache clearWithCacheType:SDImageCacheTypeDisk completion:^{
             
             
@@ -131,6 +132,15 @@
             [weakSelf.tableView reloadData];
             
         }];
+        
+        // 清空数据库表单中对应当前用户的数据
+        
+        NSString *access_token = [CEAccountTool accountFromSandbox].access_token;
+        
+        [[CESqliteTools shareSqliteTools]deleteUserCacheFromDBWithAccess_token:access_token];
+        
+        
+        
         
         
     };

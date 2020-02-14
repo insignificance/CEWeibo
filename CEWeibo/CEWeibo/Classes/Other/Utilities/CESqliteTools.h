@@ -28,6 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 返回请求结果
 - (NSArray *)statusesWithParameters:(CEStatuesRequest *)request;
 
+
+
+/// 删除数据库中对应access_token 的数据
+- (BOOL)deleteUserCacheFromDBWithAccess_token:(NSString *)access_token;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
