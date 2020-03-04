@@ -9,18 +9,13 @@
 # 运行截图
 
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip001.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip002.png)
-
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip003.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip004.png)
-
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip004-1.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip005.png)
-
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip006.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip006-1.png)
-
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip007.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip008.png)
-
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/Snip009.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/unsupport.png)
-
 ![image](https://github.com/insignificance/CEWeibo/blob/master/art/QRCode.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/BarCode.png)
+![image](https://github.com/insignificance/CEWeibo/blob/master/art/cache.png)![image](https://github.com/insignificance/CEWeibo/blob/master/art/logout.png)
 
 
 
