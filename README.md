@@ -4,6 +4,40 @@
 
 主要实现功能：通过 OAuth2.0 协议实现登陆功能，根据新浪开放平台提供的 api 实现了微博数据内容 基本展示、发送文字微博、图片微博等微博客户端基本功能, 九宫格图片展示,动态行高自定义cell， 相册实现实现相机 解析二维码 条形码功能。使用 FMDB 框架缓存数据于 SQLite 数据库中。部分内容采用swift 混编实现。
 
+
+
+# 运行截图
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip001.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip002.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip003.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip004.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip004-1.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip005.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip006.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip006-1.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip007.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip008.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/Snip009.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/unsupport.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/QRCode.png
+
+https://github.com/insignificance/CEWeibo/blob/master/art/BarCode.png
+
+
+
 # Credits
 
   'CocoaLumberjack'        https://github.com/CocoaLumberjack/CocoaLumberjack
@@ -29,3 +63,9 @@
   'GKPhotoBrowser'         https://github.com/QuintGao/GKPhotoBrowser
   
   'FMDB'                   https://github.com/ccgus/fmdb
+  
+  
+  # 声明
+  
+  应用中展示的所有内容均搜集自互联网，若内容有侵权请联系作者进行删除处理。本应用仅用作分享与学习。
+  
