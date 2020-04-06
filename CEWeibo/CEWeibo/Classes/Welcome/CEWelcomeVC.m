@@ -64,6 +64,9 @@
     
     
     
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    
     
     
     

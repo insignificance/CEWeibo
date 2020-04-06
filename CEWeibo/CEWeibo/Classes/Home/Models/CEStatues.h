@@ -141,6 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) BOOL isLongText;
 
+@property (nonatomic,assign) CGFloat cellHeight;
 
 #pragma mark -
 #pragma mark -- =====strong

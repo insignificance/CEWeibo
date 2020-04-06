@@ -58,7 +58,7 @@
         // 如果在此之后才调用makeKeyAndVisible, 那么在chooseRootViewController方法中去到的keywindow是nil
         [self.window chooseRootViewController];
         
-       
+      
         
         
     }

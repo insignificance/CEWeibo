@@ -59,7 +59,7 @@
         
         NSString *resultStr = [_source substringWithRange:NSMakeRange(startIndex, length)];
         
-        _source = _source = [NSString stringWithFormat:@"来自:%@", resultStr];;
+        _source = [NSString stringWithFormat:@"来自:%@", resultStr];;
         
     }
     

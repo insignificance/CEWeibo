@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CEHomeCell;
 @class CEStatues;
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol CEHomeCellDelegate <NSObject>
+
+- (void)homeCellRefresh:(CEHomeCell *)cell;
+
+@end
+
 @interface CEHomeCell : UITableViewCell
 
+/*delegate*/
+@property (nonatomic,weak) id<CEHomeCellDelegate> delegate;
 
 /*数据模型*/
 @property (nonatomic,strong)CEStatues *statues;

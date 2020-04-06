@@ -23,7 +23,7 @@
 
 
 
-@interface CEHomeViewController ()
+@interface CEHomeViewController ()<CEHomeCellDelegate>
 
 @property (nonatomic,weak)CETitleView *cetitleView;
 
@@ -184,7 +184,7 @@ static NSString *reuseID = @"CEHomeCell";
         
         _statuesDateArr = [NSMutableArray array];
         
-        
+    
     }
     
     
@@ -1104,24 +1104,21 @@ static NSString *reuseID = @"CEHomeCell";
 
 
 //返回cell的高度
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    CEHomeCell *homeCell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-    
-    CEStatues *statues = self.statuesDateArr[indexPath.row];
-    
-    return [homeCell cellHeightWithStatus:statues];
-    
-    
-    
-    
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
-
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CEStatues *statues = self.statuesDateArr[indexPath.row];
+    if (statues.cellHeight <= 0) {
+        
+        CEHomeCell *homeCell = [tableView dequeueReusableCellWithIdentifier:reuseID];
+        statues.cellHeight = [homeCell cellHeightWithStatus:statues];
+    }
+    
+    return statues.cellHeight;
+}
 
 
 
