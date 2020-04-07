@@ -15,8 +15,12 @@
 #import "UIWindow+Extension.h"
 #import <UserNotificationsUI/UserNotificationsUI.h>
 #import <UserNotifications/UserNotifications.h>
+#import <CFAlertViewController-Swift.h>
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
+
+//网络状态提示窗
+@property (nonatomic,strong)JGProgressHUD *hub;
 
 
 
@@ -54,6 +58,12 @@
     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
     [DDLog addLogger:fileLogger];
+    
+    
+    [self isNetWorkReachable];
+    
+    
+    
     
     //获取当前系统版本
     NSString *version = [UIDevice currentDevice].systemVersion;
@@ -147,16 +157,26 @@
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:{
                 NSLog(@"网络不通");
+                
+                
+                [self showHubWithMessage:@"网络不通"];
+                
                 break;
             }
             case AFNetworkReachabilityStatusReachableViaWiFi:{
                 
-                NSLog(@"网络通过WIFI连接");
+                
+                [self showHubWithMessage:@"网络通过WIFI连接"];
+                
+                
                 break;
             }
             case AFNetworkReachabilityStatusReachableViaWWAN:{
                 
-                NSLog(@"网络通过流量连接");
+                
+                [self showHubWithMessage:@"网络通过流量连接"];
+                
+                
                 break;
             }
             default:
@@ -186,6 +206,41 @@
     
     // 2.清空内存缓存
     [[SDWebImageManager sharedManager].imageCache clearWithCacheType:SDImageCacheTypeMemory completion:NULL];
+}
+
+
+
+
+
+
+#pragma mark -
+#pragma mark -- 懒加载hub
+
+-(JGProgressHUD *)hub{
+    
+    if (_hub == nil) {
+        
+        _hub = [[JGProgressHUD alloc]initWithStyle:JGProgressHUDStyleDark];
+        
+    }
+    
+    return _hub;
+    
+    
+}
+
+#pragma mark -
+#pragma mark -- 显示提示窗口
+
+- (void)showHubWithMessage:(NSString *)message{
+    
+    self.hub.textLabel.text = message;
+    
+    [self.hub showInView:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:YES];
+  
+    [self.hub dismissAfterDelay:1.5 animated:YES];
+    
+    
 }
 
 

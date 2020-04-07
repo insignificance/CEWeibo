@@ -91,9 +91,11 @@
     
     CEOAuthViewController *oauthVc = [[CEOAuthViewController alloc]init];
     
+    
     //oauthVc.view.backgroundColor = [UIColor greenColor];
     
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:oauthVc];
+    nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
     
     [self presentViewController:nav animated:YES completion:nil];
     

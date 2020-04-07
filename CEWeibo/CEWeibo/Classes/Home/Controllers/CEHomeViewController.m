@@ -23,7 +23,7 @@
 
 
 
-@interface CEHomeViewController ()<CEHomeCellDelegate>
+@interface CEHomeViewController ()//<CEHomeCellDelegate>
 
 @property (nonatomic,weak)CETitleView *cetitleView;
 
